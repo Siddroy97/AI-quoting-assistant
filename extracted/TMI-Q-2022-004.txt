@@ -1,0 +1,110 @@
+Quote No.: TMI-Q-2022-004
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2022-09-06
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2022-10-05
+Prepared by: Daniel Rousseau
+QUOTATION
+Customer: Peachtree Network Infrastructure Corp.
+Project Name: Atlanta Edge Colocation — Hall B Cooling
+Site Location: Atlanta, GA, USA
+Contact: Marcus Webb, Project Manager
+Application: Colocation edge hall — air-cooled split DX precision cooling, N+1 redundancy, hot-aisle
+cold-aisle containment
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 240 kW sensible at Atlanta design conditions — outdoor DB 35°C / WB 23°C, entering air 22°C DB / 50% RH.
+Capacity is distributed across three (3) units at 120 kW each, configured for N+1 active rotation: two units carry the 240 kW load
+simultaneously, with the third unit on auto-standby cycling into active service every 168 hours to equalise run-hours.
+Configuration: Three (3) floor-mounted split DX precision cooling units deployed in a hot-aisle cold-aisle containment arrangement.
+Cold-aisle supply through raised floor plenum at 0.05 in. w.g. static; hot-aisle ceiling return through a fully enclosed containment
+chimney. Remote air-cooled condenser sections are roof-mounted on a dedicated equipment pad, one condenser per indoor unit.
+Refrigerant circuit: R-410A, dual-circuit scroll compressor arrangement per unit, 6-row aluminium-fin copper-tube evaporator coil at
+12 FPI. Each unit maintains two independent refrigerant circuits; loss of one circuit reduces unit capacity to 60 kW and allows the
+standby unit to be called into service without dropping below 100% of design load.
+Airflow: 11,500 CFM per unit at 0.60 in. w.g. through the raised floor plenum. Backward-curved plug fan, direct-drive EC motor,
+variable speed via supply-air temperature control at 16°C setpoint.
+Humidity and environmental control: infrared humidifier module, 3 kg/hr per unit, for cold-season dry-air compensation. Electric
+reheat section, 12 kW per unit, interlocked with the cooling circuit to prevent simultaneous heating and cooling except during
+dehumidification mode.
+Controls: N+1 group controller, BACnet IP. Rotation every 168 hours; auto-failover on unit fault within 15 seconds. Differential
+pressure sensors monitor filter loading; alarm triggers at 0.35 in. w.g. differential.
+Cabinet: 14-gauge galvanised steel, 75 mm double-wall insulated, access doors on three sides. Drain pan: stainless steel with float
+switch and overflow alarm.
+Filtration: 4-inch MERV-11 with differential pressure monitoring. MERV-11 selected because this is a recirculating system with no
+outdoor air path; MERV-13 would add 0.12 in. w.g. pressure drop, increasing fan energy by approximately 9% annually.
+Redundancy tier: N+1. Group controller rotates active units on a 168-hour cycle. On fault of any active unit, the standby unit starts
+within 15 seconds automatically.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+DX precision cooling unit, 120 kW, floor-mount, dual-circuit 3 ea $9,800.00 $29,400.00
+Remote air-cooled condenser, EC fans, per unit 3 ea $4,200.00 $12,600.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+R-410A refrigerant charge, approx. 14 kg per circuit 6 charge $490.00 $2,940.00
+Infrared humidifier module, 3 kg/hr, per unit 3 ea $1,650.00 $4,950.00
+Electric reheat section, 12 kW, per unit 3 ea $1,100.00 $3,300.00
+N+1 group controller, BACnet IP, 4-unit capacity 1 ea $2,800.00 $2,800.00
+Differential pressure filter sensor and alarm relay, per unit 3 ea $185.00 $555.00
+Stainless steel drain pan with float switch, per unit 3 ea $520.00 $1,560.00
+Refrigerant line set, pre-insulated, per circuit 6 set $480.00 $2,880.00
+Roof equipment pad, galvanised frame, 3-condenser layout 1 ea $1,800.00 $1,800.00
+Wiring harness, control and power, per unit 3 set $310.00 $930.00
+SUBTOTAL — MATERIALS $63,715.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet and frame fabrication, 3-unit batch 90 $65.00 $5,850.00
+Coil and dual-circuit compressor assembly, leak test 36 $75.00 $2,700.00
+Humidifier and reheat section installation 18 $72.00 $1,296.00
+N+1 group controller wiring, rotation and failover
+28 $78.00 $2,184.00
+programming
+Factory performance test, 3-unit N+1 simulation 16 $68.00 $1,088.00
+Crating and export preparation 10 $58.00 $580.00
+SUBTOTAL — LABOR & FABRICATION $13,698.00
+4. PRICING SUMMARY
+Materials Subtotal $63,715.00
+Labor & Fabrication Subtotal $13,698.00
+Overhead (18% of Materials + Labor) $13,934.34
+Pre-Margin Subtotal $91,347.34
+Gross Margin (22%) $25,764.63
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $117,111.97
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 2 weeks from purchase order
+Procurement: 4 weeks — infrared humidifier modules are 3-week lead item
+Fabrication & Assembly: 3 weeks
+Factory Test: 1 week — includes N+1 failover simulation, 3-unit run
+Total Lead Time: 10 weeks from purchase order
+Shipping: FCA TMI Montreal; customer arranges Atlanta freight and rigging
+Key Dependencies: Raised-floor plenum static pressure and hot-aisle containment drawing required Week 2
+6. COMMERCIAL TERMS
+Payment Terms: 30% with purchase order; 40% at factory readiness; 30% net 30 from ship date
+Warranty: 24 months from ship or 18 months from commissioning — manufacturing defects, refrigerant
+circuit integrity, humidifier lamp assembly
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Field installation, commissioning, electrical service, freight, customs, BMS integration beyond
+dry-contact alarms
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Atlanta ASHRAE 0.4% design: 35°C DB / 23°C WB. The 23°C WB creates a meaningful latent load from infiltration but does not
+require a dedicated dehumidification coil. Electric reheat during dehumidification mode is the appropriate response at this climate
+severity.
+(cid:127) N+1 rotation at 168-hour intervals ensures all three units accumulate equal compressor run-hours over a 504-hour cycle. Without
+rotation, a permanently active unit would reach its first compressor maintenance interval approximately two years ahead of the
+standby unit.
+(cid:127) Dual-circuit evaporator coil allows 50% capacity graceful degradation on loss of one compressor circuit, keeping the unit in partial
+service rather than requiring an immediate standby unit start and reducing the frequency of auto-failover events.
+(cid:127) Infrared humidifier is specified over electrode steam because Atlanta municipal water conductivity (typically 280 µS/cm) is within the
+infrared lamp operating range; electrode humidifiers require conductivity above 250 µS/cm for reliable arc formation.
+(cid:127) Differential pressure filter monitoring is included because Atlanta pollen season (March–May) accelerates filter loading. The 0.35 in.
+w.g. alarm threshold provides approximately two weeks of warning before filter loading degrades airflow by more than 5%.
+Critical design decision: The critical design decision on this project was specifying dual independent refrigerant circuits within each
+120 kW unit rather than a simpler single-circuit design, allowing any compressor fault to reduce unit capacity to 50% rather than zero
+and eliminating the risk of an unplanned full-load failover event during peak Atlanta summer conditions.
+OUTCOME: WON
+Awarded without further negotiation after value engineering review. TMI's component-level bill of materials — showing separate line
+costs for the compressor, coil, EC condenser, and sub-assemblies — eliminated the procurement committee's residual cost
+uncertainty. No other bidder submitted equivalent pricing transparency; technical scores across three shortlisted bids were
+comparable.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

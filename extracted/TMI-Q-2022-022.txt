@@ -1,0 +1,141 @@
+Quote No.: TMI-Q-2022-022
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2022-10-03
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2022-11-01
+Prepared by: Daniel Rousseau
+QUOTATION
+Customer: Great Lakes Digital Infrastructure LLC
+Project Name: Chicago Tier-4 Mission-Critical Data Centre
+Site Location: Chicago, IL, USA
+Contact: Patricia Novak, SVP Engineering
+Application: Mission-critical Tier 4 — chilled water AHU, fully redundant 2N, dual CHW circuit, 16 units
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 4,000 kW sensible — complete Tier 4 facility, single-phase deployment. Sixteen (16) large chilled water AHUs in a
+fully redundant 2N configuration: eight active units carry the full 4,000 kW load; eight standby units can assume any combination of
+active unit failures within 30 seconds.
+Tier 4 dual-CHW-path design: each unit is connected to two fully independent chilled water plants — Plant A and Plant B — each
+sized for 100% of total campus cooling load. Within each unit, two independent CHW coil circuits share the same coil matrix — an
+A-circuit and a B-circuit. The automatic changeover valve switches between A and B CHW sources within 5 seconds of either plant
+fault signal, using residual coil thermal mass to bridge the transition without air-side temperature deviation.
+Cooling coil: 10-row, 14 fins per inch, aluminium-fin copper-tube; two independent CHW circuits sharing the coil matrix; face area
+2,200 mm x 1,500 mm; CHW supply 6°C / return 12°C for both circuits. Each circuit carries 100% of unit thermal duty independently.
+Fan section: four (4) EC backward-curved fans per unit, dual-power-feed motor connections for 2N electrical power path compliance.
+Each fan motor has two independent power connection terminals; loss of either power path does not affect fan operation.
+CHW changeover valve: spring-return type, fail-to-CHW-Plant-A position. In the event of both control power and actuator signal
+failure, the valve defaults to Plant A — the designated primary CHW source. Plant B is selected only by an active control signal. This
+fail-safe default prevents an ambiguous valve state where loss of control signal could leave both CHW paths interrupted.
+Controls: dual-processor group controller with two independent processor boards, dual power supply, and dual Ethernet network
+ports on separate VLANs. Loss of any single controller component does not interrupt control function; secondary processor assumes
+active role within 2 seconds of primary fault. BACnet IP transmitted on both network interfaces simultaneously.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated; seismic SDC D provisions for Chicago per IBC 2021. Certified
+seismic calculations signed by a licensed structural engineer included in engineering package.
+Filtration: 4-inch MERV-13, redundant dual-track allowing online filter replacement without airflow interruption. Each unit has two
+parallel filter tracks; one track is bypassed during replacement while the other maintains full filtration.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW dual-circuit coil, 10-row, 14 FPI, 2200x1500mm, A+B
+16 ea $22,000.00 $352,000.00
+headers
+EC fan, 52,000 CFM, dual-power-feed motor terminals (x4 per
+64 ea $5,800.00 $371,200.00
+unit)
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+EC motor, 30 kW, VSD, dual-feed wiring harness 64 ea $5,200.00 $332,800.00
+2N CHW changeover valve, spring-return fail-to-A, per unit 16 ea $3,600.00 $57,600.00
+Dual-processor group controller, dual PSU, dual Ethernet, BACnet
+4 ea $15,000.00 $60,000.00
+IP
+MERV-13 redundant dual-track filter rack, per unit 16 ea $1,600.00 $25,600.00
+100 mm insulated cabinet, seismic SDC D, dual-feed provision,
+16 set $15,000.00 $240,000.00
+per unit
+Power metering, dual-feed, Modbus, per unit 16 ea $540.00 $8,640.00
+Condensate drain system, per unit 16 ea $780.00 $12,480.00
+SUBTOTAL — MATERIALS $1,460,320.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, SDC D seismic, dual-circuit 2N
+1200 $65.00 $78,000.00
+assembly, 16-unit
+Dual-circuit coil installation, hydraulic test on A and B
+256 $75.00 $19,200.00
+circuits independently
+Dual-power-feed fan and motor installation, path isolation
+192 $72.00 $13,824.00
+test
+Changeover valve installation, 5-second failsafe timing
+96 $78.00 $7,488.00
+verification
+Dual-processor controller wiring, secondary processor
+128 $78.00 $9,984.00
+failover test
+Factory Tier 4 dual-fault simulation: Plant A failure + active
+96 $85.00 $8,160.00
+unit failure simultaneously
+Factory witness documentation, sign-off package, insurance
+32 $85.00 $2,720.00
+underwriter report
+Crating, Tier 4 protective packaging, 16 units 80 $60.00 $4,800.00
+SUBTOTAL — LABOR & FABRICATION $144,176.00
+4. PRICING SUMMARY
+Materials Subtotal $1,460,320.00
+Labor & Fabrication Subtotal $144,176.00
+Overhead (18% of Materials + Labor) $288,809.28
+Pre-Margin Subtotal $1,893,305.28
+Gross Margin (22%) $534,009.18
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $2,427,314.46
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 5 weeks from purchase order — dual-circuit coil engineering and SDC D seismic calculations
+Procurement: 10 weeks — dual-circuit coils on 9-week custom fabrication; dual-feed motor harnesses
+8-week lead
+Fabrication & Assembly: 10 weeks — three parallel production lines
+Factory Test: 4 weeks — Tier 4 simulation requires 2-week test preparation; customer witness in Week 3
+Customer Witness Test: Scheduled during Week 3 of factory test phase; TMI provides logistics coordination for the
+underwriter's representative
+Total Lead Time: 29 weeks from purchase order
+Phased Delivery: Active units 1-8 delivered Week 27; Standby units 9-16 delivered Week 29
+Shipping: FCA Montreal; customer arranges specialised Tier 4 transport and rigging
+6. COMMERCIAL TERMS
+Payment Terms: 20% with purchase order; 20% engineering completion; 30% at 50% fabrication; 20% factory
+readiness; 10% net 30 from commissioning sign-off
+Warranty: 48 months from commissioning or 60 months from ship — extended Tier 4 warranty
+Tier 4 Performance Guarantee: Zero air-side temperature deviation through any dual-fault scenario as demonstrated at
+factory witness test
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW Plants A and B, electrical dual-power paths, freight,
+rigging, DCIM integration
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Tier 4 certification requirement: the Uptime Institute's Tier 4 standard requires the facility to maintain cooling operation through any
+single component failure. TMI's dual-circuit coil, dual-processor controller, and dual-feed fan motors address individual component
+failures within the AHU itself, complementing the Plant A/B redundancy at the facility level.
+(cid:127) 5-second changeover valve timing: the coil thermal mass at design cooling conditions retains enough cold stored energy to
+maintain supply air temperature within 2°C of setpoint for approximately 8 to 12 seconds after CHW flow is interrupted. The 5-second
+changeover valve timing provides a 3 to 7-second margin — verified at factory test by interrupting Plant A CHW flow on a fully loaded
+unit.
+(cid:127) Dual-processor controller failover: the two processor boards run synchronised state machines, with the secondary board monitoring
+the primary board's heartbeat at 100 ms intervals. If three consecutive heartbeats are missed, the secondary board assumes active
+control and transmits a BACnet alarm to the DCIM platform without interrupting unit set-points. Failover event is logged with a
+timestamp for post-event analysis.
+(cid:127) Chicago seismic SDC D: Chicago's ASCE 7-22 Seismic Design Category is D, driven by the New Madrid Seismic Zone. SDC D
+requires seismic restraint analysis to 1.0g horizontal and 0.67g vertical equivalent static force. TMI's SDC D restraint bracket is a
+bolted steel weldment anchored to the concrete slab; the certification calculation is signed by a licensed structural engineer and
+included in the building permit package.
+(cid:127) Insurance underwriter requirements: the underwriter's risk engineer specified that the factory test must include a simultaneous dual
+fault — not sequential faults with recovery between them — at a minimum of 75% cooling load. TMI's test protocol met both
+conditions; the test report was co-signed by TMI's quality manager and the underwriter's representative.
+Critical design decision: The critical design decision on this project was designing the CHW changeover valve as a spring-return
+fail-to-Plant-A device rather than a motorised proportional valve, ensuring that loss of both control power and control signal in the
+same fault event defaults to a defined CHW source rather than leaving valve position indeterminate — satisfying the Tier 4
+requirement that no single control fault can cause a simultaneous loss of both CHW supply paths.
+OUTCOME: WON
+Awarded after the customer's insurance underwriters reviewed TMI's factory Tier 4 dual-fault simulation protocol. The underwriters
+required evidence that zero cooling interruption would occur through any combination of two simultaneous failures — a single active
+unit failure plus a simultaneous chilled water plant failure. TMI's factory test demonstrated this scenario on a 4-unit representative
+group; competing bids did not include a factory witness test protocol of equivalent scope. The underwriter's approval of the preferred
+insurance rate was contingent on this test evidence, making it a binding condition of the award.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

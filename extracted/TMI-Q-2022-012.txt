@@ -1,0 +1,125 @@
+Quote No.: TMI-Q-2022-012
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2022-06-30
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2022-07-29
+Prepared by: Daniel Rousseau
+QUOTATION
+Customer: Midwest Core Data LLC
+Project Name: Chicago Data Centre Campus — Building 2 Phase 1
+Site Location: Chicago, IL, USA
+Contact: Angela Nowak, VP Engineering
+Application: Multi-tenant data centre — large chilled water AHU, N+1 redundancy, 1,200 kW capacity
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 1,200 kW sensible — CHW supply 6°C / return 12°C, entering air 23°C DB / 50% RH. Four (4) large chilled water
+AHUs at 400 kW sensible each, N+1: three active, one standby on 168-hour auto-rotation. The 6°C/12°C CHW delta-T is tighter than
+TMI's standard 7°C/14°C offering; the lower supply temperature achieves a leaving dew-point of 10°C versus 11°C at standard
+delta-T, providing margin for Chicago's summer humidity events when outdoor WB can reach 25°C in extreme years.
+Configuration: Four (4) large chilled water AHUs in a dedicated mechanical hall behind the data hall. Supply ducted through a 2-hour
+fire-rated wall penetration; air-side arrangement mirrors the Building 1 installation to allow the customer's maintenance team to
+operate both facilities with the same procedures.
+Cooling coil: 10-row, 14 fins per inch, aluminium-fin copper-tube; face area 2,100 mm x 1,400 mm. The 10-row depth and 14 FPI
+configuration is required for the tighter 6°C/12°C CHW delta-T; a standard 8-row coil would not achieve the leaving air conditions
+required at this supply temperature without exceeding the coil design face velocity.
+Fan section: three (3) backward-curved EC plenum fans per unit, 55,000 CFM total at 0.90 in. w.g. A three-fan array is specified
+because a single fan failure on a two-fan unit reduces airflow by 50%, triggering an N+1 failover. With three fans, a single failure
+reduces airflow by 33% — manageable by the group controller increasing adjacent active-unit fan speed — avoiding an unplanned
+standby activation.
+Humidification: electrode steam humidifier, 12 kg/hr per unit, for Chicago winter conditions. Chicago winter design is -22°C DB
+(ASHRAE 99.6%); the 12 kg/hr capacity is sized to maintain a minimum 8°C supply air dew-point during the coldest design day with
+three active units running.
+Controls: N+1 group controller, BACnet IP. BACnet point map is identical to the Building 1 installation, allowing the customer's NOC
+to monitor Building 2 without software reconfiguration. Energy sub-metering per unit consistent with Building 1 metering
+infrastructure.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated. Coil-pull clearance provision on the non-duct side: hinged rear
+panel and coil guide rail allow coil replacement without unit relocation.
+Filtration: 4-inch MERV-13 with MERV-8 pre-filter cassette. The pre-filter extends MERV-13 service life by capturing coarser
+particles; Chicago's urban particulate environment and proximity to the freight rail corridor justify dual-stage filtration.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW coil, 10-row, 14 FPI, 2100x1400mm, aluminium-fin
+4 ea $12,600.00 $50,400.00
+copper-tube
+Backward-curved EC plenum fan, 55,000 CFM (x3 per unit) 12 ea $4,200.00 $50,400.00
+EC motor, 30 kW, integrated VSD, per fan 12 ea $4,100.00 $49,200.00
+4-inch modulating CHW valve, 6-inch pipe connection 4 ea $1,650.00 $6,600.00
+Valve actuator, spring-return, position feedback 4 ea $490.00 $1,960.00
+Electrode steam humidifier, 12 kg/hr 4 ea $3,400.00 $13,600.00
+N+1 group controller, BACnet IP — point map matched to Building
+1 ea $5,200.00 $5,200.00
+1
+MERV-13 + MERV-8 dual-stage filter rack, per unit 4 ea $840.00 $3,360.00
+100 mm double-wall insulated cabinet, coil-pull provision, per unit 4 set $7,800.00 $31,200.00
+kWh sub-meter, Modbus TCP, per unit 4 ea $380.00 $1,520.00
+Condensate drain system, per unit 4 ea $720.00 $2,880.00
+SUBTOTAL — MATERIALS $216,320.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Large-format cabinet fabrication with coil-pull provision,
+200 $65.00 $13,000.00
+4-unit
+10-row coil installation, hydraulic test, pipe connections 56 $72.00 $4,032.00
+3-fan EC array installation, VSD commissioning, vibration
+60 $72.00 $4,320.00
+check
+Humidifier installation, electrode calibration, interlock wiring 28 $72.00 $2,016.00
+N+1 controller wiring, BACnet point map load, metering
+40 $78.00 $3,120.00
+setup
+Factory performance test, 4-unit N+1 simulation 24 $68.00 $1,632.00
+Crating and oversized freight preparation 20 $58.00 $1,160.00
+SUBTOTAL — LABOR & FABRICATION $29,280.00
+4. PRICING SUMMARY
+Materials Subtotal $216,320.00
+Labor & Fabrication Subtotal $29,280.00
+Overhead (18% of Materials + Labor) $44,208.00
+Pre-Margin Subtotal $289,808.00
+Gross Margin (22%) $81,740.72
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $371,548.72
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 3 weeks — BACnet point map coordination with customer's NOC team required
+Procurement: 6 weeks — 10-row coils fabricated to order; 5-week lead from coil supplier
+Fabrication & Assembly: 6 weeks — four units on two parallel production cells
+Factory Test: 2 weeks
+Total Lead Time: 17 weeks from purchase order
+Shipping: FCA TMI Montreal; customer arranges oversized freight to Chicago and rigging into
+mechanical hall
+Key Dependencies: CHW 6°C/12°C supply/return confirmation and pipe sizing Week 2; fire-rated wall penetration
+dimensions Week 3
+6. COMMERCIAL TERMS
+Payment Terms: 25% with purchase order; 45% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship or 18 months from commissioning
+BACnet Compatibility: TMI confirms BACnet IP point map is backward-compatible with Building 1 TMI installation;
+customer's NOC software will not require reconfiguration for Building 2 units
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, steam supply, electrical, freight, rigging
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) 6°C/12°C CHW delta-T is tighter than TMI's standard 7°C/14°C offering. The 6°C supply temperature achieves a leaving air
+dew-point of 10°C — 1°C below the standard 11°C — providing a margin for Chicago's summer humidity peaks. The 10-row, 14 FPI
+coil is the minimum configuration to achieve this leaving condition at 6°C supply without exceeding 3.5 m/s face velocity.
+(cid:127) Three-fan per unit design eliminates the N+1 failover trigger that occurs when a two-fan unit suffers a single fan motor failure. TMI's
+Building 1 experience showed that a two-fan unit following a fan motor failure during a July heat event triggered an N+1 failover that
+itself caused a brief supply air temperature spike. The three-fan design eliminates this failure mode at the cost of higher initial capital.
+(cid:127) Electrode humidifier at 12 kg/hr: sized for the worst-case Chicago winter scenario with three active units running at full capacity and
+outdoor DB at -22°C. The 12 kg/hr humidifier is specified with a 20% overcapacity factor to ensure reliable operation at maximum
+demand without overloading the electrode assembly.
+(cid:127) Coil-pull provision adds approximately CAD 800 per unit in fabrication cost but eliminates the need for a mechanical lift and unit
+relocation at the time of first coil replacement, estimated within 15 years of commissioning. The mechanical hall is designed with a
+1.5 m clearance corridor behind each unit for this purpose.
+(cid:127) Chicago winter freeze risk: CHW plant freeze protection (glycol content or trace heat on coil connections) is outside TMI scope. TMI
+specifies a CHW coil freeze protection set-point at 3°C coil entering air temperature; below this threshold the CHW valve opens fully
+regardless of cooling demand. The customer's controls contractor must implement this logic in the building management system.
+Critical design decision: The critical design decision on this project was specifying a three-fan EC array per unit rather than the
+standard two-fan configuration, accepting the additional capital cost in exchange for eliminating the N+1 failover trigger that occurs
+when a single fan failure on a two-fan unit drops airflow by 50% — a failure mode that caused a supply air temperature excursion in
+the Building 1 installation and was considered unacceptable in the Building 2 operational profile.
+OUTCOME: WON
+Awarded competitively. The customer's engineering team had operated TMI equipment at Building 1 (2019 vintage) and cited
+familiarity with TMI's controls interface, BACnet point map, and spare parts programme as a factor in reducing total cost of
+ownership. The customer's on-site maintenance team was already trained on TMI equipment; retraining for a different manufacturer's
+controls platform carried an implicit cost that their evaluation model reflected.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

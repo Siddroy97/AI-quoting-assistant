@@ -1,0 +1,122 @@
+Quote No.: TMI-Q-2023-026
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-07-04
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-08-02
+Prepared by: Sophie Lafleur
+QUOTATION
+Customer: Pacific Northwest Digital LLC
+Project Name: Seattle Tier-3 Hyperscale — Hall C
+Site Location: Seattle, WA, USA
+Contact: Rebecca Marsh, Director of Capital Projects
+Application: Hyperscale DC — chilled water AHU, Tier 3 2N, high free-cooling potential, Hall C scope only
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 2,400 kW sensible — Hall C scope as originally specified; total campus was rescoped to a 3-hall, 9,000 kW
+programme during the quotation period. Eight (8) large chilled water AHUs, 400 kW sensible each, Tier 3 2N configuration: four
+active, four standby on 120-hour rotation.
+Configuration: Large floor-mounted chilled water AHUs with hot-aisle containment, underfloor supply. Seattle's climate makes this an
+exceptional free-cooling application: outdoor wet-bulb is below 10°C for approximately 5,600 hours per year — nearly two-thirds of
+annual hours — enabling sustained waterside free-cooling through the CHW plant's fluid cooler bypass circuit.
+Cooling coil: 8-row, 12 fins per inch, aluminium-fin copper-tube; face area 2,100 mm x 1,400 mm; CHW supply 7°C / return 14°C. Coil
+face velocity is set at 2.8 m/s — below the 3.0 m/s standard — reducing airside pressure drop and fan energy, justified by Seattle's
+high proportion of part-load operating hours.
+Waterside economiser: modulating bypass valve per unit with partial free-cooling capability — the valve modulates to deliver any
+fraction of free-cooling simultaneously with mechanical cooling, optimising the transition between full free-cooling and full mechanical
+cooling modes rather than switching abruptly between them.
+Fan section: three (3) EC backward-curved fans per unit, 44,000 CFM total at 0.75 in. w.g., dual-power-feed motor connections for
+2N electrical compliance.
+Controls: zone group controller, BACnet IP, DCIM API, 120-hour 2N rotation, waterside economiser logic with partial free-cooling
+modulation.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated.
+Filtration: 4-inch MERV-13, specified for West Coast wildfire smoke season (August-September).
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW coil, 8-row, 12 FPI, 2100x1400mm, low face velocity
+8 ea $13,200.00 $105,600.00
+selection
+Backward-curved EC fan, 44,000 CFM, dual-power-feed (x3 per
+24 ea $4,800.00 $115,200.00
+unit)
+EC motor, 22 kW, VSD, dual-feed harness 24 ea $4,000.00 $96,000.00
+6-inch modulating CHW valve, spring-return 8 ea $1,900.00 $15,200.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Waterside economiser valve with partial free-cooling modulation,
+8 ea $1,800.00 $14,400.00
+per unit
+Zone group controller, BACnet IP, DCIM API, 2N logic, 10-unit
+2 ea $9,500.00 $19,000.00
+cap.
+MERV-13 filter rack, per unit 8 ea $840.00 $6,720.00
+100 mm insulated double-wall cabinet, dual-feed provision, per
+8 set $11,000.00 $88,000.00
+unit
+Power metering, dual-feed, per unit 8 ea $380.00 $3,040.00
+Condensate drain system, per unit 8 ea $700.00 $5,600.00
+SUBTOTAL — MATERIALS $468,760.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Large-format cabinet fabrication, 8-unit batch 440 $65.00 $28,600.00
+Coil installation, low face velocity configuration, hydraulic
+128 $75.00 $9,600.00
+test
+3-fan dual-feed EC array installation, VSD commissioning 84 $72.00 $6,048.00
+Economiser valve, partial free-cool modulation programming 40 $78.00 $3,120.00
+Zone controller wiring, 2N rotation, DCIM API 72 $78.00 $5,616.00
+Factory performance test, 8-unit phased 44 $68.00 $2,992.00
+Crating and export preparation 40 $60.00 $2,400.00
+SUBTOTAL — LABOR & FABRICATION $58,376.00
+4. PRICING SUMMARY
+Materials Subtotal $468,760.00
+Labor & Fabrication Subtotal $58,376.00
+Overhead (18% of Materials + Labor) $94,884.48
+Pre-Margin Subtotal $622,020.48
+Gross Margin (22%) $175,441.67
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $797,462.15
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 4 weeks from purchase order
+Procurement: 7 weeks
+Fabrication & Assembly: 7 weeks
+Factory Test: 2 weeks
+Total Lead Time: 20 weeks from purchase order — Hall C scope only
+Note: Rescoped 3-hall 9,000 kW programme would require 32+ weeks; not achievable with TMI
+production capacity committed at time of reissue
+Shipping: FCA Montreal; customer arranges Pacific Northwest freight
+Key Dependencies: CHW plant schematic and DCIM API schema required Week 2
+6. COMMERCIAL TERMS
+Payment Terms: 20% with purchase order; 40% factory readiness; 40% net 30 from ship
+Warranty: 36 months from ship or 24 months from commissioning
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, electrical, freight, rigging, DCIM licences
+Quote Validity: 30 days from issue date — quote covers Hall C scope only; rescoped campus pricing
+requires a new quotation
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Seattle ASHRAE 0.4% cooling design: 35°C DB / 23°C WB. The moderate summer peak means this system is thermally
+understressed; the 2,400 kW cooling load would be delivered at well below the coil's peak thermal duty for the vast majority of
+operating hours. The economiser is the dominant operational feature.
+(cid:127) Partial free-cooling modulation: the waterside economiser valve modulates continuously between 0% and 100% free-cooling as the
+outdoor WB varies between 10°C and 13°C — the transition band. This eliminates the abrupt compressor start/stop events that occur
+with a two-position economiser, reducing compressor cycling stress during the spring and autumn transition seasons when Seattle
+WB fluctuates across this band multiple times per day.
+(cid:127) MERV-13 for wildfire smoke: the ASHRAE recommendation of MERV-13 minimum for data centres in the western US fire corridor is
+particularly relevant for Seattle, which received significant smoke incursion during the August 2020, 2021, and 2022 wildfire seasons.
+PM2.5 smoke particles at concentrations observed during these events cause corrosion at solder joints and connector pins within 6
+to 12 months of exposure without MERV-13 filtration.
+(cid:127) Free-cooling at 5,600 annual hours: estimated annual compressor energy saving per unit is approximately 200 MWh. For an 8-unit
+installation the campus-level annual saving is approximately 1,600 MWh — meaningful at Pacific Northwest grid electricity rates and
+relevant to the customer's stated net-zero carbon commitment.
+(cid:127) Rescoped programme note: this quotation covers Hall C as originally specified; lead time, price, and production slot commitment
+apply only to the 8-unit Hall C scope. TMI was prepared to quote the 3-hall 9,000 kW campus but required a new production slot
+commitment, which was not available at the time the rescoped RFQ was issued.
+Critical design decision: The critical design decision on this project was specifying a continuously modulating waterside
+economiser valve with partial free-cooling capability rather than a two-position open/close economiser, eliminating the compressor
+cycling stress that occurs with abrupt economiser switching during Seattle's frequent spring and autumn periods when outdoor WB
+oscillates across the 10°C activation threshold multiple times daily.
+OUTCOME: LOST
+Lost because the customer rescoped the project from Hall C only to a full three-hall campus during the quotation period and reissued
+an RFQ for the combined 9,000 kW scope. By the time the revised RFQ was issued, TMI had committed its production capacity to
+another programme and could not guarantee the required lead time for the expanded scope. The customer awarded the combined
+campus programme to a manufacturer with sufficient uncommitted production capacity to accept the full three-hall order.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

@@ -1,0 +1,138 @@
+Quote No.: TMI-Q-2023-017
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-08-29
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-09-27
+Prepared by: Daniel Rousseau
+QUOTATION
+Customer: Sonoran Digital Assets LLC
+Project Name: Phoenix Large-Scale Data Centre — Hall D Cooling
+Site Location: Phoenix, AZ, USA
+Contact: Robert Tran, VP Technology Infrastructure
+Application: Large enterprise DC — hybrid DX/adiabatic AHU, N+2 redundancy, validated 48°C ambient
+operation
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 1,700 kW sensible at Phoenix extreme ambient — outdoor DB 48°C / WB 22°C, entering air 24°C DB / 40% RH.
+Six (6) hybrid DX/adiabatic AHUs at 340 kW sensible each at 48°C ambient, N+2 configuration: four units active, two units on
+standby with 120-hour auto-rotation. N+2 is specified because the customer's insurance coverage requires the system to maintain
+above 50% capacity through the simultaneous loss of any two active units.
+Adiabatic pre-cooling: the central feature of this design. Cellulose evaporative media panels, 150 mm thickness, are installed on the
+condenser air inlet face. When outdoor DB exceeds 38°C, water is distributed over the media surfaces, evaporating into the
+condenser inlet airstream and reducing its temperature by 8 to 12°C before the air contacts the condenser coil. This temperature
+reduction converts the 48°C ambient problem into a 37 to 39°C effective condenser inlet condition — within the standard R-410A
+compressor operating envelope.
+Refrigerant circuit: R-410A, dual-circuit scroll compressors per unit, 8-row aluminium-fin copper-tube evaporator coil at 12 FPI, plus
+sub-cooled liquid line circuit. Without adiabatic pre-cooling, this ambient would require hot-gas bypass and oversized condensers and
+could not sustain rated capacity beyond 2 to 3 hours. With adiabatic pre-cooling, the DX circuit operates within standard parameters.
+Water system: stainless steel adiabatic water distribution manifold per unit. Solenoid valve opens on adiabatic activation signal
+(outdoor DB above 38°C from a three-sensor averaged array). Conductivity sensor monitors recirculated water; blowdown valve
+opens for 30 seconds when conductivity exceeds 1,000 µS/cm. Water consumption at 48°C peak: approximately 160 litres per hour
+per unit. Potable water supply required at minimum 3 bar.
+N+2 operation: four active units carry 1,700 kW at full load. Loss of any two active units simultaneously leaves two remaining active
+units at 680 kW — above 40% of the design load — sufficient to maintain IT equipment below thermal trip thresholds while the two
+standby units are brought online within 30 seconds.
+Fan section: four (4) backward-curved EC plenum fans per unit, 35,000 CFM total at 0.85 in. w.g. Four-fan design for fault tolerance:
+single fan failure reduces airflow 25%, manageable by group controller increasing adjacent unit fan speed — no failover triggered.
+Controls: N+2 group controller, BACnet IP, 120-hour rotation. Outdoor DB sensor array (three sensors, averaged) for adiabatic
+activation logic to prevent spurious activation from a single sensor fault.
+Filtration: dual-stage — MERV-4 coarse dust pre-filter on condenser inlet upstream of adiabatic media; MERV-11 main indoor filter.
+Phoenix dust season requires a pre-filter upstream of the adiabatic media to prevent silica dust from clogging the cellulose media
+channels.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Hybrid DX/adiabatic unit, 340 kW at 48°C, 8-row coil, dual-circuit 6 ea $22,000.00 $132,000.00
+Adiabatic cellulose media panel, 150 mm, desert-grade, per unit 6 set $1,800.00 $10,800.00
+Stainless steel adiabatic water distribution manifold 6 ea $1,400.00 $8,400.00
+Water supply solenoid valve and 20-micron strainer, per unit 6 ea $420.00 $2,520.00
+Blowdown valve, conductivity sensor, water totaliser meter, per
+6 ea $580.00 $3,480.00
+unit
+Sub-cooled liquid line kit, per dual-circuit unit 6 ea $680.00 $4,080.00
+R-410A refrigerant charge, approx. 22 kg per unit 6 charge $760.00 $4,560.00
+N+2 group controller, BACnet IP, outdoor DB sensor array, 8-unit
+1 ea $7,200.00 $7,200.00
+cap.
+MERV-4 condenser pre-filter housing, per unit 6 ea $440.00 $2,640.00
+MERV-11 indoor filter rack, per unit 6 ea $400.00 $2,400.00
+Structural roof mount and adiabatic condenser frame, per unit 6 ea $820.00 $4,920.00
+SUBTOTAL — MATERIALS $183,000.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Unit fabrication, adiabatic system assembly, 6-unit batch 270 $65.00 $17,550.00
+Refrigerant circuit assembly, sub-cooling circuit brazing,
+72 $75.00 $5,400.00
+pressure test
+Adiabatic water system installation, manifold, solenoid,
+54 $75.00 $4,050.00
+blowdown calibration
+N+2 group controller wiring, outdoor DB array, adiabatic
+48 $78.00 $3,744.00
+activation logic
+High-ambient simulation test at 45°C condenser inlet, 6-unit
+28 $82.00 $2,296.00
+run
+Desert-environment crating and export packaging 20 $60.00 $1,200.00
+SUBTOTAL — LABOR & FABRICATION $34,240.00
+4. PRICING SUMMARY
+Materials Subtotal $183,000.00
+Labor & Fabrication Subtotal $34,240.00
+Overhead (18% of Materials + Labor) $39,103.20
+Pre-Margin Subtotal $256,343.20
+Gross Margin (22%) $72,301.93
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $328,645.13
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 3 weeks from purchase order
+Procurement: 8 weeks — adiabatic cellulose media and high-ambient compressors on 7-week lead
+Fabrication & Assembly: 7 weeks — two parallel production lines
+Factory Test: 2 weeks — high-ambient adiabatic simulation, 6-unit phased run
+Total Lead Time: 20 weeks from purchase order
+Phased Delivery: Units 1-3 delivered Week 18; Units 4-6 delivered Week 20
+Shipping: FCA Montreal; customer arranges flatbed and crane at Phoenix site
+Key Dependencies: Potable water supply pressure and quality report required Week 2; roof structural
+engineering report Week 3
+6. COMMERCIAL TERMS
+Payment Terms: 25% with purchase order; 35% at 50% fabrication; 25% factory readiness; 15% net 30 from
+ship
+Warranty: 36 months from ship — includes annual adiabatic media replacement for Years 1, 2, and 3
+within warranty period
+Performance Guarantee: 340 kW sensible per unit at 48°C outdoor DB / 22°C WB confirmed at factory simulation test;
+test report and reference site data package issued with equipment
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, potable water supply piping to units, electrical service, freight,
+rigging
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Phoenix ASHRAE 0.4% cooling design: 43°C DB / 21°C WB. TMI has designed for the 48°C DB extreme condition observed during
+the Phoenix heat dome events of 2020, 2021, and 2022, each of which sustained 47 to 48°C DB for 18 to 36 continuous hours.
+Designing only to the 0.4% condition would result in compressor lockout for the most critical periods of the year.
+(cid:127) Adiabatic pre-cooling thermodynamics: at 48°C DB and 22°C WB, the adiabatic system achieves approximately 40% of the
+maximum wet-bulb depression, reducing condenser inlet temperature to approximately 37 to 39°C. This is the key number — 37°C is
+within the operating envelope of a well-specified R-410A circuit without high-ambient features. The adiabatic system converts an
+extreme 48°C ambient into a routine 37°C design condition.
+(cid:127) Water consumption at peak: 160 litres per hour per unit at 48°C sustained. For a 6-unit installation, peak water consumption is 960
+litres per hour — approximately 23,000 litres per day during a 2 to 3-week peak ambient period. Annual adiabatic water cost is
+estimated at CAD 1,800 per unit at Phoenix municipal water rates — minor relative to the compressor energy savings versus the
+alternative of running standard high-ambient DX at 48°C.
+(cid:127) Reference site validation: the Tempe Edge Campus (4 units, installed 2021) and Goodyear Logistics Hub (6 units, installed 2022)
+are both within Greater Phoenix and experienced 48°C ambient events in 2022 and 2023. Neither site recorded a compressor fault or
+high-pressure lockout during these events. TMI has made the commissioning test reports and 12-month fault logs available to the
+customer under NDA.
+(cid:127) Cellulose media replacement: adiabatic cellulose media in the Phoenix desert environment degrades at approximately 15 to 18%
+per year due to silica dust abrasion and scale accumulation. Annual replacement maintains media performance within 5% of new.
+The 3-year warranty covers annual replacement for the first three years; after that, media is a maintenance consumable at
+approximately CAD 1,800 per unit per year.
+Critical design decision: The critical design decision on this project was selecting an adiabatic pre-cooling strategy over alternative
+approaches of larger condensers or alternative refrigerants, because adiabatic pre-cooling converts the 48°C extreme Phoenix
+ambient into an effective 37°C condenser inlet condition that is within the standard R-410A operating envelope — eliminating the
+need for custom high-ambient compressors or hot-gas bypass — at a water consumption penalty that is economically negligible
+relative to the energy saved.
+OUTCOME: WON
+Awarded on the basis of TMI's validated performance data at extreme ambient conditions. Two competing bids offered air-cooled
+systems rated at 48°C ambient but neither could provide field-measured performance data at sustained ambient above 44°C. TMI
+presented commissioning test reports and 12-month operational data from two Greater Phoenix installations running adiabatic hybrid
+units at peak events reaching 48°C. The customer's engineering team evaluated these reference data independently and determined
+that TMI was the only bidder with a design validated above the theoretical performance guarantee level.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

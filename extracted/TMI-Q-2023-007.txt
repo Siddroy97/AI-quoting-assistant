@@ -1,0 +1,120 @@
+Quote No.: TMI-Q-2023-007
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-03-08
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-04-07
+Prepared by: Sophie Lafleur
+QUOTATION
+Customer: Twin Cities Hosting Co.
+Project Name: Minneapolis Micro Data Centre — Building 2A
+Site Location: Minneapolis, MN, USA
+Contact: Greg Anderson, IT Director
+Application: Micro data centre — air-cooled rooftop DX, arctic cold-weather package, N+1 redundancy
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 160 kW sensible at Minneapolis summer design conditions — outdoor DB 34°C / WB 23°C, entering air 22°C DB /
+45% RH. Equipment is designed to operate year-round in Minneapolis's climate, spanning from 34°C summer peaks to winter lows of
+-26°C DB. Both the summer cooling design and the winter low-ambient operating envelope have been used to drive the equipment
+specification.
+Configuration: Two (2) roof-mounted packaged DX units, 80 kW sensible each, N+1 redundancy. One active unit carries the full 160
+kW load; the second is on standby with its heaters and controls energised. Standby unit rotates into active service every 336 hours to
+maintain compressor oil circulation during extended cold-weather standby periods.
+Refrigerant circuit: R-410A, dual-circuit low-ambient rated scroll compressors per unit, confirmed operable to -30°C outdoor DB.
+Crankcase heaters on all compressors, wired to remain energised whenever unit power is on but the compressor is off — preventing
+refrigerant migration into the compressor oil sump during cold soaks below -10°C.
+Winter low-ambient package — three elements: (1) condenser fan cycling control — fans stage off below outdoor DB 5°C to maintain
+condensing pressure above 850 kPa; (2) head-pressure control valve — modulates hot gas to maintain compressor discharge
+pressure within operating band down to -26°C; (3) electric resistance preheat section, 8 kW per unit, energises when entering air
+falls below 5°C to pre-condition supply air before the compressor starts.
+Cold-start sequence: if outdoor DB is below 5°C, energise preheat section and run fan at 30% speed for 3 minutes; start compressor
+only after entering-air temperature confirms above 10°C; then modulate condenser fans via head-pressure control. This sequence
+prevents liquid refrigerant slugging in the compressor scroll elements during cold start.
+Controls: Stand-alone BACnet MS/TP unit controller with arctic cold-start logic. 336-hour standby rotation cycle.
+Cabinet: 14-gauge galvanised steel, 75 mm double-wall insulated with arctic-grade expanded polyurethane core. All cabinet seams
+use overlapping thermal-break joints. Insulated thermal-break roof curb per unit.
+Filtration: 2-inch MERV-8 filters. Minneapolis spring particulate from agricultural dust and tree pollen: estimated 10-week replacement
+interval April through June.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+DX rooftop unit, 80 kW, arctic-rated, low-ambient compressor 2 ea $8,800.00 $17,600.00
+Low-ambient condenser fan cycling control kit, per unit 2 ea $780.00 $1,560.00
+Head-pressure control valve, hot-gas type, per unit 2 ea $640.00 $1,280.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Crankcase heater kit, per compressor circuit 4 ea $185.00 $740.00
+Electric resistance preheat section, 8 kW, per unit 2 ea $680.00 $1,360.00
+Arctic-grade double-wall cabinet panels, 75 mm PU core, per unit 2 set $2,600.00 $5,200.00
+Insulated thermal-break roof curb, per unit 2 ea $720.00 $1,440.00
+BACnet MS/TP controller with arctic cold-start logic 2 ea $1,180.00 $2,360.00
+MERV-8 filter rack, 4 filters per unit 2 ea $195.00 $390.00
+Wiring harness and sealed enclosure, IP54, per unit 2 set $280.00 $560.00
+SUBTOTAL — MATERIALS $32,490.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Arctic cabinet fabrication with thermal-break joints, 2-unit
+55 $65.00 $3,575.00
+batch
+Coil and low-ambient compressor installation, crankcase
+18 $72.00 $1,296.00
+heater wiring
+Head-pressure valve and condenser fan cycling installation,
+14 $75.00 $1,050.00
+calibration
+Cold-start logic programming, controller sequence
+12 $78.00 $936.00
+verification
+Arctic cold-start simulation test at simulated -20°C ambient 10 $78.00 $780.00
+Crating and cold-climate export packaging 6 $58.00 $348.00
+SUBTOTAL — LABOR & FABRICATION $7,985.00
+4. PRICING SUMMARY
+Materials Subtotal $32,490.00
+Labor & Fabrication Subtotal $7,985.00
+Overhead (18% of Materials + Labor) $7,285.50
+Pre-Margin Subtotal $47,760.50
+Gross Margin (22%) $13,470.91
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $61,231.41
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 2 weeks from purchase order
+Procurement: 4 weeks — low-ambient rated compressors from specialist distributor; 3-week lead
+Fabrication & Assembly: 3 weeks
+Factory Test: 1 week — cold-start simulation and head-pressure valve calibration at -20°C
+Total Lead Time: 10 weeks from purchase order
+Shipping: FCA TMI Montreal; customer arranges Minneapolis freight
+Key Dependencies: Roof structural loading report and confirmed power supply spec required Week 1
+6. COMMERCIAL TERMS
+Payment Terms: 30% with purchase order; 40% factory readiness; 30% net 30 from ship
+Warranty: 18 months from ship or 12 months from commissioning — includes cold-weather package
+components
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Field installation, commissioning, electrical service, freight, customs
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Minneapolis ASHRAE 99.6% winter design: -26°C DB. This is among the most demanding winter conditions for rooftop air-cooled
+DX equipment in the continental US. The three-element low-ambient kit — crankcase heaters, head-pressure control valve, and
+condenser fan cycling — is the minimum configuration to ensure reliable compressor operation across the full -26°C to 34°C outdoor
+temperature range.
+(cid:127) Crankcase heater operation: below -10°C, refrigerant vapour pressure drops below the oil vapour pressure in the compressor
+sump, causing refrigerant to condense into the oil. On start, this refrigerant-oil mixture can cause hydraulic slug damage to the scroll
+elements. Crankcase heaters maintain sump temperature above 25°C regardless of ambient.
+(cid:127) Head-pressure control valve: at outdoor DB below 5°C, standard condensers over-reject heat and drive condensing pressure below
+the compressor's minimum operating limit of 850 kPa. The hot-gas valve injects superheated discharge gas upstream of the
+condenser inlet to maintain condensing pressure within the operating band. Factory-calibrated, field-adjustable within +/- 50 kPa.
+(cid:127) 336-hour standby rotation interval is longer than the standard 168-hour cycle used in warmer climates. During Minneapolis winter,
+the refrigerant circuit accumulates vapour pressure imbalances from alternating freeze-thaw cycles on outdoor exposed pipe
+sections; a 336-hour rotation allows adequate warm-up and pressure equalisation before the unit is called into full active service.
+(cid:127) Cold-start simulation at -20°C was conducted using TMI's refrigerant test rig with a chilled-air inlet plenum. The test confirmed a
+3-minute preheat period brings entering air to 10°C before compressor start at this ambient, meeting the startup sequence
+specification.
+Critical design decision: The critical design decision on this project was combining three independent cold-weather protection
+mechanisms — crankcase heaters preventing refrigerant migration into compressor oil, a head-pressure control valve maintaining
+minimum condensing pressure at deep-winter ambient, and a staged electric preheat cold-start sequence — rather than relying on
+any single mechanism, because each element addresses a distinct failure mode that the other two cannot prevent in a Minneapolis
+-26°C operating environment.
+OUTCOME: LOST
+Lost to a local HVAC contractor who offered a combined supply-and-install package. The contractor had an existing 3-year service
+relationship with the customer and bundled installation and 2-year commissioning support with equivalent equipment. Post-bid
+feedback confirmed the customer's facilities team lacked internal capacity to manage a separate installation contractor alongside an
+equipment-only supply; the bundled offering was awarded despite a total cost approximately 11% higher than TMI's equipment-only
+bid.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

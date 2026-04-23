@@ -1,0 +1,116 @@
+Quote No.: TMI-Q-2023-028
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-11-07
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-12-06
+Prepared by: Sophie Lafleur
+QUOTATION
+Customer: Thames Digital Infrastructure PLC
+Project Name: London Tier-4 Financial Data Centre — Hall B
+Site Location: London, UK
+Contact: Andrew Pemberton, Chief Infrastructure Officer
+Application: Tier 4 financial DC — chilled water AHU, fully redundant 2N, dual CHW circuit, 12 units
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 2,900 kW sensible — Hall B, Tier 4 financial services data centre. Twelve (12) large dual-circuit chilled water AHUs
+in 2N configuration; six active, six standby.
+Tier 4 dual-CHW-path design: each unit connected to two independent CHW plants (Plant A and Plant B), each at 100% campus
+capacity. Two independent coil circuits per unit; automatic changeover valve, spring-return fail-to-Plant-A, switches CHW source
+within 5 seconds of plant fault.
+Cooling coil: 10-row, 14 fins per inch, aluminium-fin copper-tube; dual A+B CHW circuits; face area 2,200 mm x 1,500 mm; CHW
+supply 6°C / return 12°C.
+Fan section: four (4) EC backward-curved fans per unit, 52,000 CFM total, dual-power-feed motor connections for 2N electrical
+power path compliance.
+Controls: 2N dual-processor group controller, BACnet IP, redundant network; CHW A/B automatic changeover within 5 seconds;
+30-second unit failover.
+Seismic restraint: BS EN 1998 (Eurocode 8) seismic compliance for London; certified calculations included in engineering package.
+CE marking: TMI will CE-mark all electrical control panels to Low Voltage Directive 2014/35/EU and EMC Directive 2014/30/EU; CE
+Declaration of Conformity issued at factory test completion.
+Filtration: 4-inch MERV-13, redundant dual-track for online filter replacement. London climate does not require cold-climate
+provisions; winter design is -1°C DB (ASHRAE 99.6%).
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW dual-circuit coil, 10-row, 14 FPI, 2200x1500mm, A+B
+12 ea $22,500.00 $270,000.00
+headers
+EC fan, 52,000 CFM, dual-power-feed (x4 per unit) 48 ea $5,700.00 $273,600.00
+EC motor, 30 kW, VSD, dual-feed wiring harness 48 ea $5,300.00 $254,400.00
+2N CHW changeover valve, spring-return fail-to-A, per unit 12 ea $3,800.00 $45,600.00
+Dual-processor group controller, redundant network, BACnet IP 4 ea $14,500.00 $58,000.00
+MERV-13 redundant dual-track filter rack, per unit 12 ea $1,650.00 $19,800.00
+100 mm double-wall insulated cabinet, BS EN seismic, per unit 12 set $14,500.00 $174,000.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CE-mark electrical documentation package 1 set $5,500.00 $5,500.00
+UK English O&M; documentation, full Tier 4 package 1 set $3,800.00 $3,800.00
+Power metering, dual-feed, per unit 12 ea $540.00 $6,480.00
+Condensate drain system, per unit 12 ea $780.00 $9,360.00
+SUBTOTAL — MATERIALS $1,120,540.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, 2N dual-circuit BS EN seismic
+900 $65.00 $58,500.00
+assembly, 12-unit
+Dual-circuit coil installation, hydraulic test A and B sides 216 $75.00 $16,200.00
+Fan and dual-power-feed motor installation (x48 fans) 168 $72.00 $12,096.00
+CHW changeover valve installation, 5-second failsafe timing
+72 $78.00 $5,616.00
+verification
+2N controller wiring, redundant network, changeover test 128 $78.00 $9,984.00
+CE-mark inspection and factory Tier 4 2N simulation test 80 $85.00 $6,800.00
+UK export crating and Incoterms documentation 60 $62.00 $3,720.00
+SUBTOTAL — LABOR & FABRICATION $112,916.00
+4. PRICING SUMMARY
+Materials Subtotal $1,120,540.00
+Labor & Fabrication Subtotal $112,916.00
+Overhead (18% of Materials + Labor) $222,022.08
+Pre-Margin Subtotal $1,455,478.08
+Gross Margin (22%) $410,519.46
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $1,865,997.54
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 5 weeks from purchase order — CE marking and BS EN seismic calculations
+Procurement: 9 weeks — dual-circuit coils and dual-feed motor harnesses
+Fabrication & Assembly: 9 weeks
+Factory Test: 3 weeks — Tier 4 2N simulation and CE-mark inspection
+Total Lead Time: 26 weeks from purchase order
+Shipping: FCA Montreal; customer arranges transatlantic container freight and UK customs clearance
+Key Dependencies: CHW Plant A and B schematic Week 2; 2N power path Week 3; CE-mark notified body
+appointment Week 2
+6. COMMERCIAL TERMS
+Payment Terms: 20% with purchase order; 30% at 50% fabrication; 30% factory readiness; 20% net 30 from
+ship
+Warranty: 48 months from commissioning or 60 months from ship — Tier 4 extended
+CE Marking: Included; TMI will submit CE Declaration of Conformity at factory test completion
+Delivery Terms: FCA TMI Montreal (Incoterms 2020); customer arranges transatlantic freight and UK
+customs
+Currency: Canadian Dollars (CAD); GBP invoicing available on request with 5-day FX lock period
+Exclusions: Installation, commissioning, CHW plants A and B, electrical, freight, UK import duties, VAT
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) London ASHRAE 0.4% cooling design: 33°C DB / 20°C WB. Moderate summer climate; the design is not thermally stressed. The
+governing Tier 4 requirements drive the engineering complexity of this project, not the ambient conditions.
+(cid:127) CE marking for Low Voltage Directive 2014/35/EU: all factory-assembled electrical panels within the unit are CE-marked;
+Declaration of Conformity is issued at factory test completion. CE marking is required for import into the UK post-Brexit under the
+UKCA marking framework, but UK authorities have maintained temporary recognition of CE marking for mechanical equipment until
+2025.
+(cid:127) BS EN 1998 (Eurocode 8) seismic restraint: London's seismic hazard is low but Eurocode 8 compliance is required by the building
+permit. TMI's seismic restraint calculation is prepared by a chartered structural engineer and submitted with the equipment
+documentation.
+(cid:127) UK local content policy: the UK Financial Sector Resilience Framework specifies minimum local-content thresholds for critical
+infrastructure equipment. Canadian-manufactured equipment does not qualify as European-manufactured content for the purpose of
+the 60% EU-origin threshold. This policy was not communicated to TMI in the original RFQ; the specification was issued on technical
+terms and TMI prepared a fully compliant technical and commercial proposal.
+(cid:127) UK import duties on Canadian-origin equipment: customer to confirm the tariff classification and applicable duty rate with their
+customs broker prior to order placement. UK trade agreements in force at the time of this quotation do not provide preferential tariff
+treatment for Canadian-manufactured mechanical equipment.
+Critical design decision: The critical design decision on this project was preparing a fully CE-marked, BS EN 1998
+seismic-compliant, dual-processor Tier 4 design that met every stated technical specification in the RFQ — including the CE
+Declaration of Conformity and UK-standard O&M; documentation — only to be ineligible due to a Canadian-origin local content
+requirement that was not disclosed until after technical evaluation, making this a commercial rather than technical disqualification.
+OUTCOME: LOST
+Lost because the UK government's procurement policy for critical national financial infrastructure required a minimum 60%
+European-manufactured content by value. TMI's Canadian-manufactured units could not satisfy this local content requirement
+regardless of technical merit or price. The policy was not stated in the original RFQ and emerged post-submission when the
+customer's legal team reviewed the project against the UK Financial Sector Resilience Framework. TMI prepared this quotation in full
+and the equipment was technically compliant in all respects.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

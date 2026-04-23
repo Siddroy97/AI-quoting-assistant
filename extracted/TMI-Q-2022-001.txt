@@ -1,0 +1,126 @@
+Quote No.: TMI-Q-2022-001
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2022-03-14
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2022-04-13
+Prepared by: Daniel Rousseau
+QUOTATION
+Customer: SunEdge Colocation LLC
+Project Name: Phoenix Edge Node — Phase 1
+Site Location: Phoenix, AZ, USA
+Contact: Brian Mercer, VP Facilities
+Application: Edge colocation data centre — air-cooled rooftop packaged DX, N redundancy
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 180 kW sensible at site design conditions — Phoenix, AZ at 1,117 ft (340 m) elevation, outdoor DB 43°C / WB
+21°C, entering air 24°C DB / 50% RH.
+Configuration: Two (2) roof-mounted packaged direct-expansion units, 90 kW sensible each, arranged in N redundancy. Each
+module is fully self-contained with independent refrigerant circuit, condenser, and controls. On loss of one module, the remaining unit
+carries the full 90 kW load while the facility operates at reduced capacity pending repair.
+Refrigerant circuit: R-410A, dual-circuit scroll compressors per unit, 8-row aluminium-fin copper-tube evaporator coil at 12 fins per
+inch. Sub-cooled liquid line kit included on each circuit: liquid refrigerant is cooled an additional 8°C before reaching the thermal
+expansion valve, recovering approximately 12% of capacity that would otherwise be lost at 43°C condensing ambient.
+Condensing section: Remote air-cooled condenser, roof-mounted adjacent to evaporator section, EC fan motors with variable-speed
+head-pressure control. Condenser coil face area oversized by 15% relative to a standard sea-level selection to maintain condensing
+pressure within scroll compressor operating envelope at sustained 43°C outdoor dry-bulb without triggering high-pressure lockout.
+Airflow: 8,500 CFM per unit at 0.75 in. w.g. external static. Supply through raised-floor plenum, return overhead.
+Controls: Microprocessor unit controller per module, BACnet MS/TP, supply-air temperature setpoint control at 16°C, high/low
+pressure safeties with automatic reset lockout after three faults within one hour.
+Cabinet: 16-gauge galvanised steel, 50 mm double-wall insulated panels, powder-coat RAL 7035. All exterior fasteners stainless
+steel — Phoenix UV and thermal cycling environment.
+Filtration: 2-inch MERV-8 panel filters, front-access rack. Filter replacement interval estimated at 8 weeks in Phoenix dust season
+(June–September) vs 14 weeks balance of year.
+Redundancy tier: N — one active unit per zone, one standby. Manual changeover via unit controller; automatic changeover on fault
+available as a field-enabled option.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+DX evaporator coil assembly, dual-circuit, 8-row, 12 FPI 2 ea $4,850.00 $9,700.00
+R-410A refrigerant charge, approx. 12 kg per circuit 4 charge $420.00 $1,680.00
+Sub-cooled liquid line kit, factory-installed, per circuit 4 set $340.00 $1,360.00
+Scroll compressor, 45 kW equivalent, hermetic, per circuit 4 ea $2,100.00 $8,400.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Air-cooled condenser coil, oversized 15%, aluminium-fin 2 ea $3,200.00 $6,400.00
+EC condenser fan motor assembly, variable-speed 8 ea $310.00 $2,480.00
+Head-pressure control module per unit 2 ea $480.00 $960.00
+16-ga galvanised cabinet panels, 50 mm double-wall insulated 2 set $2,200.00 $4,400.00
+Roof-mount structural curb, galvanised, thermal-break seal 2 ea $580.00 $1,160.00
+BACnet MS/TP microprocessor controller per unit 2 ea $1,140.00 $2,280.00
+MERV-8 2-inch filter rack, 4 filters per unit 2 ea $220.00 $440.00
+Stainless steel fastener set, desert-grade, per unit 2 set $195.00 $390.00
+Vibration isolator springs, per unit 2 set $175.00 $350.00
+High/low pressure safety switch and wiring harness 4 set $220.00 $880.00
+Refrigerant piping flexible connection kit per unit 2 ea $390.00 $780.00
+SUBTOTAL — MATERIALS $41,660.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Sheet metal fabrication — cabinet panels, frame, condenser
+52 $65.00 $3,380.00
+housing
+Evaporator coil assembly, leak test at 400 psi nitrogen 16 $72.00 $1,152.00
+Sub-cooling circuit brazing, pressure test, vacuum pull-down 14 $75.00 $1,050.00
+Condenser section assembly, fan motor wiring 18 $72.00 $1,296.00
+Controls installation, BACnet addressing, safety-relay wiring 18 $72.00 $1,296.00
+Factory run-test: capacity verification at 43°C simulated
+10 $78.00 $780.00
+ambient
+Quality inspection, documentation, crating 8 $60.00 $480.00
+SUBTOTAL — LABOR & FABRICATION $9,434.00
+4. PRICING SUMMARY
+Materials Subtotal $41,660.00
+Labor & Fabrication Subtotal $9,434.00
+Overhead (18% of Materials + Labor) $9,196.92
+Pre-Margin Subtotal $60,290.92
+Gross Margin (22%) $17,005.13
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $77,296.05
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Approved 1 week — standard rooftop configuration, no custom geometry
+Drawings:
+Component Procurement: 3 weeks — sub-cooling kits and EC motors available from stock distributor
+Fabrication & Assembly: 2 weeks — single production cell, two-unit batch
+Factory Test & Inspection: 1 week — includes 43°C ambient simulation and BACnet network test
+Crating & Freight Release: 1 week
+Total Lead Time: 8 weeks from purchase order — CONFIRMED SCHEDULE
+Shipping: FCA TMI Montreal facility; customer arranges flatbed freight to Phoenix site
+Key Dependencies: Roof curb dimensions and 480V/3ph/60Hz power confirmation required within 3 business
+days of order
+6. COMMERCIAL TERMS
+Payment Terms: 50% with purchase order; 50% net 15 days from ship date — expedited payment aligned with
+accelerated schedule
+Warranty: 18 months from ship date or 12 months from commissioning, whichever is earlier. Covers
+manufacturing defects, refrigerant circuit integrity, and coil leak-tightness. Sub-cooling circuit
+included under standard warranty.
+Performance Guarantee: 90 kW sensible per unit at 43°C outdoor DB / 21°C WB confirmed at factory test;
+performance certificate issued with equipment
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD); price held firm for 30-day quote validity period
+Exclusions: Field installation, commissioning, electrical service connection, freight from Montreal,
+customs duties, roof structural engineering
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Site design conditions are based on Phoenix Sky Harbor ASHRAE 2021 0.4% cooling hour: 43°C DB / 21°C WB. The low wet-bulb
+relative to the extreme dry-bulb is characteristic of the Sonoran Desert climate and is the reason a sub-cooling strategy is viable here
+— low ambient moisture means the condenser can reject heat efficiently even at 43°C as long as condensing pressure is managed.
+(cid:127) Without the sub-cooled liquid line kit, scroll compressor capacity de-rates by approximately 18% at 43°C condensing versus 35°C
+nameplate conditions. The sub-cooling circuit arrests this de-rating and ensures the 90 kW guarantee is met without requiring larger,
+more expensive compressor frames.
+(cid:127) Condenser coil face area is specified at 115% of the calculated minimum for 43°C rejection. This 15% buffer prevents the
+condensing pressure from reaching the high-pressure lockout threshold (4,150 kPa for R-410A) during multi-day heat events where
+outdoor DB can reach 46°C for periods of 6 to 18 hours.
+(cid:127) EC condenser fans are set to run at 100% speed when outdoor DB exceeds 40°C. Below 35°C, speed modulates down to 60%
+minimum; this reduces fan energy during the 7 cooler months when Phoenix DB averages 28°C or below.
+(cid:127) Roof structural loading: unit shipping weight is 710 kg per module. Customer's structural engineer of record must confirm slab
+capacity before installation. TMI's load distribution drawing is included in the submittal package.
+(cid:127) Power supply confirmed as 480V/3ph/60Hz. Unit is not suitable for 208V operation without an external step-up transformer; this
+exclusion is noted to avoid field wiring errors.
+(cid:127) N redundancy in this application means one unit is active and one is on standby. The customer has opted not to enable automatic
+changeover, which reduces the risk of both units attempting to start simultaneously on a momentary power disturbance.
+Critical design decision: The critical design decision on this project was oversizing the condenser coil face area by 15% and adding
+a sub-cooled liquid line circuit on each refrigerant path, rather than accepting a de-rated performance guarantee at 43°C ambient —
+a combination that adds approximately CAD 3,200 per unit in material cost but eliminates the risk of compressor high-pressure
+lockout during Phoenix summer peak events.
+OUTCOME: WON
+Awarded on delivery schedule: TMI confirmed an 8-week lead time that matched the customer's construction handover milestone;
+competing bids quoted 13 and 16 weeks respectively. Total price came in 12% below the next lowest bid, which the customer
+attributed to TMI's efficient condenser selection at Phoenix ambient rather than oversizing to a generic high-ambient spec.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

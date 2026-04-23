@@ -1,0 +1,127 @@
+Quote No.: TMI-Q-2024-020
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2024-01-22
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2024-02-20
+Prepared by: Daniel Rousseau
+QUOTATION
+Customer: Capital Technology Partners LLC
+Project Name: Richmond Tier-2 DC — Hall A Cooling Replacement
+Site Location: Richmond, VA, USA
+Contact: Stephen Larson, VP Engineering
+Application: Tier-2 data centre cooling replacement — hybrid DX/CHW AHU, N+1 redundancy,
+CRAC-compatible footprint
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 1,300 kW sensible — hybrid configuration; 650 kW direct-expansion primary, 650 kW chilled water supplementary;
+entering air 23°C DB / 50% RH; CHW supply 7°C / return 14°C. Four (4) hybrid DX/CHW units at 325 kW each, N+1: three active,
+one standby.
+Configuration: Four floor-mounted hybrid DX/CHW precision cooling units replacing the existing perimeter CRACs. Unit footprint
+matches existing CRAC footprint within 150 mm on all sides, minimising raised-floor cutout rework — confirmed against the as-built
+drawing provided by the customer at the time of quotation.
+DX primary circuit: R-410A, 6-row evaporator coil, dual-circuit scroll compressors, remote air-cooled condenser on roof. DX provides
+up to 163 kW per unit at Richmond's 36°C DB design condition. DX is the base-load circuit operating continuously during occupied
+hours.
+CHW supplementary circuit: 4-row coil, 2-way modulating valve, CHW supply 7°C / return 14°C. Hybrid controller activates CHW
+circuit when DX load exceeds 70% of DX rated capacity, or when DX compressor discharge pressure exceeds 3,800 kPa, whichever
+occurs first. The 70% threshold ensures the DX compressor operates at steady mid-load rather than cycling, extending compressor
+service life.
+Hybrid energy strategy: operating DX as the base circuit and CHW as the supplement is consistent with Virginia's electricity tariff
+structure, where demand charges are based on 15-minute peak demand. Running DX continuously at a steady-state load avoids the
+demand charge spike that would occur if all CHW circuits simultaneously activated at maximum valve opening following a sudden
+cooling load increase.
+Controls: hybrid controller per unit, BACnet IP, with Modbus TCP for integration with the customer's existing DCIM platform. N+1
+group controller, 168-hour rotation. Independent energy sub-metering on DX and CHW circuits — allowing the customer to analyse
+the actual load split in operation.
+Airflow: 36,000 CFM per unit at 0.75 in. w.g. Backward-curved EC fan, variable speed via supply-air temperature control.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated. CRAC-compatible footprint.
+Filtration: 4-inch MERV-13.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Hybrid DX/CHW unit, 325 kW, CRAC-footprint matched,
+4 ea $19,200.00 $76,800.00
+dual-circuit DX
+Remote air-cooled condenser, EC fans, per DX unit 4 ea $6,200.00 $24,800.00
+R-410A charge, DX circuit, approx. 16 kg per unit 4 charge $570.00 $2,280.00
+CHW 4-row supplementary coil, per unit 4 ea $4,800.00 $19,200.00
+2-way CHW valve, 3-inch, modulating 4 ea $820.00 $3,280.00
+Hybrid DX/CHW controller, BACnet IP and Modbus TCP, per unit 4 ea $3,200.00 $12,800.00
+N+1 group controller, 5-unit capacity 1 ea $3,600.00 $3,600.00
+Energy sub-meter, DX and CHW circuits independent, per unit 4 ea $520.00 $2,080.00
+MERV-13 filter rack, per unit 4 ea $640.00 $2,560.00
+100 mm insulated cabinet, CRAC-footprint matched, per unit 4 set $7,200.00 $28,800.00
+Refrigerant line set, DX circuit, per unit 4 set $620.00 $2,480.00
+Condensate drain system, per unit 4 ea $680.00 $2,720.00
+SUBTOTAL — MATERIALS $181,400.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, CRAC-footprint matched, hybrid
+190 $65.00 $12,350.00
+assembly, 4-unit
+DX and CHW coil assembly, both circuits pressure test 64 $75.00 $4,800.00
+Hybrid controller wiring, Modbus TCP DCIM integration,
+44 $78.00 $3,432.00
+DX/CHW split logic
+Independent DX/CHW energy metering calibration and
+16 $78.00 $1,248.00
+Modbus verification
+Factory test: DX-only, CHW-only, hybrid mode sequence
+22 $68.00 $1,496.00
+verification
+Crating and export preparation 16 $58.00 $928.00
+SUBTOTAL — LABOR & FABRICATION $24,254.00
+4. PRICING SUMMARY
+Materials Subtotal $181,400.00
+Labor & Fabrication Subtotal $24,254.00
+Overhead (18% of Materials + Labor) $37,017.72
+Pre-Margin Subtotal $242,671.72
+Gross Margin (22%) $68,445.87
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $311,117.59
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 3 weeks from purchase order
+Procurement: 6 weeks — hybrid-specification coils and condenser units
+Fabrication & Assembly: 5 weeks
+Factory Test: 2 weeks
+Total Lead Time: 16 weeks from purchase order
+Shipping: FCA Montreal; customer arranges Richmond freight
+Key Dependencies: Existing CRAC footprint dimensions and raised-floor cutout survey required Week 1; Modbus
+TCP register map for existing DCIM platform required Week 2
+6. COMMERCIAL TERMS
+Payment Terms: 25% with purchase order; 45% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship or 18 months from commissioning
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, electrical, freight, DCIM software licences and
+analytics platform
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Richmond ASHRAE 0.4% cooling design: 36°C DB / 25°C WB. Moderate summer climate; DX circuit is not stressed at design
+conditions. The governing technical constraint is footprint compatibility with the existing raised-floor cutouts, which determines the
+cabinet dimensions and has been verified against the as-built drawing provided by the customer.
+(cid:127) Hybrid load split at 70% DX threshold: operating the DX circuit as the continuous base load and engaging CHW only above 70% DX
+capacity ensures that compressor oil circulation is maintained at all times. A DX system that cycles on and off rapidly in response to
+small load variations accumulates refrigerant migration stress faster than a system operating at a steady mid-load condition.
+(cid:127) Independent DX and CHW energy sub-metering: the separate metering of DX and CHW circuit energy allows the customer to
+analyse whether the hybrid load split is operating as designed. If the CHW circuit is engaging more frequently than the 70% threshold
+predicts, it may indicate the CHW plant is delivering cooler supply temperature than the 7°C design, allowing the CHW valve to carry
+more load than intended.
+(cid:127) CRAC footprint matching: the existing CRAC units have an 1,100 mm x 900 mm base footprint. TMI's hybrid unit is designed at
+1,150 mm x 950 mm — 50 mm wider and deeper on each axis. This marginal oversize fits within the standard inter-row spacing of
+the existing layout without requiring raised-floor cutout modification.
+(cid:127) Modbus TCP DCIM integration: TMI's hybrid controller provides 48 Modbus TCP registers covering supply and return air
+temperatures, DX and CHW circuit status, compressor discharge pressure, fan speed, valve position, and energy meter readings for
+both circuits. The register map is compatible with all major DCIM platforms. TMI does not offer DCIM analytics dashboards as a
+bundled service.
+Critical design decision: The critical design decision on this project was setting the DX-to-CHW handover threshold at 70% of DX
+rated capacity rather than a fixed supply-air temperature threshold, ensuring the DX compressor operates at steady mid-load rather
+than cycling between 100% and off — reducing compressor start-stop stress cycles and extending service life in a climate where the
+DX circuit carries base load for more than 6,000 hours annually.
+OUTCOME: LOST
+Lost because the competing bid included a bundled 2-year DCIM software licence with analytics dashboards tailored to the
+customer's existing monitoring infrastructure. The customer's CIO placed significant value on the analytics capability, viewing the
+combined equipment-plus-DCIM package as a strategic platform investment rather than a cooling equipment procurement. TMI's
+equipment-only proposal, while technically superior in cooling capacity and energy efficiency, did not address the DCIM analytics
+dimension. Post-award, the facilities director indicated that TMI's equipment was preferred on technical merit but was overruled at the
+CIO level.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

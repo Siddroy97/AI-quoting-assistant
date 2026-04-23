@@ -1,0 +1,109 @@
+Quote No.: TMI-Q-2022-005
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2022-11-10
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2022-12-09
+Prepared by: Sophie Lafleur
+QUOTATION
+Customer: PacificEdge Hosting Ltd.
+Project Name: Seattle Colocation — Rack Row 3 In-Row Cooling
+Site Location: Seattle, WA, USA
+Contact: Tracy Liu, Director of Infrastructure
+Application: Colocation rack-row — in-row air-cooled DX precision cooling, N+1, hot-aisle cold-aisle
+containment
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 200 kW sensible at Seattle design conditions — outdoor DB 31°C / WB 22°C, entering air 23°C DB / 50% RH.
+Seattle's mild summer climate means this equipment will operate at or below 60% of rated capacity for more than 70% of annual
+hours; part-load efficiency is therefore as important as peak capacity in the total cost of ownership calculation.
+Configuration: Three (3) in-row direct-expansion precision cooling units, 100 kW sensible each, N+1 active rotation. In-row form
+factor: each unit occupies one standard 600 mm rack-row position between server cabinet rows. Rear of unit discharges directly into
+the hot aisle; front of unit draws return air from the cold aisle. Remote condenser sections are wall-mounted on the building exterior,
+one per indoor unit.
+Refrigerant circuit: R-410A, scroll compressor per unit, 6-row aluminium-fin copper-tube evaporator coil. Single refrigerant circuit per
+unit; N+1 configuration provides the redundancy path. At Seattle's mild outdoor conditions, the compressor operates at EER values
+approximately 30% above nameplate for more than half the year.
+Airflow: 9,200 CFM per unit at 0.35 in. w.g. internal resistance. In-row fans are backward-curved centrifugal, direct-drive EC motor. At
+Seattle's 31°C design condition the compressor unloads to approximately 75% capacity; fan speed reduces proportionally via
+supply-air temperature control, cutting fan energy by nearly 42% relative to full load.
+Condensing: Wall-mounted remote condenser, EC fans, one per indoor unit. Condenser is sized for 31°C outdoor DB with a 5°C
+approach to target condensing temperature. Seattle's low wet-bulb means condensing pressure is rarely at the nameplate peak, and
+EC condenser fan speed modulates down to 40% minimum during the many hours when outdoor DB is below 20°C.
+Controls: N+1 group controller, BACnet MS/TP, 168-hour rotation. Hot-aisle temperature sensor array, four sensors per unit, provides
+spatial hot-spot detection independent of supply-air temperature control. Hot-spot alarm forwards to BMS via dry-contact relay.
+Cabinet: 14-gauge galvanised steel, in-row profile, 50 mm double-wall insulated. Unit footprint: 600 mm W x 1,050 mm D x 2,000 mm
+H — standard rack-row pitch compatible.
+Filtration: 2-inch MERV-11, front-access slide-out frame for filter replacement without moving the unit.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+In-row DX precision cooling unit, 100 kW, rack-row profile 3 ea $9,200.00 $27,600.00
+Wall-mount remote condenser, EC fans, exterior-grade, per unit 3 ea $3,800.00 $11,400.00
+R-410A refrigerant charge, approx. 10 kg per unit 3 charge $370.00 $1,110.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+N+1 group controller, BACnet MS/TP, hot-spot sensor integration 1 ea $2,200.00 $2,200.00
+Hot-aisle temperature sensor array, 4 sensors per unit 3 set $310.00 $930.00
+MERV-11 2-inch slide-out filter frame, 4 filters per unit 3 ea $260.00 $780.00
+Pre-charged refrigerant line set, 15 m max run, per unit 3 set $540.00 $1,620.00
+Stainless steel condensate drain pan, per unit 3 ea $270.00 $810.00
+Wiring harness and control enclosure, per unit 3 set $290.00 $870.00
+SUBTOTAL — MATERIALS $47,320.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+In-row cabinet fabrication, 3-unit batch 52 $65.00 $3,380.00
+Coil assembly and refrigerant circuit, pressure test 18 $75.00 $1,350.00
+Wall-mount condenser provision and wiring 16 $72.00 $1,152.00
+N+1 controller wiring, hot-spot sensor programming, rotation
+20 $78.00 $1,560.00
+setup
+Factory performance test, Seattle 31°C ambient simulation 10 $68.00 $680.00
+Crating and export preparation 6 $58.00 $348.00
+SUBTOTAL — LABOR & FABRICATION $8,470.00
+4. PRICING SUMMARY
+Materials Subtotal $47,320.00
+Labor & Fabrication Subtotal $8,470.00
+Overhead (18% of Materials + Labor) $10,042.20
+Pre-Margin Subtotal $65,832.20
+Gross Margin (22%) $18,568.06
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $84,400.26
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 2 weeks from purchase order
+Procurement: 3 weeks — in-row unit components available from stock distributor
+Fabrication & Assembly: 2 weeks
+Factory Test: 1 week
+Total Lead Time: 8 weeks from purchase order
+Shipping: FCA TMI Montreal; customer arranges Pacific Northwest freight
+Key Dependencies: Hot-aisle containment interface dimensions and wall condenser mounting elevation required
+Week 1
+6. COMMERCIAL TERMS
+Payment Terms: 30% with purchase order; 40% factory readiness; 30% net 30 from ship
+Warranty: 18 months from ship or 12 months from commissioning — manufacturing defects
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, refrigerant line installation, electrical service, freight
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Seattle ASHRAE 0.4% cooling design: 31°C DB / 22°C WB. This is a mild summer climate by data centre cooling standards. The
+31°C DB peak occurs fewer than 35 hours per year; outdoor DB is below 25°C for approximately 5,200 hours annually. A unit
+selected for Phoenix or Atlanta would be operating at chronically low part-load factors in Seattle, degrading compressor oil circulation
+and increasing refrigerant migration risk.
+(cid:127) Part-load performance dominates the life-cycle cost at this site. At 60% cooling load and 22°C outdoor DB, the scroll compressor
+operates at an EER approximately 35% above its 31°C design nameplate — an advantage that accumulates significantly over a
+15-year equipment life but is invisible in a capital-cost-only evaluation.
+(cid:127) In-row form factor is appropriate for this rack-row geometry because the hot-aisle width is 900 mm — below the minimum
+recommended for floor-mounted precision units with front access panels. The in-row unit occupies one rack position and discharges
+laterally into the hot aisle, eliminating the floor-space conflict.
+(cid:127) Pre-charged refrigerant line sets are specified for a maximum 15 m run from indoor unit to wall condenser. If the wall mounting
+location requires a run longer than 15 m, field-brazed piping and refrigerant top-up will be required.
+(cid:127) Hot-aisle sensor array provides spatial temperature resolution across four rack-bay positions. A single supply-air temperature
+sensor would not detect a localised hot spot caused by a high-density blade server chassis in one bay while adjacent bays remain
+within setpoint.
+Critical design decision: The critical design decision on this project was optimising the EC fan and compressor selection for
+Seattle's 31°C design condition rather than applying a standard North American mid-continent selection — a configuration that
+delivers 30% higher EER at typical Seattle part-load conditions and reduces annual cooling electricity consumption by an estimated
+18% relative to a generic selection, though this life-cycle advantage was not reflected in the customer's capital-cost-only evaluation.
+OUTCOME: LOST
+Lost on price. A competing manufacturer submitted a bid 8.6% below TMI's total. Post-award feedback indicated price was the sole
+evaluation criterion; technical differentiation was not weighted. The customer acknowledged TMI's Pacific Northwest
+climate-optimised EC fan specification and higher part-load EER were technically superior but confirmed the budget cap was binding.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

@@ -1,0 +1,137 @@
+Quote No.: TMI-Q-2023-024
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-03-28
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-04-26
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: Sonoran Hyperscale LLC
+Project Name: Phoenix Tier-3 Hyperscale Campus — Phase 1
+Site Location: Phoenix, AZ, USA
+Contact: Jennifer Torres, VP Capital Projects
+Application: Hyperscale DC — adiabatic hybrid CHW/DX AHU, Tier 3 2N, 12 units, validated 48°C
+ambient
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 5,200 kW sensible at 48°C outdoor DB / 22°C WB — Phase 1 of a 24,000 kW total campus. Twelve (12) adiabatic
+hybrid CHW primary / DX trim AHUs, 530 kW CHW primary and 100 kW DX trim each at 48°C ambient, Tier 3 2N configuration: six
+active units, six standby on 96-hour auto-rotation.
+Adiabatic pre-cooling system: cellulose evaporative media panels, 150 mm thickness, on condenser air inlet. Activated when outdoor
+DB exceeds 38°C per a three-sensor averaged outdoor DB array. Water consumption at 48°C peak: approximately 175 litres per
+hour per unit. Potable water supply required at minimum 3.5 bar; recirculated with blowdown at 1,000 µS/cm conductivity. Annual
+media replacement is included in the Year 1 through Year 3 warranty.
+CHW primary coil: 10-row, 14 fins per inch, epoxy-coated aluminium fins for Phoenix alkaline dust and adiabatic scale resistance;
+face area 2,400 mm x 1,600 mm; CHW supply 6°C / return 13°C. Epoxy fin coating is specified because Phoenix alkaline dust
+combined with the slightly elevated pH of adiabatic recirculated water creates an accelerated corrosion environment on standard
+aluminium fins.
+DX trim circuit: R-410A, 2-row coil, single scroll compressor per unit, sub-cooled liquid line, remote air-cooled condenser. The trim
+circuit maintains supply air temperature precision during adiabatic system activation and deactivation transitions — periods where
+CHW coil delta-T can fluctuate by 1 to 2°C as the condenser inlet temperature changes.
+Fan section: four (4) EC backward-curved fans per unit, 60,000 CFM at 0.90 in. w.g. Four-fan fault tolerance: single fan fault reduces
+airflow 25%, compensated by adjacent unit speed increase, no failover triggered.
+Controls: zone group controller, BACnet IP, DCIM API, 96-hour 2N rotation, outdoor DB sensor array for adiabatic activation, water
+consumption monitoring and blowdown control.
+Filtration: dual-stage — MERV-4 sand pre-filter on condenser inlet upstream of adiabatic media; MERV-11 main indoor filter. Desert
+pre-filter prevents silica dust from clogging the adiabatic cellulose media channels.
+Cabinet: 14-gauge galvanised steel, stainless steel adiabatic media frame, desert-grade seals.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Adiabatic hybrid CHW/DX unit, 530+100 kW, epoxy-fin 10-row
+12 ea $28,000.00 $336,000.00
+CHW coil
+Adiabatic cellulose media panels, 150 mm, desert-grade, per unit 12 set $2,200.00 $26,400.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Stainless steel adiabatic manifold and distribution header, per unit 12 ea $1,700.00 $20,400.00
+Water supply solenoid valve and 20-micron strainer, per unit 12 ea $420.00 $5,040.00
+Blowdown valve, conductivity sensor, water totaliser meter, per
+12 ea $580.00 $6,960.00
+unit
+EC fan, 60,000 CFM (x4 per unit) 48 ea $5,200.00 $249,600.00
+EC motor, 37 kW, VSD 48 ea $5,000.00 $240,000.00
+6-inch modulating CHW valve, spring-return 12 ea $2,300.00 $27,600.00
+DX trim scroll compressor, 50 kW, sub-cooling kit, per unit 12 ea $4,200.00 $50,400.00
+R-410A charge, DX trim circuit, approx. 14 kg per unit 12 charge $510.00 $6,120.00
+Remote DX condenser, EC fans, high-ambient rated, per unit 12 ea $6,000.00 $72,000.00
+Zone group controller, BACnet IP, DCIM API, adiabatic logic,
+2 ea $10,500.00 $21,000.00
+14-unit cap.
+MERV-4 sand pre-filter housing + MERV-11 indoor rack, per unit 12 ea $840.00 $10,080.00
+100 mm desert-grade insulated cabinet, adiabatic frame, per unit 12 set $13,500.00 $162,000.00
+Power metering, per unit 12 ea $380.00 $4,560.00
+SUBTOTAL — MATERIALS $1,238,160.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, adiabatic desert system, 12-unit batch 750 $65.00 $48,750.00
+CHW and DX coil installation, epoxy-fin inspection, hydraulic
+240 $75.00 $18,000.00
+test
+Adiabatic system assembly, stainless manifold, blowdown
+120 $75.00 $9,000.00
+calibration
+4-fan EC array installation, VSD commissioning (x48 fans) 192 $72.00 $13,824.00
+Zone controller wiring, 2N logic, DCIM API, adiabatic
+120 $78.00 $9,360.00
+activation
+High-ambient simulation test, 12-unit phased, 45°C
+72 $82.00 $5,904.00
+simulated inlet
+Desert-environment crating and export packaging 80 $60.00 $4,800.00
+SUBTOTAL — LABOR & FABRICATION $109,638.00
+4. PRICING SUMMARY
+Materials Subtotal $1,238,160.00
+Labor & Fabrication Subtotal $109,638.00
+Overhead (18% of Materials + Labor) $242,603.64
+Pre-Margin Subtotal $1,590,401.64
+Gross Margin (22%) $448,574.82
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $2,038,976.46
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 5 weeks from purchase order
+Procurement: 10 weeks — epoxy-fin 10-row coils 9-week lead; adiabatic media and high-ambient
+components on parallel procurement
+Fabrication & Assembly: 10 weeks — three parallel production lines
+Factory Test: 3 weeks — high-ambient simulation, 12-unit phased
+Total Lead Time: 28 weeks from purchase order
+Phased Delivery: Units 1-6 delivered Week 26; Units 7-12 delivered Week 28
+Shipping: FCA Montreal; customer arranges flatbed, crane, and Phoenix desert site logistics
+Key Dependencies: CHW plant 6°C/13°C supply confirmation Week 2; water supply quality report Week 3;
+condenser roof layout Week 4
+6. COMMERCIAL TERMS
+Payment Terms: 20% with purchase order; 30% at 50% fabrication; 30% factory readiness; 20% net 30 from
+ship
+Warranty: 36 months from ship — includes annual adiabatic media replacement for Years 1 through 3
+Performance Guarantee: 530 kW CHW + 100 kW DX per unit at 48°C outdoor DB / 22°C WB confirmed at factory
+simulation test; test report and Hall D reference site data package issued with equipment
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, potable water supply piping to units, DX refrigerant
+lines, electrical, freight, rigging
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Performance guarantee at 48°C DB is supported by factory test data and field data from the Hall D installation (TMI-Q-2023-017, 6
+units, commissioned 2023), which experienced two peak ambient events exceeding 47°C during the 2023 operating season with zero
+compressor faults or high-pressure lockout events.
+(cid:127) Epoxy fin coating for Phoenix alkaline dust: standard aluminium oxide passivation is disrupted by Phoenix desert dust, which has a
+pH of approximately 8.5 due to calcium carbonate content from limestone geology. This alkaline particulate accelerates aluminium
+corrosion at fin-to-tube bonds when combined with the slightly elevated pH of adiabatic recirculated water. Epoxy coating provides a
+chemical barrier that is pH-neutral across the 6 to 9 pH range.
+(cid:127) Water quality: total dissolved solids must not exceed 400 ppm; conductivity probe triggers blowdown when conductivity exceeds
+1,000 µS/cm. At Phoenix municipal water quality (TDS typically 300 to 450 ppm), blowdown occurs approximately 3 to 4 times per
+day at peak adiabatic demand.
+(cid:127) 96-hour rotation cycle: at six active units, each unit completes its standby rotation every 24 days. The shorter 96-hour cycle versus
+the standard 120-hour cycle is specified because Phoenix summer heat dome events typically last 3 to 5 days; a 96-hour rotation
+ensures every unit has exercised its compressor within the week preceding a heat dome event.
+(cid:127) Phase 2 through Phase 6 pricing: TMI commits to holding Phase 1 pricing within 8% for subsequent campus phases if purchase
+orders are placed within 24 months of Phase 1 delivery — a price stability provision not available from competitors without similar
+installed reference volumes in the Phoenix market.
+Critical design decision: The critical design decision on this project was specifying epoxy-coated aluminium fins rather than
+standard aluminium on the CHW primary coil — a corrosion protection measure driven by Phoenix's alkaline desert dust chemistry
+interacting with the adiabatic recirculated water, not by a tropical salt environment — recognising that the corrosion mechanism is
+chemical rather than marine and requires the same 25-micron epoxy barrier regardless of proximity to the ocean.
+OUTCOME: WON
+Awarded as the sole bidder able to provide field-validated performance data at sustained ambient temperatures above 45°C. TMI
+presented commissioning test reports and 18-month fault-free operational records from the Hall D installation at the same customer's
+Phoenix facility (TMI-Q-2023-017). The customer's engineering team independently analysed the Hall D field data and confirmed
+TMI's adiabatic hybrid design maintained rated capacity during two Phoenix heat dome events reaching 48°C in 2023. No other
+bidder in the RFP process could provide equivalent evidence above 44°C.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

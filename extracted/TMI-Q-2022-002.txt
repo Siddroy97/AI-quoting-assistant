@@ -1,0 +1,128 @@
+Quote No.: TMI-Q-2022-002
+Revision: Rev 1
+TMI CLIMATE SOLUTIONS
+Issue Date: 2022-05-03
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2022-06-02
+Prepared by: Sophie Lafleur
+QUOTATION
+Customer: Meridian Data Services Inc.
+Project Name: Charlotte Tier-1 Data Hall Expansion — Rooms 4 and 5
+Site Location: Charlotte, NC, USA
+Contact: James Holloway, Director of Engineering
+Application: Enterprise data hall — chilled water precision CRAH, floor-mounted top-discharge, N
+redundancy
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 320 kW sensible with 85 kW latent removal at Charlotte design conditions — outdoor DB 37°C / WB 24°C, entering
+air 23°C DB / 45% RH, chilled water supply 7°C / return 14°C.
+Configuration: Two (2) floor-mounted chilled water computer room air handling units (CRAHs), 160 kW sensible each, arranged in N
+redundancy with top-discharge plenum into a common ceiling return. The Charlotte climate presents a sensible heat ratio challenge:
+summer wet-bulb peaks at 24°C, which drives a meaningful latent load inside the data hall from infiltration and personnel. A chilled
+water coil selected at 7°C supply and 14°C return achieves a leaving dew-point of 11°C, delivering adequate dehumidification that a
+packaged DX system at equivalent sensible capacity cannot reliably sustain.
+Cooling coil: 6-row, 12 fins per inch, aluminium-fin copper-tube chilled water coil; face area 1,400 mm x 900 mm; coil selected to
+achieve leaving air conditions of 13°C DB / 11°C DP at design load, providing a sensible heat ratio of 0.79 — appropriate for
+Charlotte's latent load profile.
+Fan section: Backward-curved plenum fan, direct-drive EC motor, variable-speed drive integrated into motor frame. Fan is sized for
+15,000 CFM at 0.60 in. w.g. external static into the top-discharge plenum; EC motor allows speed reduction to 45% minimum during
+low-load overnight periods, reducing fan energy by approximately 77% at part-load.
+Chilled water valve: 2-way modulating valve, 2-inch, with spring-return fail-closed actuator and 4–20 mA control signal. Valve is sized
+for a 10% authority ratio at design flow to prevent hunting in the cooling control loop.
+Humidity monitoring: Supply air dew-point sensor, ±0.3°C accuracy, hardwired to unit controller. High dew-point alarm triggers at
+14°C DP and is forwarded to the building management system via Modbus RTU.
+Controls: Stand-alone unit controller, Modbus RTU; supply air temperature setpoint 16°C; dew-point monitoring with BMS alarm
+relay; sequential fan speed ramp-up on start to limit inrush.
+Cabinet: 14-gauge galvanised steel, 75 mm double-wall insulated panels, brushed stainless steel base frame and drain pan.
+Top-discharge plenum adapter, galvanised, included.
+Filtration: 4-inch MERV-11 panel filters. MERV-11 selected over MERV-13 because the data hall has no outdoor air intake; MERV-11
+provides adequate particle control with 18% lower pressure drop, reducing fan energy.
+Redundancy tier: N — two units installed, one active per room, one standby. Manual changeover at unit controller.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Chilled water coil, 6-row, 12 FPI, 1400x900 mm face,
+2 ea $6,200.00 $12,400.00
+aluminium/copper
+2-way modulating CHW valve, 2-inch, with spring-return actuator 2 ea $920.00 $1,840.00
+Backward-curved plenum fan, direct-drive, 15,000 CFM 2 ea $3,400.00 $6,800.00
+EC variable-speed motor, 11 kW, integrated VSD 2 ea $2,750.00 $5,500.00
+Dew-point sensor, supply air, 0.3°C accuracy 2 ea $380.00 $760.00
+14-ga galvanised cabinet, 75 mm double-wall insulated 2 set $3,100.00 $6,200.00
+Stainless steel drain pan with float switch and overflow alarm 2 ea $520.00 $1,040.00
+Top-discharge plenum adapter, galvanised 2 ea $750.00 $1,500.00
+Modbus RTU unit controller with dew-point alarm relay 2 ea $1,380.00 $2,760.00
+4-inch MERV-11 filter rack, 8 filters per unit 2 ea $390.00 $780.00
+Wiring harness, control and power, per unit 2 set $310.00 $620.00
+SUBTOTAL — MATERIALS $40,200.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet and plenum adapter fabrication 60 $65.00 $3,900.00
+Coil installation, hydraulic pressure and leak test at 200 psi 20 $72.00 $1,440.00
+CHW valve and actuator installation, flow-coefficient
+12 $72.00 $864.00
+verification
+Fan and EC motor installation, VSD parameter setup 18 $72.00 $1,296.00
+Controls wiring, Modbus addressing, dew-point alarm relay
+20 $72.00 $1,440.00
+test
+Factory airflow and thermal performance verification 10 $68.00 $680.00
+Crating and export documentation 8 $58.00 $464.00
+SUBTOTAL — LABOR & FABRICATION $10,084.00
+4. PRICING SUMMARY
+Materials Subtotal $40,200.00
+Labor & Fabrication Subtotal $10,084.00
+Overhead (18% of Materials + Labor) $9,051.12
+Pre-Margin Subtotal $59,335.12
+Gross Margin (22%) $16,735.55
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $76,070.67
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Approved 2 weeks — CHW coil selection requires thermal model review against Charlotte WB design
+Drawings: condition
+Component Procurement: 4 weeks — 6-row CHW coils are fabricated to order; 3-week lead from coil supplier
+Fabrication & Assembly: 3 weeks
+Factory Test & Inspection: 1 week
+Total Lead Time: 10 weeks from purchase order
+Shipping: FCA TMI Montreal; customer arranges freight to Charlotte
+Key Dependencies: Chilled water plant supply/return pipe sizes, pump head, and glycol percentage required by
+end of Week 2; raised-floor plenum height and top-discharge grille layout required Week 3
+6. COMMERCIAL TERMS
+Payment Terms: 30% with purchase order; 40% at factory readiness notification; 30% net 30 days from ship
+date
+Warranty: 18 months from ship date or 12 months from commissioning, whichever is earlier. Covers
+manufacturing defects and chilled water coil integrity. Dew-point sensor calibration verified at
+factory and documented in test report.
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Field installation, commissioning, chilled water plant and piping, electrical service connection,
+freight, customs duties, BMS gateway hardware and programming
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Charlotte ASHRAE 2021 0.4% cooling design: 37°C DB / 24°C WB. The 24°C wet-bulb is the governing design parameter for this
+project, not the dry-bulb. At 24°C WB the moisture content of infiltration air entering the data hall is approximately 15.6 g/kg, which is
+meaningfully higher than the 10.5 g/kg target inside the space. A chilled water coil can sustain a leaving dew-point of 11°C by
+deep-cooling the air across the fin surface; a packaged DX system operating at the same sensible capacity typically delivers a
+leaving dew-point of 13 to 15°C, which is insufficient to offset Charlotte's summer latent load.
+(cid:127) The 7°C CHW supply temperature is the minimum that drives the coil surface below the 11°C DP target. If the chiller plant delivers
+warmer than 8°C supply, the leaving dew-point rises to approximately 13°C and dehumidification performance degrades. The CHW
+plant design must hold 7°C supply under peak load; this constraint was communicated to the customer's mechanical engineer and is
+a risk on projects where the chiller is sized tightly.
+(cid:127) Valve authority: the 2-way modulating valve is sized at 10% authority, meaning the pressure drop across the valve at design flow
+equals 10% of the total circuit pressure drop. Authority below 10% leads to a flat control curve where large valve stem movements
+produce small flow changes, causing hunting. The spring-return fail-closed actuator ensures the coil drains and the cooling load is
+shed safely on a controls power failure.
+(cid:127) EC motor VSD allows fan speed to reduce to 45% of design during low-load periods (typically 23:00 to 06:00 in a commercial data
+hall). Fan power scales as the cube of speed, so operation at 45% speed consumes approximately 9% of full-load fan power — a
+meaningful annual energy saving in a climate where Charlotte ambient temperature is below 20°C for over 4,000 hours per year.
+(cid:127) MERV-11 versus MERV-13: this data hall has no outdoor air intake and operates in a positive-pressure environment relative to
+adjacent corridors. MERV-11 is appropriate for recirculated indoor air. MERV-13 would be required only if outdoor air is introduced
+through an economiser section; no economiser is included in this scope.
+Critical design decision: The critical design decision on this project was selecting a chilled water coil configuration at 7°C supply
+with a 6-row depth and 12 FPI fin spacing to achieve a leaving dew-point of 11°C, rather than specifying a packaged DX system — a
+choice that adds approximately 28% to capital cost but is the only configuration capable of controlling latent load reliably in
+Charlotte's 24°C wet-bulb summer climate.
+OUTCOME: LOST
+Lost on capital cost. The customer awarded to a competitor offering packaged direct-expansion precision cooling units at a price
+approximately 23% lower. The customer acknowledged the CHW configuration's superior dehumidification control and lower long-run
+operating cost but indicated that the capital budget cap was a binding constraint for this phase. The customer accepted the
+operational dehumidification trade-off, noting they would revisit a CHW strategy in Phase 2 when the on-site chiller plant is confirmed.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

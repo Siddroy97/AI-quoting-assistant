@@ -1,0 +1,121 @@
+Quote No.: TMI-Q-2023-009
+Revision: Rev 1
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-07-11
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-08-10
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: BlueSky Connectivity Inc.
+Project Name: Nashville Carrier Hotel — Level 2 Cooling
+Site Location: Nashville, TN, USA
+Contact: Amanda Foster, VP Real Estate and Infrastructure
+Application: Carrier-neutral colocation — air-cooled split DX precision cooling, N+1, Class 0.5S tenant
+power sub-metering
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 340 kW sensible at Nashville design conditions — outdoor DB 36°C / WB 24°C, entering air 23°C DB / 50% RH.
+Three (3) units at 170 kW each, N+1: two active, one standby on 168-hour auto-rotation.
+Configuration: Three (3) roof-mounted split DX precision cooling units with integrated tenant energy sub-metering. In a carrier-neutral
+colocation environment, the facility operator bills tenants for cooling proportionally; metered cooling energy output is a contractual
+billing instrument. Each unit carries an integrated Class 0.5S revenue-grade kWh meter with Modbus TCP output reporting to the
+facility's DCIM platform.
+Refrigerant circuit: R-410A, dual-circuit scroll compressors per unit, 6-row aluminium-fin copper-tube evaporator coil. At Nashville's
+36°C DB / 24°C WB design, running both circuits simultaneously at reduced speed produces a lower evaporator coil surface
+temperature across the full fin face area, improving moisture removal versus single-circuit cycling.
+Condensing: Remote air-cooled condenser, roof-mounted, EC fans with variable-speed head-pressure control, per unit. Nashville
+design conditions are moderate; condenser selection includes standard 10% capacity margin.
+Tenant sub-metering: integrated Class 0.5S revenue-grade kWh meter per unit per IEC 62053-22. Reports instantaneous power,
+cumulative kWh, and power factor via Modbus TCP at 1-minute intervals. Modbus register map pre-configured to the DCIM platform
+specification supplied by the customer at quotation.
+Controls: N+1 group controller, BACnet IP, 168-hour rotation, with Modbus TCP integration for sub-metering data aggregation across
+all three units to the DCIM gateway.
+Airflow: 16,000 CFM per unit at 0.60 in. w.g. Overhead supply plenum, raised-floor return. EC fan motor, variable speed via
+supply-air temperature control.
+Cabinet: 14-gauge galvanised steel, 75 mm double-wall insulated.
+Filtration: 4-inch MERV-11, differential pressure monitoring.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+DX split precision cooling unit, 170 kW, dual-circuit, sub-meter
+3 ea $12,800.00 $38,400.00
+provision
+Remote air-cooled condenser, EC fans, 10% margin, per unit 3 ea $5,200.00 $15,600.00
+R-410A refrigerant charge, approx. 16 kg per dual-circuit unit 3 charge $560.00 $1,680.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Revenue-grade kWh meter, Class 0.5S IEC 62053-22, Modbus
+3 ea $620.00 $1,860.00
+TCP, per unit
+N+1 group controller, BACnet IP, Modbus TCP sub-meter
+1 ea $3,400.00 $3,400.00
+aggregation
+MERV-11 filter rack with differential pressure sensor, per unit 3 ea $430.00 $1,290.00
+Refrigerant line set, pre-insulated, per dual-circuit unit 3 set $700.00 $2,100.00
+Condensate pump and drain pan, per unit 3 ea $340.00 $1,020.00
+Wiring harness, Modbus TCP cabling, per unit 3 set $380.00 $1,140.00
+SUBTOTAL — MATERIALS $66,490.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, sub-meter panel provision, 3-unit batch 88 $65.00 $5,720.00
+Coil and dual-circuit assembly, pressure test 38 $75.00 $2,850.00
+Sub-meter installation, Modbus TCP wiring, register map
+20 $78.00 $1,560.00
+programming
+N+1 controller wiring, rotation and metering aggregation
+28 $78.00 $2,184.00
+programming
+Factory test: performance, sub-meter calibration, Modbus
+14 $68.00 $952.00
+verification
+Crating and export preparation 8 $58.00 $464.00
+SUBTOTAL — LABOR & FABRICATION $13,730.00
+4. PRICING SUMMARY
+Materials Subtotal $66,490.00
+Labor & Fabrication Subtotal $13,730.00
+Overhead (18% of Materials + Labor) $14,439.60
+Pre-Margin Subtotal $94,659.60
+Gross Margin (22%) $26,698.86
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $121,358.46
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 2 weeks from purchase order
+Procurement: 4 weeks — revenue-grade sub-meters on 3-week lead
+Fabrication & Assembly: 3 weeks
+Factory Test: 1 week — sub-meter calibration and Modbus register verification included
+Total Lead Time: 10 weeks from purchase order
+Shipping: FCA TMI Montreal; customer arranges Nashville freight
+Key Dependencies: Modbus TCP register map for customer's DCIM platform required Week 2
+6. COMMERCIAL TERMS
+Payment Terms: 30% with purchase order; 40% factory readiness; 30% net 30 from ship
+Warranty: 18 months from ship or 12 months from commissioning — includes sub-meter calibration
+certificate
+Sub-meter Accuracy: Class 0.5S per IEC 62053-22; calibration certificate issued with each unit
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, DCIM software, Modbus gateway hardware, freight
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Nashville ASHRAE 0.4% cooling design: 36°C DB / 24°C WB. The 24°C WB creates a seasonal latent load limited primarily to June
+through September. The dual-circuit coil handles this load without requiring the deep-dehumidification coil geometry demanded by
+tropical climates.
+(cid:127) Revenue-grade sub-metering at Class 0.5S accuracy: in a carrier-neutral colocation environment, cooling energy metering is a
+billing instrument. Class 0.5S means accuracy within +/- 0.5% of reading across the operating load range. TMI sources sub-meters
+from manufacturers with a minimum 10-year field reliability record; substituting a lower-cost meter risks billing disputes and
+unexpected replacement costs within the equipment service life.
+(cid:127) Dual-circuit simultaneous operation: running both circuits at 60% speed simultaneously rather than cycling one at 100% and one off
+produces a lower evaporator coil surface temperature across the full fin face area, deepening dew-point depression and removing
+more moisture per unit of cooling energy — a subtle but measurable advantage when humidity management matters seasonally.
+(cid:127) BAFO analysis: TMI's BAFO reduction of 4.1% represented the full scope achievable through procurement optimisation at current
+production volume. Further reduction would have required either a margin concession below TMI's floor or component substitution
+that TMI's quality standards did not permit.
+(cid:127) EC motor qualification: TMI qualifies EC fan motors on a 10-year mean-time-between-failure dataset from North American
+deployments. Motors without this dataset are not accepted into the TMI supply chain regardless of price, as EC motor failures in data
+centre cooling applications generate disproportionate service costs relative to the original component cost savings.
+Critical design decision: The critical design decision on this project was integrating Class 0.5S revenue-grade sub-metering at the
+factory rather than treating it as a field-installed accessory — ensuring the Modbus register map, calibration certificate, and DCIM
+integration are verified before the equipment ships and eliminating the commissioning-stage integration failures that commonly arise
+when metering hardware is sourced and installed independently of the cooling unit manufacturer.
+OUTCOME: LOST
+Lost on price after a best-and-final-offer process. TMI submitted a BAFO 4.1% below the initial quotation, representing the full
+savings achievable without margin compression. The competitor's BAFO came in 6.8% below TMI's revised price. Post-award
+feedback indicated the competitor had sourced EC condenser fan assemblies from a lower-cost supplier — a substitution TMI was
+unwilling to make given the 10-year field reliability threshold TMI requires for EC motor qualification.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

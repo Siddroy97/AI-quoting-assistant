@@ -1,0 +1,131 @@
+Quote No.: TMI-Q-2023-016
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-06-12
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-07-11
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: Laurentian Digital Infrastructure Inc.
+Project Name: Toronto Data Centre Campus — Hall C Cooling Expansion
+Site Location: Toronto, ON, Canada
+Contact: Michelle Beaulieu, Director of Facilities
+Application: Canadian multi-tenant DC — chilled water AHU, N+1, domestic supply, bilingual
+documentation, parts commonality with Halls A and B
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 600 kW sensible — CHW supply 7°C / return 14°C, entering air 23°C DB / 50% RH. Three (3) chilled water AHUs
+at 300 kW sensible each, N+1: two active, one standby on 168-hour auto-rotation.
+Configuration: Floor-mounted chilled water AHUs, raised-floor supply, ceiling return. This Hall C expansion is mechanically consistent
+with Halls A and B at the same facility; unit dimensions, CHW pipe connection sizes, and BACnet point map are matched to the
+existing installation to allow the customer's single-person facilities team to operate all three halls with the same maintenance
+procedures and spare parts inventory.
+Cooling coil: 8-row, 12 fins per inch, aluminium-fin copper-tube; face area 1,600 mm x 1,100 mm; CHW supply 7°C / return 14°C.
+Standard delta-T coil matched precisely to Hall A and B specification.
+Cold-climate winter package: glycol pre-heat valve on CHW coil water connections — opens when entering air temperature falls
+below 4°C to circulate warm glycol through the coil header stubs, preventing freezing during building pressurisation events in
+Toronto's -23°C winter design. A glycol supply pressure sensor is wired to an alarm relay that alerts the BMS if glycol pressure drops
+below 50 kPa.
+Fan section: two (2) backward-curved EC plenum fans per unit, 30,000 CFM at 0.75 in. w.g., variable-speed drives. Fan selection
+matched to Hall A and B for parts commonality — identical fan wheel diameter, VSD model, and motor frame.
+Controls: N+1 group controller, BACnet IP. BACnet point map is identical to Halls A and B, allowing the customer's existing BMS to
+monitor Hall C without software reconfiguration. Bilingual English/French alarm message text — all alarm descriptors appear in both
+languages in the controller HMI and in the BACnet alarm log, consistent with Ontario bilingual requirements for commercial facilities.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated, arctic-grade polyurethane seals on all door and panel joints.
+Consistent with Hall A and B specification.
+Documentation: complete O&M; manuals, as-built drawings, and commissioning records in bilingual English/French format per
+Ontario provincial standard. CSA C22.2 electrical certification included as standard for Canadian market.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW coil, 8-row, 12 FPI, 1600x1100mm — matched to Hall A/B
+3 ea $7,200.00 $21,600.00
+spec
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Backward-curved EC plenum fan, 30,000 CFM (x2 per unit) —
+6 ea $3,200.00 $19,200.00
+Hall A/B match
+EC motor, 18.5 kW, integrated VSD — Hall A/B model 6 ea $2,800.00 $16,800.00
+2-way CHW valve, 3-inch, modulating, spring-return 3 ea $880.00 $2,640.00
+Glycol pre-heat valve and glycol supply pressure sensor, per unit 3 set $540.00 $1,620.00
+N+1 group controller, BACnet IP, bilingual EN/FR alarms, Hall A/B
+1 ea $4,200.00 $4,200.00
+point map
+MERV-11 filter rack, 8 filters per unit — Hall A/B specification 3 ea $520.00 $1,560.00
+100 mm double-wall insulated cabinet, arctic-grade seals, per unit 3 set $5,800.00 $17,400.00
+Condensate drain pan, stainless, per unit 3 ea $580.00 $1,740.00
+Bilingual O&M; documentation package, CSA C22.2 electrical
+1 set $1,800.00 $1,800.00
+cert.
+SUBTOTAL — MATERIALS $88,560.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, arctic-seal assembly matched to Hall
+140 $65.00 $9,100.00
+A/B spec, 3-unit
+Coil installation, glycol pre-heat valve, hydraulic test 44 $72.00 $3,168.00
+EC fan and motor installation, VSD setup 30 $72.00 $2,160.00
+Group controller wiring, bilingual HMI programming, Hall A/B
+32 $78.00 $2,496.00
+map load
+Factory test including cold-start and glycol valve simulation 16 $68.00 $1,088.00
+Domestic Canadian crating and freight preparation 12 $55.00 $660.00
+SUBTOTAL — LABOR & FABRICATION $18,672.00
+4. PRICING SUMMARY
+Materials Subtotal $88,560.00
+Labor & Fabrication Subtotal $18,672.00
+Overhead (18% of Materials + Labor) $19,301.76
+Pre-Margin Subtotal $126,533.76
+Gross Margin (22%) $35,689.01
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $162,222.77
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 3 weeks — BACnet point map verification against Hall A/B baseline included
+Procurement: 4 weeks — domestic Canadian coil supplier; no import lead time or customs clearance
+Fabrication & Assembly: 4 weeks
+Factory Test: 1 week — glycol valve simulation and bilingual HMI verification included
+Total Lead Time: 12 weeks from purchase order — domestic Canadian schedule
+Shipping: DAP Toronto Hall C loading dock — TMI arranges domestic freight; cost included in quoted
+price
+Key Dependencies: CHW glycol concentration and supply pressure at unit connection point required Week 2; Hall
+C ceiling height and floor plenum depth for compatibility check Week 1
+6. COMMERCIAL TERMS
+Payment Terms: 30% with purchase order; 40% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship or 18 months from commissioning — glycol pre-heat valve assembly
+included under standard warranty
+Delivery Terms: DAP Toronto Hall C loading dock — domestic freight included in quoted price (Canadian
+delivery only)
+Currency: Canadian Dollars (CAD) — no foreign exchange risk; no import duties on
+Canadian-fabricated equipment
+Domestic Content: TMI certifies greater than 85% Canadian-origin content by value, qualifying for Ontario
+domestic procurement preference
+Exclusions: Unloading from truck, rigging and placement within the building, installation, commissioning,
+CHW plant, electrical service
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Toronto ASHRAE 99.6% winter design: -23°C DB. The glycol pre-heat valve is the critical cold-weather protection feature. Without
+it, a loss of CHW plant flow during a winter pressurisation event can allow the coil water to freeze within 15 minutes at -23°C entering
+air. The valve opens automatically below 4°C entering air, circulating heating glycol regardless of CHW valve position.
+(cid:127) Parts commonality with Halls A and B: the Hall C units use identical coil face dimensions, fan wheel dimensions, VSD model, CHW
+valve size, and filter frame dimensions to Halls A and B. A single set of critical spare parts — one complete fan/motor assembly, one
+VSD unit, one CHW valve with actuator — covers all three halls. The customer currently maintains this spare parts kit for Halls A and
+B and confirmed no incremental spares investment is required for Hall C.
+(cid:127) Bilingual alarm messages: all alarm text in the BACnet controller HMI is stored in both English and French in the controller's
+non-volatile memory. The display language toggles via a front-panel setting; the BACnet alarm log transmits both language strings
+simultaneously. This feature is standard on all TMI units for the Canadian market and adds no cost.
+(cid:127) CSA C22.2 certification: all electrical panels within the unit are constructed to CSA C22.2 No. 236 for equipment installed in
+Canada. CSA certification is required by the Ontario Building Code for mechanical equipment with factory-assembled electrical
+panels. TMI's CSA certification is current and transferable to the customer's building permit.
+(cid:127) DAP Toronto delivery: TMI's domestic freight rate to the Greater Toronto Area is based on a contracted carrier arrangement with a
+Montreal-to-Toronto specialist. Delivery is door-to-door to the specified loading dock address; unloading is the customer's
+responsibility. DAP delivery eliminates the need for the customer to source a separate freight carrier.
+Critical design decision: The critical design decision on this project was matching the Hall C unit specification precisely to the
+existing Hall A and B installation — coil dimensions, fan assembly, VSD model, CHW valve size, BACnet point map, and filter frame
+— rather than optimising each parameter independently, because the operational value of a shared spare-parts inventory and a
+maintenance team already trained on this exact equipment configuration is greater than the incremental efficiency gains available
+from a re-optimised selection.
+OUTCOME: WON
+Awarded on the basis of TMI's domestic Canadian manufacturing advantage. The customer's procurement policy gives preference to
+Canadian-origin suppliers where technical specifications are comparable. TMI's Montreal fabrication facility produces equipment with
+greater than 85% Canadian-origin content by value, qualifying for domestic procurement preference. The total cost of ownership
+analysis also reflected the absence of Canada-US import duties and the elimination of cross-border logistics complexity on a
+programme where delivery timing was a critical path constraint for the customer's tenant onboarding schedule.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

@@ -1,0 +1,133 @@
+Quote No.: TMI-Q-2023-014
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-02-07
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-03-08
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: SunCoast Data Infrastructure LLC
+Project Name: Miami Tier-2 Data Centre — Building B Cooling
+Site Location: Miami, FL, USA
+Contact: Carlos Romero, Chief Operating Officer
+Application: Tropical-climate data centre — chilled water AHU, N+1, enhanced dehumidification,
+corrosion-resistant construction
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 1,400 kW sensible with 420 kW latent removal — Miami wet-season design conditions, outdoor DB 34°C / WB
+27°C, entering air 26°C DB / 65% RH. Four (4) large AHUs at 450 kW sensible each, N+1: three active, one standby on 168-hour
+rotation. Miami's 27°C WB is among the highest in the continental US and creates a dominant latent load that governs the coil
+selection more than the sensible load alone.
+Cooling coil — enhanced deep dehumidification: 10-row, 14 fins per inch, aluminium-fin copper-tube; face area 2,200 mm x 1,500
+mm; CHW supply 6°C / return 12°C. This configuration achieves a leaving air condition of 12°C DB / 10°C DP. The 10°C DP is 2°C
+below the space dew-point target of 12°C DP, providing a buffer for CHW supply temperature variation. A standard 8-row coil at 7°C
+supply would leave air at 13°C DP — insufficient to offset Miami's 65% RH entering air.
+Corrosion protection — epoxy-coated coil fins: aluminium fins are coated with a 25-micron epoxy polymer before assembly into the
+coil matrix. This coating prevents the salt-accelerated oxidation reaction that causes pitting corrosion on uncoated fins in coastal
+environments. TMI's Miami reference installations with epoxy fins show no measurable fin erosion at 7-year inspection; uncoated
+aluminium fins in the same environment showed 15 to 20% fin loss within 4 years.
+Corrosion protection — e-coat cabinet interior: all interior cabinet steel surfaces are treated with an electro-deposited polyurethane
+coating before assembly. E-coat provides a uniform 20-micron film on recessed areas, weld seams, and formed edges where
+spray-applied coatings do not penetrate. E-coat interior plus powder-coat exterior is the minimum corrosion protection standard TMI
+specifies for coastal installations.
+Condensate management: stainless steel drain pan per unit with capacity of 1.2 litres per minute — sized for maximum condensate
+generation at 65% RH entering air and 10°C leaving dew-point. Float switch and overflow alarm on each pan.
+Fan section: three (3) backward-curved EC fans per unit, 58,000 CFM, variable-speed drives. Tropical-rated Class H insulation motor
+windings — standard Class F windings are susceptible to moisture penetration in sustained high-RH environments.
+Controls: N+1 group controller, BACnet IP, dew-point control with 0.5°C resolution sensors. Dew-point high alarm at 13°C DP; group
+controller calls standby unit if any active unit cannot maintain supply dew-point within 0.5°C of setpoint for more than 10 minutes.
+Filtration: 4-inch MERV-13 with moisture-resistant polyester media. Standard cellulose MERV-13 media collapses when saturated
+with condensation during high-humidity start-up events; polyester media retains structural integrity when wet.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW dehumid. coil, 10-row, 14 FPI, 2200x1500mm, epoxy-coated
+4 ea $16,400.00 $65,600.00
+fins
+EC plenum fan, 58,000 CFM, tropical Class H motor (x3 per unit) 12 ea $4,600.00 $55,200.00
+EC motor, 30 kW, VSD, tropical Class H winding 12 ea $4,400.00 $52,800.00
+4-inch modulating CHW valve, 6-inch pipe 4 ea $1,750.00 $7,000.00
+E-coat interior treatment, full cabinet, per unit 4 set $2,200.00 $8,800.00
+Stainless steel condensate drain pan, 1.2 L/min capacity, per unit 4 ea $1,100.00 $4,400.00
+MERV-13 polyester moisture-resistant filter rack, per unit 4 ea $720.00 $2,880.00
+Dew-point sensor, 0.5°C resolution, supply air, per unit 4 ea $420.00 $1,680.00
+N+1 group controller, BACnet IP, dew-point logic, 5-unit capacity 1 ea $5,000.00 $5,000.00
+Tropical-grade cabinet seals and door gaskets, per unit 4 set $380.00 $1,520.00
+100 mm double-wall insulated cabinet, e-coat interior, per unit 4 set $8,500.00 $34,000.00
+Condensate overflow alarm, relay, per unit 4 ea $310.00 $1,240.00
+SUBTOTAL — MATERIALS $240,120.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, e-coat treatment, tropical assembly,
+220 $65.00 $14,300.00
+4-unit
+Epoxy-fin coil installation, visual inspection, hydraulic test 60 $72.00 $4,320.00
+Tropical motor installation, Class H winding verification,
+48 $72.00 $3,456.00
+vibration check
+Dew-point control system wiring, 0.5°C sensor calibration 32 $78.00 $2,496.00
+Factory dehumidification performance test at simulated 65%
+24 $68.00 $1,632.00
+RH inlet
+Anti-humidity sea-freight packaging and crating 20 $60.00 $1,200.00
+SUBTOTAL — LABOR & FABRICATION $27,404.00
+4. PRICING SUMMARY
+Materials Subtotal $240,120.00
+Labor & Fabrication Subtotal $27,404.00
+Overhead (18% of Materials + Labor) $48,154.32
+Pre-Margin Subtotal $315,678.32
+Gross Margin (22%) $89,037.47
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $404,715.79
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 3 weeks from purchase order
+Procurement: 7 weeks — epoxy-fin 10-row coils and tropical Class H motors on 6-week fabrication lead
+Fabrication & Assembly: 5 weeks
+Factory Test: 2 weeks — includes dehumidification performance test at simulated 65% RH entering air
+Total Lead Time: 17 weeks from purchase order
+Shipping: FCA Montreal; sea freight recommended for Miami given oversized unit dimensions;
+anti-humidity packaging included
+Key Dependencies: CHW supply temperature confirmation at 6°C required Week 2; positive-pressure mechanical
+room design drawings required Week 3
+6. COMMERCIAL TERMS
+Payment Terms: 25% with purchase order; 45% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship — includes corrosion protection integrity guarantee on epoxy fin coating
+and e-coat interior. If epoxy fin coating shows greater than 5% delamination within 24 months
+of commissioning, TMI will replace affected coil sections at no charge.
+Performance Guarantee: 450 kW sensible / 105 kW latent per unit at 6°C CHW supply, 26°C/65% RH entering air,
+confirmed at factory test
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, electrical, freight, customs, mechanical room
+pressurisation system
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Miami ASHRAE 0.4% cooling design: 34°C DB / 27°C WB. The 27°C WB is the design driver. At 27°C WB, outdoor air moisture
+content is approximately 18.5 g/kg — one of the highest in any major US market. Inside the data hall, equipment heat generation
+keeps relative humidity below 50% at typical air change rates, but any infiltration pathway from the exterior introduces this
+high-moisture air directly into the IT space.
+(cid:127) Dew-point control at 10°C DP: the coil surface temperature at 6°C CHW supply is approximately 8°C. Moist entering air contacts the
+fin surface at 8°C — well below its dew-point of approximately 16°C at 65% RH — and moisture condenses aggressively on the first
+two rows of the 10-row coil. The remaining 8 rows provide sensible cooling of the now-drier air. This condensation-forward design is
+correct for a high-latent tropical load; it would not be appropriate for a dry Southwest climate.
+(cid:127) Epoxy fin coating durability: TMI's field data from Miami and Fort Lauderdale reference installations shows that epoxy-coated fins at
+year 7 post-installation have a fin metal loss of less than 2% versus 15 to 20% for uncoated aluminium in the same buildings. The
+differential is driven by salt aerosol concentration in Miami's marine air mass, which is approximately 3 to 4 times higher than a
+non-coastal urban environment.
+(cid:127) MERV-13 polyester media: standard cellulose MERV-13 filter media becomes structurally compromised when relative humidity at
+the filter face exceeds 90% during building start-up after a weekend shutdown. Polyester media retains its structural geometry when
+wet, maintaining design pressure drop and particle capture efficiency. The cost premium over cellulose MERV-13 is approximately
+CAD 45 per filter change.
+(cid:127) CHW supply at 6°C is critical for achieving the 10°C leaving dew-point. If CHW supply rises above 7°C, the dew-point control target
+cannot be maintained and condensation risk on IT equipment increases. The customer's chiller plant setpoint must hold 6°C under
+peak load; this constraint was communicated to the customer's mechanical engineer.
+Critical design decision: The critical design decision on this project was pairing the 10-row, 14 FPI deep dehumidification coil at
+6°C/12°C CHW delta-T with epoxy fin coating and e-coat cabinet interior — treating the Miami corrosion environment as a primary
+design constraint equal in importance to the thermal design — because the thermal performance of a TMI standard unit in Miami
+would degrade below specified capacity within 4 years as uncoated aluminium fins corrode and their effective heat transfer area is
+reduced.
+OUTCOME: WON
+Awarded on technical merit. TMI's tropical-climate engineering package — specifically the epoxy-coated coil fins, e-coat cabinet
+interior, and deep dehumidification coil configuration — directly addressed the customer's documented history of corrosion-related
+coil failures and humidity excursions at their existing Miami facility. Competing bids offered standard construction with no
+tropical-specific provisions. The customer's facilities director indicated that the cost of two previous coil replacements at the existing
+site exceeded the price premium of TMI's tropical package.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

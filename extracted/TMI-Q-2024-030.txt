@@ -1,0 +1,138 @@
+Quote No.: TMI-Q-2024-030
+Revision: Rev 1
+TMI CLIMATE SOLUTIONS
+Issue Date: 2024-03-25
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2024-04-23
+Prepared by: Daniel Rousseau
+QUOTATION
+Customer: Dominion Digital Infrastructure LLC
+Project Name: Ashburn Campus-Wide Cooling — All Phases, Master Programme
+Site Location: Ashburn, VA, USA
+Contact: James Holloway, EVP Infrastructure
+Application: Hyperscale campus — chilled water AHU, Tier 4 2N, campus-wide programme, 24 units four
+buildings, price lock
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 7,500 kW sensible — four-building campus, all phases, under a single master purchase agreement. Twenty-four
+(24) large chilled water AHUs at 375 kW each, deployed as Tier 4 2N across four buildings: six active plus six standby per building,
+with each standby unit paired to mirror one specific active unit.
+Master programme architecture: all 24 units share identical coil specification, fan and motor assembly, VSD model, CHW valve size,
+BACnet point map, and filter frame. This campus-wide parts commonality means a single critical spare parts kit covers the entire
+four-building campus — 2 fan/motor assemblies, 4 VSDs, 6 CHW valves with actuators, 1 controller PCB. No building-specific spares
+inventory is required.
+Cooling coil: 8-row, 12 fins per inch, aluminium-fin copper-tube; dual A and B CHW circuits per unit; face area 2,000 mm x 1,350 mm;
+CHW supply 7°C / return 14°C. Waterside economiser per unit: free-cooling active when outdoor WB is below 10°C — approximately
+2,800 hours per year in Northern Virginia.
+Fan section: three (3) EC backward-curved fans per unit, 42,000 CFM total, dual-power-feed motor connections for 2N electrical path
+compliance.
+2N changeover valve: spring-return fail-to-Plant-A, 5-second switchover. Identical valve specification across all 24 units for parts
+commonality.
+Controls: building-level 2N dual-processor group controllers (four buildings, one controller per building); BACnet IP; DCIM API with
+campus-level aggregation to a campus energy dashboard. The dashboard provides building-level and campus-level kWh, PUE, and
+cooling efficiency metrics. Dashboard licence is included for 3 years.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated; seismic SDC B per ASCE 7-22 for Northern Virginia.
+Filtration: 4-inch MERV-13 with MERV-8 pre-filter, redundant dual-track for online replacement. Identical filter specification across all
+24 units.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW dual-circuit coil, 8-row, 12 FPI, 2000x1350mm, A+B headers 24 ea $16,500.00 $396,000.00
+Backward-curved EC fan, 42,000 CFM, dual-power-feed (x3 per
+72 ea $4,800.00 $345,600.00
+unit)
+EC motor, 22 kW, VSD, dual-feed harness — campus standard 72 ea $4,200.00 $302,400.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+2N CHW changeover valve, spring-return fail-to-A, 4-inch —
+24 ea $3,400.00 $81,600.00
+campus standard
+Waterside economiser valve and actuator, per unit 24 ea $1,700.00 $40,800.00
+Building-level 2N dual-processor group controller, 4 buildings 4 ea $16,000.00 $64,000.00
+Campus energy dashboard module, 3-year licence 1 ea $22,000.00 $22,000.00
+MERV-13 + MERV-8 dual-track filter rack — campus standard,
+24 ea $1,400.00 $33,600.00
+per unit
+100 mm double-wall insulated cabinet, SDC B seismic, per unit 24 set $11,200.00 $268,800.00
+Power metering, dual-feed, campus protocol, per unit 24 ea $480.00 $11,520.00
+Campus-wide critical spare parts kit — 18-month programme 1 set $68,000.00 $68,000.00
+Condensate drain system, per unit 24 ea $720.00 $17,280.00
+SUBTOTAL — MATERIALS $1,651,600.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, 2N dual-circuit SDC B assembly, 24-unit 1440 $65.00 $93,600.00
+Dual-circuit coil installation, hydraulic test A+B (x24 units) 360 $75.00 $27,000.00
+Fan, dual-power-feed motor installation (x72 fans) 252 $72.00 $18,144.00
+CHW changeover valve installation and 5-second failsafe
+120 $78.00 $9,360.00
+test, 24 units
+Building controller wiring, DCIM API, campus dashboard
+160 $78.00 $12,480.00
+integration
+Tier 4 2N factory simulation test, phased by building 96 $85.00 $8,160.00
+Campus programme management, phased delivery
+80 $82.00 $6,560.00
+coordination
+Crating and phased export preparation, 4 delivery phases 80 $60.00 $4,800.00
+SUBTOTAL — LABOR & FABRICATION $180,104.00
+4. PRICING SUMMARY
+Materials Subtotal $1,651,600.00
+Labor & Fabrication Subtotal $180,104.00
+Overhead (18% of Materials + Labor) $329,706.72
+Pre-Margin Subtotal $2,161,410.72
+Gross Margin (22%) $609,628.66
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $2,771,039.38
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 5 weeks from master purchase agreement execution
+Procurement: 9 weeks — dual-circuit coils and dual-feed motors; volume campus order placed
+simultaneously
+Fabrication: Continuous production schedule, Buildings 1-4 staggered
+Building 1 Delivery: 22 weeks from master purchase agreement
+Building 2 Delivery: 26 weeks from master purchase agreement
+Building 3 Delivery: 30 weeks from master purchase agreement
+Building 4 Delivery: 34 weeks from master purchase agreement
+Shipping: FCA Montreal per building delivery; customer arranges freight and rigging
+Key Dependencies: Building-specific CHW schematics required 4 weeks before each delivery phase
+6. COMMERCIAL TERMS
+Payment Terms: 15% with master purchase agreement; 15% engineering completion; 20% per building at
+factory readiness (x4 buildings); 10% net 30 after each building commissioning sign-off
+Price Lock: All 24 units are priced under the master agreement; pricing is fixed for 18 months from
+agreement date — no material escalation clauses
+Warranty: 48 months from commissioning — campus warranty; all 24 units covered under a single
+warranty document
+Tier 4 2N Guarantee: Zero cooling interruption through dual-fault scenario; guaranteed per building at factory
+witness test before each delivery
+Delivery Terms: FCA TMI Montreal (Incoterms 2020) per building delivery
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plants, electrical dual-feeds, freight, rigging, DCIM licences
+beyond dashboard
+Quote Validity: 30 days from issue date; master purchase agreement validity 18 months
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Campus-wide parts commonality: all 24 units across four buildings share the same coil specification, fan/motor assembly, VSD,
+CHW valve, and controller module. A single campus-wide critical spare parts kit covers every unit in the programme; no
+building-specific spares inventory is required. This consolidation reduces annual spares carrying cost by approximately CAD 18,000
+per year versus a building-by-building independent spares strategy.
+(cid:127) Waterside economiser at 2,800 annual hours: at 24 active units, campus-wide annual economiser energy saving is approximately
+24 x 180 MWh = 4,320 MWh per year. At Northern Virginia grid electricity rates, this represents approximately USD 345,000 in
+annual avoided energy cost — meaningful at the CFO level.
+(cid:127) Price lock value: TMI's 18-month price lock eliminates the procurement risk associated with steel, aluminium, and copper price
+volatility, which can move coil and cabinet costs by 8 to 15% over an 18-month period. The customer's CFO valued this price
+certainty at approximately USD 2.1 million versus the expected cost of escalation clauses in competing building-by-building
+quotations.
+(cid:127) Northern Virginia reference: TMI has 28 units currently in service across three NoVA installations — Leesburg Data Park (2020, 6
+units), Manassas Carrier Hotel (2021, 4 units), and Loudoun Campus Block 1 (2022, 8 units) — with zero warranty claims filed to
+date. All three reference facilities have experienced summer peak ambient events reaching 36°C DB and winter events below -5°C
+without a unit fault.
+(cid:127) Campus energy dashboard: the dashboard aggregates kWh, PUE, and cooling efficiency metrics from all four buildings via BACnet
+IP. Building-level PUE is calculated in real time from the integrated power meters on each AHU plus the CHW plant power data feed
+(customer to provide plant feed). The dashboard is TMI's proprietary tool; a 3-year licence is included in the quoted price.
+Critical design decision: The critical design decision on this project was specifying identical equipment across all 24 units in all four
+buildings — using the same coil dimensions, fan assembly, VSD model, CHW valve, and filter frame throughout the campus — rather
+than optimising each building's specification independently, because the operational value of a single campus-wide critical spare
+parts kit, a maintenance team trained on one equipment configuration, and an 18-month price lock on a standardised BOM exceeds
+the incremental efficiency gains available from per-building re-optimisation.
+OUTCOME: WON
+A single-vendor campus-wide programme structure — locking in pricing, lead times, and spare parts commonality across all four
+buildings under one master purchase agreement — combined with TMI's Northern Virginia track record of 28 units in service without
+a warranty claim, made a total-cost-of-ownership case that the customer's board approved unanimously. The competing proposals
+were building-by-building quotations without price lock commitments; the customer's CFO valued the 18-month price certainty at
+approximately USD 2.1 million in avoided procurement risk.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

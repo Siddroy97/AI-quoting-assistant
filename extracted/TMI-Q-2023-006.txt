@@ -1,0 +1,116 @@
+Quote No.: TMI-Q-2023-006
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-01-25
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-02-24
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: Lone Star Data Centres LLC
+Project Name: Austin Tier-1 Data Hall — Phase 2 Cooling
+Site Location: Austin, TX, USA
+Contact: Kyle Brandt, VP Operations
+Application: Enterprise data hall — air-cooled split DX rooftop, N+1 redundancy, raised-floor supply
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 380 kW sensible at Austin design conditions — outdoor DB 40°C / WB 24°C, entering air 24°C DB / 50% RH. Three
+(3) roof-mounted split DX units at 190 kW each, N+1: two active units carry the 380 kW load while the third rotates on a 240-hour
+auto-standby cycle.
+Configuration: Roof-mounted split DX precision cooling units with indoor evaporator sections floor-mounted for underfloor supply
+through raised floor plenum at 0.07 in. w.g. static, overhead return. Remote condenser sections are roof-mounted on structural curbs
+with 50 mm thermal-break seals to limit radiant heat gain through the roof interface during Austin's extended high-ambient season.
+Refrigerant circuit: R-410A, high-capacity dual-circuit scroll compressor arrangement per unit, 8-row aluminium-fin copper-tube
+evaporator coil at 12 FPI. The 8-row coil depth is specified over the more common 6-row because Austin's 24°C WB design condition
+imposes a meaningful latent load; the additional coil rows deepen the fin temperature depression and improve moisture removal at
+part-load.
+Condensing: Remote air-cooled condenser, EC fans with variable-speed head-pressure control, roof-mounted, one per indoor unit.
+Condenser coil face area includes a 12% oversizing buffer relative to the calculated minimum at 40°C ambient, preventing
+condensing pressure from approaching the high-pressure lockout threshold during multi-day heat events when Austin outdoor DB
+can sustain 42°C for 24 to 48 hours.
+Airflow: 18,000 CFM per unit at 0.07 in. w.g. underfloor plenum static. Backward-curved plug fan, direct-drive EC motor, variable
+speed. N+1 group controller coordinates fan speed across active units to maintain balanced underfloor pressure distribution.
+Controls: N+1 group controller, BACnet IP, 240-hour auto-rotation, auto-failover on unit fault within 20 seconds. Return-air dew-point
+monitoring; high dew-point alarm at 14°C DP forwarded to BMS.
+Cabinet: 14-gauge galvanised steel, 75 mm double-wall insulated. Thermal-break roof curb per unit.
+Filtration: 4-inch MERV-11 with differential pressure monitoring. Austin cedar pollen (December–February) and oak pollen
+(March–April) seasons accelerate filter loading; estimated replacement interval 8 weeks during pollen seasons versus 14 weeks
+otherwise.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+DX split precision cooling unit, 190 kW, 8-row coil, floor-mount 3 ea $13,500.00 $40,500.00
+Remote air-cooled condenser, 12% oversized face area, EC fans 3 ea $5,800.00 $17,400.00
+R-410A refrigerant charge, approx. 18 kg per dual-circuit unit 3 charge $620.00 $1,860.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+N+1 group controller, BACnet IP, 240-hr rotation, 4-unit capacity 1 ea $3,200.00 $3,200.00
+Return-air dew-point sensor, per unit 3 ea $260.00 $780.00
+Thermal-break roof curb, galvanised, per unit 3 ea $680.00 $2,040.00
+Differential pressure filter monitor and alarm relay, per unit 3 ea $185.00 $555.00
+Refrigerant line set, pre-insulated, per dual-circuit unit 3 set $720.00 $2,160.00
+Condensate pump and drain pan, stainless steel, per unit 3 ea $390.00 $1,170.00
+Wiring harness, control and power, per unit 3 set $340.00 $1,020.00
+SUBTOTAL — MATERIALS $70,685.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, 3-unit batch with thermal-break curbs 95 $65.00 $6,175.00
+8-row coil and dual-circuit compressor assembly, leak test 40 $75.00 $3,000.00
+N+1 controller installation, rotation and failover
+28 $78.00 $2,184.00
+programming
+Dew-point sensor and differential pressure system wiring 16 $72.00 $1,152.00
+Factory performance test, 3-unit N+1 simulation at 40°C 14 $68.00 $952.00
+Crating and export preparation 10 $58.00 $580.00
+SUBTOTAL — LABOR & FABRICATION $14,043.00
+4. PRICING SUMMARY
+Materials Subtotal $70,685.00
+Labor & Fabrication Subtotal $14,043.00
+Overhead (18% of Materials + Labor) $15,251.04
+Pre-Margin Subtotal $99,979.04
+Gross Margin (22%) $28,199.22
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $128,178.26
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 2 weeks from purchase order
+Procurement: 4 weeks — 8-row dual-circuit coils on 3-week fabrication lead
+Fabrication & Assembly: 3 weeks
+Factory Test: 1 week — includes 40°C ambient simulation and N+1 failover verification
+Total Lead Time: 10 weeks from purchase order
+Shipping: FCA TMI Montreal; customer arranges Austin freight
+Key Dependencies: Underfloor plenum static pressure and return-air ceiling height required Week 2
+6. COMMERCIAL TERMS
+Payment Terms: 30% with purchase order; 40% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship or 18 months from commissioning. Enhanced warranty includes one
+scroll compressor replacement per unit and one full refrigerant recharge per unit within the
+warranty period at no charge. Labour for these events is excluded unless a TMI service
+contract is active.
+Performance Guarantee: 190 kW sensible per unit at 40°C outdoor DB / 24°C WB confirmed at factory test;
+performance certificate issued with equipment
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Field installation, commissioning, electrical service, freight, customs
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Austin ASHRAE 0.4% cooling design: 40°C DB / 24°C WB. The 24°C WB is the key coil selection driver. At 24°C WB the outdoor
+moisture content is approximately 15.5 g/kg, imposing a latent load on the data hall through infiltration around raised-floor cutouts
+and door seals. The 8-row coil improves latent removal by lowering the fin surface temperature below the entering air dew point
+across a greater fin depth.
+(cid:127) Condenser face area buffer of 12%: Austin's high-ambient season (May through September) means the condenser operates near
+its design limit for approximately 1,800 hours per year. Without a buffer, partial fin fouling or a single failed EC fan motor would push
+head pressure into the high-pressure lockout band.
+(cid:127) 240-hour rotation interval was selected over the more common 168-hour cycle because the customer operates lights-out with
+remote monitoring only. A 240-hour interval reduces automatic standby-to-active transitions by 30%, lowering compressor start-up
+stress cycles while maintaining adequate run-hour equalisation.
+(cid:127) Enhanced warranty rationale: scroll compressors in Texas climate zones experience higher thermal cycling stress from Austin's
+combination of prolonged high-ambient operation and significant winter shutdown periods. The compressor replacement provision
+addresses the statistical mode of failure for this climate class.
+(cid:127) Refrigerant recharge provision covers the most common field service call in the 3 to 5 year post-commissioning period, when
+refrigerant migration through Schrader valve cores and flare fittings becomes detectable — eliminating a predictable near-term
+operating cost from the customer's budget.
+Critical design decision: The critical design decision on this project was specifying an 8-row evaporator coil depth rather than the
+standard 6-row, and pairing it with a 12% oversized condenser face area — a combination that increases material cost by
+approximately CAD 2,800 per unit but is the minimum specification to guarantee both adequate latent removal at Austin's 24°C WB
+design condition and stable head pressure during the sustained 38°C-plus events that define Austin's summer thermal profile.
+OUTCOME: WON
+Awarded on the basis of the 24-month enhanced warranty package, specifically the inclusion of one compressor replacement and
+one refrigerant recharge event per unit within the warranty period at no additional charge. Two competing bids were technically
+comparable with standard 18-month parts-only warranties. The customer's procurement committee scored warranty coverage as a
+separate weighted criterion and TMI's extended coverage broke the technical tie.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

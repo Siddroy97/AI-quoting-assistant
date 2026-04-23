@@ -1,0 +1,127 @@
+Quote No.: TMI-Q-2023-008
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-05-22
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-06-21
+Prepared by: Daniel Rousseau
+QUOTATION
+Customer: Harbor Light Data Services Inc.
+Project Name: Boston Financial District Data Centre — Room 3
+Site Location: Boston, MA, USA
+Contact: Patricia Haines, Facilities Engineer
+Application: Financial services data room — air-cooled split DX precision cooling, N+1, seismic restraint
+SDC B, MERV-13
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 300 kW sensible at Boston design conditions — outdoor DB 33°C / WB 23°C, entering air 23°C DB / 50% RH.
+Three (3) floor-mounted units at 150 kW each, N+1: two active units carrying 300 kW, one unit on auto-standby with 15-second
+failover.
+Configuration: Floor-mounted split DX precision cooling units, underfloor supply through raised-floor plenum, overhead hot-return.
+Remote air-cooled condenser sections, roof-mounted, one per indoor unit. Seismic restraint provisions per ASCE 7-22 for Boston
+Seismic Design Category B — all units supplied with certified four-point floor anchor brackets and a seismic restraint calculation
+package for submission to the Massachusetts AHJ.
+Refrigerant circuit: R-410A, dual-circuit scroll compressors per unit, 6-row aluminium-fin copper-tube evaporator coil. Dual circuits
+ensure graceful 50% degradation on single compressor fault — critical in a financial services environment where cooling interruption
+can trigger a trading halt.
+Airflow: 13,500 CFM per unit at 0.60 in. w.g. underfloor plenum static. EC fan motor explicitly sized for MERV-13 filter pressure drop
+of 0.28 in. w.g. at clean-filter condition — not a re-used MERV-8 standard motor selection.
+Filtration: 4-inch MERV-13, front-access. MERV-13 is the customer's internal standard for all mechanical equipment in this facility,
+adopted in response to Massachusetts building code requirements for commercial occupancies.
+Controls: N+1 group controller, BACnet IP, 15-second auto-failover, 168-hour standby rotation. Eight dry-contact alarm points per
+unit wired to the building's financial-grade monitoring panel: supply air high temperature, return air high temperature, refrigerant high
+pressure, refrigerant low pressure, filter differential high, condensate overflow, unit fault, and group controller communications loss.
+Cabinet: 14-gauge galvanised steel, 75 mm double-wall insulated. Certified seismic floor anchor kit, four-point. Anchor bolt pattern
+matches standard data centre raised-floor pedestal grid (600 mm on centre) to simplify installation.
+Condensing: Remote condenser, roof-mounted, EC fans with variable-speed head-pressure control. Boston summer design is
+moderate at 33°C DB; condenser selection includes 10% capacity margin as standard.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+DX split precision cooling unit, 150 kW, MERV-13 fan sizing,
+3 ea $11,200.00 $33,600.00
+dual-circuit
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Remote air-cooled condenser, EC fans, 10% capacity margin, per
+3 ea $4,800.00 $14,400.00
+unit
+R-410A refrigerant charge, approx. 15 kg per dual-circuit unit 3 charge $530.00 $1,590.00
+Seismic restraint floor anchor kit, 4-point, certified IBC, per unit 3 set $680.00 $2,040.00
+Seismic restraint calculation package, AHJ-ready, stamped PE 1 set $1,200.00 $1,200.00
+N+1 group controller, BACnet IP, 15-sec failover, 8 alarm
+1 ea $3,000.00 $3,000.00
+points/unit
+4-inch MERV-13 filter rack, front-access, 8 filters per unit 3 ea $520.00 $1,560.00
+Refrigerant line set, pre-insulated, per dual-circuit unit 3 set $680.00 $2,040.00
+Condensate pump and drain pan, stainless, per unit 3 ea $350.00 $1,050.00
+Wiring harness, 8-point alarm relay, per unit 3 set $420.00 $1,260.00
+SUBTOTAL — MATERIALS $61,740.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Expedited cabinet fabrication, seismic anchor provision,
+85 $65.00 $5,525.00
+3-unit
+Coil and dual-circuit compressor assembly, pressure test 38 $75.00 $2,850.00
+MERV-13 fan motor sizing verification and installation 14 $72.00 $1,008.00
+N+1 controller wiring, 8-point alarm relay, failover
+26 $78.00 $2,028.00
+programming
+Factory test — expedited, 3-unit N+1 and seismic
+12 $68.00 $816.00
+documentation
+Priority crating and freight release 6 $65.00 $390.00
+SUBTOTAL — LABOR & FABRICATION $12,617.00
+4. PRICING SUMMARY
+Materials Subtotal $61,740.00
+Labor & Fabrication Subtotal $12,617.00
+Overhead (18% of Materials + Labor) $13,384.26
+Pre-Margin Subtotal $87,741.26
+Gross Margin (22%) $24,747.53
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $112,488.79
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 1 week — standard unit geometry; seismic calculations prepared at quotation stage
+Procurement: 2 weeks — priority purchase order placed immediately on order; components held at
+distributor
+Fabrication & Assembly: 2 weeks — dedicated production slot
+Factory Test: 1 week — seismic documentation sign-off included
+Total Lead Time: 6 weeks from purchase order — EXPEDITED, CONFIRMED SCHEDULE
+Shipping: FCA TMI Montreal; customer arranges priority freight to Boston
+Expedite Condition: Approved submittals and power specification required within 48 hours of purchase order;
+schedule cannot hold without these
+6. COMMERCIAL TERMS
+Payment Terms: 50% with purchase order; 50% net 15 days from ship — expedited payment required to fund
+priority procurement
+Warranty: 18 months from ship or 12 months from commissioning. Seismic restraint hardware covered
+for manufacturing defects; anchor bolt pull-out is a site installation issue and is excluded.
+Performance Guarantee: 150 kW sensible per unit at 33°C outdoor DB confirmed at factory test; test report suitable for
+AHJ submission
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Field installation, commissioning, seismic anchor bolt installation and torque verification,
+electrical service, freight
+Quote Validity: 14 days from issue date — expedited programme requires shortened validity
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Boston ASHRAE 0.4% cooling design: 33°C DB / 23°C WB. Moderate summer climate; the governing design parameters for this
+project are seismic compliance, MERV-13 filtration pressure drop, and delivery schedule — not the thermal performance envelope.
+(cid:127) Seismic Design Category B per ASCE 7-22 for Boston corresponds to a short-period spectral acceleration Ss of approximately
+0.35g. The four-point anchor bracket is designed for 0.5g horizontal and 0.33g vertical equivalent static force, providing margin above
+SDC B requirements.
+(cid:127) MERV-13 fan motor sizing: a MERV-13 filter at design airflow adds 0.28 in. w.g. to the fan's external static pressure versus MERV-8
+at the same face velocity. The EC fan motor on this unit was sized at quotation stage for the MERV-13 resistance. Using a
+MERV-8-rated motor with MERV-13 filters installed would reduce airflow by approximately 12% below design — a common
+installation error on projects where filtration specification changes late in the design process.
+(cid:127) Expedited schedule mechanics: TMI pre-purchases key long-lead components before drawing approval. The customer accepts the
+engineering risk that a post-approval drawing change may require replacement components. This risk is considered low for a
+standard unit configuration but is noted in the commercial terms for the record.
+(cid:127) Eight-point alarm monitoring: alarm points cover supply air high temperature, return air high temperature, refrigerant high pressure,
+refrigerant low pressure, filter differential high, condensate overflow, unit fault, and group controller communications loss — mapping
+to the standard point list required by Massachusetts financial services facility compliance frameworks.
+Critical design decision: The critical design decision on this project was sizing the EC fan motor explicitly for the MERV-13 filter
+pressure drop rather than the lower MERV-8 standard, ensuring that 13,500 CFM design airflow is achieved with MERV-13 filters
+installed rather than accepting a 12% airflow deficit that would compromise the cooling capacity guarantee — a specification detail
+requiring one additional fan motor frame size and adding approximately CAD 480 per unit in material cost.
+OUTCOME: WON
+Awarded primarily on delivery schedule. TMI confirmed a 6-week expedited delivery in writing with a detailed week-by-week
+procurement and production schedule. Competing bids quoted 10 and 12 weeks. The customer's financial services regulator had set
+a hard infrastructure compliance go-live date; the 10-week lead time from the next-lowest bidder would have missed this date by 10
+days, making it ineligible regardless of price.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

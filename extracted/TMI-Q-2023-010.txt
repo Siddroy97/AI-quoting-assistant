@@ -1,0 +1,129 @@
+Quote No.: TMI-Q-2023-010
+Revision: Rev 1
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-09-04
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-10-03
+Prepared by: Sophie Lafleur
+QUOTATION
+Customer: Desert Peak Hosting Ltd.
+Project Name: Las Vegas Tier-1 Data Centre — Block C Cooling
+Site Location: Las Vegas, NV, USA
+Contact: Victor Castillo, Chief Engineer
+Application: Enterprise data hall — extreme high-ambient air-cooled DX, N+1 redundancy, 47°C design
+condition
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 460 kW sensible guaranteed at Las Vegas extreme ambient — outdoor DB 47°C / WB 22°C, entering air 24°C DB /
+40% RH. This is among the most thermally demanding air-cooled DX specifications in North America. Four (4) units at 115 kW each
+at 47°C ambient, N+1: three active, one standby.
+Configuration: Four (4) roof-mounted split DX precision cooling units engineered for sustained operation at 47°C outdoor dry-bulb. At
+this ambient condition, a standard R-410A scroll compressor operating at nameplate discharge pressure reaches its high-pressure
+lockout limit within 30 minutes of operation without custom thermal management. TMI's high-ambient design addresses this through
+three coordinated mechanisms.
+High-ambient mechanism 1 — sub-cooled liquid line: each refrigerant circuit is equipped with a liquid-line sub-cooling coil that
+reduces refrigerant temperature by approximately 10°C before the thermal expansion valve. At 47°C ambient, sub-cooling to 42°C
+recovers 14% of capacity lost to elevated condensing temperature and reduces compressor discharge pressure by 220 kPa.
+High-ambient mechanism 2 — oversized condenser face area: condenser coil face area is specified at 22% above the calculated
+minimum for 47°C heat rejection. This reduces condensing temperature to approximately 48 to 50°C, maintaining a 100 to 150 kPa
+margin below the high-pressure lockout threshold.
+High-ambient mechanism 3 — hot-gas bypass valve: at part-load conditions above 40°C ambient, the compressor unloading
+characteristic can drive evaporating pressure below the low-pressure cutout. The hot-gas bypass valve injects a controlled flow of
+superheated discharge gas into the suction line, maintaining suction pressure above 850 kPa during low-load high-ambient
+conditions.
+Refrigerant circuit: R-410A, high-ambient scroll compressors rated to 54°C ambient, 8-row aluminium-fin copper-tube evaporator coil
+at 14 FPI. 14 FPI specified over standard 12 FPI to increase coil surface area within the same cabinet depth, improving heat transfer
+at the elevated delta-T of high-ambient operation.
+Filtration: dual-stage — MERV-4 sand and coarse dust pre-filter on outdoor condenser inlet; MERV-11 main filter on indoor
+evaporator section. Las Vegas desert dust blinds standard MERV-8 to MERV-11 filters at 4 to 6 times the rate of typical urban
+environments; pre-filter replacement interval estimated at 5 weeks during June through September dust season.
+Controls: N+1 group controller, BACnet IP, with dedicated high-ambient mode logic that activates sub-cooling circuit, increases
+condenser fan speed to maximum, and engages hot-gas bypass modulation automatically when outdoor DB sensor exceeds 40°C.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+DX high-ambient precision unit, 115 kW at 47°C, 8-row 14 FPI coil 4 ea $16,500.00 $66,000.00
+Oversized condenser, 22% excess face area, EC fans,
+4 ea $8,200.00 $32,800.00
+high-ambient rated
+Sub-cooled liquid line kit, factory-installed, per unit 4 ea $720.00 $2,880.00
+Hot-gas bypass valve assembly, factory-calibrated, per unit 4 ea $580.00 $2,320.00
+R-410A refrigerant charge, approx. 22 kg per unit 4 charge $760.00 $3,040.00
+MERV-4 sand pre-filter housing, condenser inlet, per unit 4 ea $440.00 $1,760.00
+MERV-11 indoor filter rack, per unit 4 ea $380.00 $1,520.00
+N+1 group controller, BACnet IP, high-ambient mode logic 1 ea $3,800.00 $3,800.00
+Stainless fastener set, desert-UV-grade, per unit 4 set $280.00 $1,120.00
+Structural roof curb, thermal-break, per unit 4 ea $680.00 $2,720.00
+SUBTOTAL — MATERIALS $117,960.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+High-ambient cabinet fabrication, dual-filter provision, 4-unit
+130 $65.00 $8,450.00
+batch
+8-row coil assembly, sub-cooling circuit brazing and
+52 $75.00 $3,900.00
+pressure test
+Hot-gas bypass valve installation, calibration at design
+24 $78.00 $1,872.00
+conditions
+N+1 controller wiring, high-ambient mode programming 28 $78.00 $2,184.00
+High-ambient simulation test: full 4-unit run at 45°C
+20 $82.00 $1,640.00
+condenser inlet
+Desert-packaging crating and export preparation 12 $60.00 $720.00
+SUBTOTAL — LABOR & FABRICATION $18,766.00
+4. PRICING SUMMARY
+Materials Subtotal $117,960.00
+Labor & Fabrication Subtotal $18,766.00
+Overhead (18% of Materials + Labor) $24,610.68
+Pre-Margin Subtotal $161,336.68
+Gross Margin (22%) $45,505.22
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $206,841.90
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 3 weeks — high-ambient design requires thermal modelling and hot-gas bypass calibration
+specifications
+Procurement: 5 weeks — high-ambient rated compressors and oversized condenser coils on 4-week lead
+Fabrication & Assembly: 4 weeks
+Factory Test: 2 weeks — high-ambient simulation requires dedicated test rig setup
+Total Lead Time: 14 weeks from purchase order
+Shipping: FCA TMI Montreal; customer arranges freight and crane placement
+Key Dependencies: Confirmed roof structural report and condenser pad layout required Week 1
+6. COMMERCIAL TERMS
+Payment Terms: 30% with purchase order; 40% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship — extended warranty on high-ambient configuration; includes one
+hot-gas bypass valve recalibration within warranty period
+Performance Guarantee: 115 kW sensible per unit at 47°C outdoor DB / 22°C WB confirmed at factory simulation test;
+test report issued with equipment
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, electrical service, freight, customs
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Las Vegas ASHRAE 0.4% cooling design: 47°C DB / 22°C WB. The 47°C DB is the highest 0.4% design condition in the continental
+US for major cities. The low WB (22°C) means the air is extremely dry at this temperature — the combination of extreme dry-bulb and
+low humidity is unique to the Mojave Desert and requires a design approach fundamentally different from humid-climate high-ambient
+strategies.
+(cid:127) R-410A operating limits at 47°C ambient: the compressor high-pressure cutout at 4,150 kPa corresponds to a saturated condensing
+temperature of approximately 52°C. At 47°C ambient with standard condenser sizing, the condensing temperature reaches 54 to
+56°C within 20 minutes, tripping the lockout. The sub-cooling and oversized condenser combination reduces condensing temperature
+to 48 to 50°C, restoring a 2 to 4°C margin below the lockout threshold.
+(cid:127) Hot-gas bypass valve calibration: factory-calibrated for a suction pressure of 850 kPa minimum. At 47°C ambient, the combination
+of high head pressure and low load can drive suction pressure below 850 kPa without bypass. The valve injects sufficient hot gas to
+maintain 850 kPa suction pressure across the full load range from 30% to 100%.
+(cid:127) 14 FPI coil selection: increasing fin density from 12 to 14 FPI adds approximately 17% to coil heat transfer surface area within the
+same cabinet depth. At 47°C ambient the sensible heat ratio is higher than at cooler conditions; the additional surface area maintains
+latent removal at an adequate level for data centre humidity control.
+(cid:127) Custom design premium: the combination of high-ambient compressors, oversized condenser, sub-cooling circuit, hot-gas bypass,
+and 14 FPI coil adds approximately CAD 7,400 per unit versus a standard catalogue selection. This premium represents genuine
+engineering value but is difficult to justify in a capital-cost-only procurement where a de-rated standard unit is accepted as a
+compliant alternative.
+Critical design decision: The critical design decision on this project was combining three independent high-ambient mechanisms —
+sub-cooled liquid line, oversized condenser face area, and hot-gas bypass — rather than relying on a single oversizing factor,
+because each mechanism addresses a distinct thermodynamic failure mode that the other two cannot prevent at 47°C sustained
+operation, and any single-mechanism approach would require component sizes that do not fit within the standard cabinet envelope.
+OUTCOME: LOST
+Lost on price. The custom high-ambient design required for sustained Las Vegas summer peak conditions drove TMI's total quoted
+price to 21% above the next competing bid. Post-award feedback confirmed the customer awarded to a competitor who submitted a
+standard catalogue unit with a de-rated performance guarantee at 47°C, accepting approximately 78 kW per unit of capacity shortfall
+in exchange for the lower capital cost. The customer indicated they would manage the capacity gap through increased unit count if
+required during future expansion.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

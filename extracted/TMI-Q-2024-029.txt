@@ -1,0 +1,140 @@
+Quote No.: TMI-Q-2024-029
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2024-02-14
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2024-03-14
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: AsiaPac Hyperscale Holdings Ltd.
+Project Name: Singapore Tier-4 Hyperscale Campus — Phase 1
+Site Location: Singapore
+Contact: Kevin Tan, Chief Technology Officer
+Application: Tier 4 hyperscale — hybrid CHW AHU, 2N redundancy, tropical climate, 20 units, CIF
+Singapore
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 5,800 kW sensible with 1,800 kW latent removal — Phase 1 of a 24,000 kW total campus. Twenty (20) large chilled
+water AHUs in 2N configuration; ten active, ten standby. Entering air 26°C DB / 65% RH — Singapore wet-season design. CHW
+supply 6°C / return 12°C. Singapore's 27°C WB drives a dominant latent load; the coil selection is governed by latent removal
+requirements more than sensible capacity.
+Deep dehumidification coil: 10-row, 14 fins per inch, epoxy-coated aluminium fins for tropical corrosion resistance; face area 2,600
+mm x 1,800 mm; CHW supply 6°C / return 12°C. Leaving air condition: 12°C DB / 10°C DP. The 10°C DP target requires the coil
+surface temperature (approximately 8°C at 6°C CHW supply) to be well below the entering air dew-point of approximately 18°C at
+65% RH — producing aggressive condensation across the full 10-row fin depth.
+Corrosion protection — full tropical package: epoxy-coated coil fins (25-micron polymer barrier against salt aerosol and coastal
+atmospheric corrosion); e-coat cabinet interior (20-micron electro-deposited polyurethane on all steel surfaces); stainless steel
+condensate drain pan; tropical Class H motor windings; tropical-grade cabinet door and panel seals.
+Dual CHW path for 2N compliance: each unit connected to independent CHW Plants A and B; spring-return fail-to-Plant-A
+changeover valve, 5-second switchover. Dual-power-feed fan motors for 2N electrical path compliance.
+Fan section: four (4) EC backward-curved fans per unit, 72,000 CFM total at 0.95 in. w.g., tropical Class H motor windings,
+dual-power-feed.
+Controls: 2N dual-processor group controller, BACnet IP, redundant network, DCIM API; CHW A/B changeover within 5 seconds;
+dew-point control with 0.5°C resolution sensors. SS 564 Singapore Standard electrical compliance documentation included.
+Filtration: 4-inch MERV-13, moisture-resistant polyester media, redundant dual-track. Polyester media specified because cellulose
+MERV-13 media loses structural integrity when saturated during Singapore's frequent high-humidity building start-up events.
+Shipping: CIF Singapore via TMI's established Singapore freight partner. Anti-humidity sea-freight packaging on all units. Transit time
+from Montreal to Singapore port approximately 28 days via Panama Canal.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW dual-circuit dehumid. coil, 10-row, 14 FPI, 2600x1800mm,
+20 ea $32,000.00 $640,000.00
+epoxy fins
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+EC fan, 72,000 CFM, dual-power-feed, tropical Class H motor
+80 ea $6,200.00 $496,000.00
+(x4/unit)
+EC motor, 45 kW, VSD, dual-feed harness, tropical Class H
+80 ea $6,000.00 $480,000.00
+winding
+2N CHW changeover valve, spring-return fail-to-A, 8-inch, per unit 20 ea $5,200.00 $104,000.00
+E-coat interior treatment, full cabinet, per unit 20 set $2,600.00 $52,000.00
+Stainless steel condensate drain pan, 1.5 L/min capacity, per unit 20 ea $1,400.00 $28,000.00
+2N dual-processor group controller, redundant network, DCIM API 4 ea $18,000.00 $72,000.00
+MERV-13 polyester moisture-resistant dual-track filter rack, per
+20 ea $2,000.00 $40,000.00
+unit
+100 mm tropical-grade insulated double-wall cabinet, per unit 20 set $16,000.00 $320,000.00
+Dew-point sensor, 0.5°C resolution, supply air, per unit 20 ea $480.00 $9,600.00
+Power metering, dual-feed, per unit 20 ea $560.00 $11,200.00
+SS 564 Singapore electrical documentation package 1 set $6,500.00 $6,500.00
+Anti-humidity sea-freight packaging, per unit 20 set $480.00 $9,600.00
+CIF Singapore freight and marine insurance 1 lot $42,000.00 $42,000.00
+SUBTOTAL — MATERIALS $2,310,900.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, tropical e-coat 2N assembly, 20-unit 1600 $65.00 $104,000.00
+Dual-circuit coil installation, e-coat inspection, hydraulic test
+400 $75.00 $30,000.00
+A+B sides
+Tropical motor and dual-power-feed installation (x80 fans) 320 $72.00 $23,040.00
+2N changeover valve installation, 5-second failsafe timing
+120 $78.00 $9,360.00
+verification
+2N controller wiring, dew-point control, DCIM API,
+200 $78.00 $15,600.00
+redundant network
+Factory Tier 4 2N simulation, tropical dehumidification
+120 $85.00 $10,200.00
+verification
+SS 564 inspection, documentation preparation 40 $78.00 $3,120.00
+SUBTOTAL — LABOR & FABRICATION $195,320.00
+4. PRICING SUMMARY
+Materials Subtotal $2,310,900.00
+Labor & Fabrication Subtotal $195,320.00
+Overhead (18% of Materials + Labor) $451,119.60
+Pre-Margin Subtotal $2,957,339.60
+Gross Margin (22%) $834,121.43
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $3,791,461.03
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 5 weeks from purchase order
+Procurement: 10 weeks — tropical dual-circuit coils, e-coat treatment, Class H motors on long-lead parallel
+procurement
+Fabrication & Assembly: 10 weeks — four parallel production lines
+Factory Test: 4 weeks — Tier 4 2N simulation, tropical dehumidification test, SS 564 inspection
+Total Lead Time: 29 weeks from purchase order
+Phased Delivery: Active units 1-10 shipped Week 27; Standby units 11-20 shipped Week 29; CIF Singapore
+Shipping: CIF Singapore — TMI arranges sea freight and marine insurance to Singapore port
+Key Dependencies: CHW plant A and B schematic Week 2; dew-point control set-points Week 3; SS 564
+inspection body appointment Week 4
+6. COMMERCIAL TERMS
+Payment Terms: 20% with purchase order; 20% engineering completion; 30% at 50% fabrication; 20% factory
+readiness; 10% net 30 after port delivery confirmation
+Warranty: 48 months from commissioning — Tier 4 extended; includes annual e-coat and epoxy fin
+inspection
+Tier 4 2N Guarantee: Zero cooling interruption through dual-fault scenario as demonstrated at factory witness test
+Delivery Terms: CIF Singapore (Incoterms 2020); port handling, customs clearance, and inland transport are
+customer's responsibility
+Currency: US Dollars (USD) for this project; CAD pricing available on request
+Exclusions: Port handling, customs clearance, inland transport, installation, commissioning, CHW plants,
+electrical, DCIM licences
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Singapore ASHRAE 0.4% design: 35°C DB / 27°C WB. The 27°C WB is the design driver for this project. At 27°C WB, outdoor air
+moisture content is approximately 18.5 g/kg — one of the highest in any major market TMI serves. The dominant load is latent; the
+design SHR for this installation is approximately 0.76, meaning 24% of the total cooling load is latent removal.
+(cid:127) Leaving dew-point of 10°C at 6°C CHW supply: the coil surface temperature at 6°C supply is approximately 8°C. Entering air at
+26°C DB / 65% RH has a dew-point of approximately 18°C; condensation on the fin surface begins immediately on the first row and
+continues aggressively through all 10 rows. The 10-row depth is the minimum required to achieve 10°C leaving DP at this entering
+condition.
+(cid:127) E-coat and epoxy fin tropical corrosion validation: TMI's Miami reference installations (TMI-Q-2023-014, 4 units, commissioned
+2023) are the closest climate analogue to Singapore with comparable salt aerosol concentration. The Miami units were inspected at
+12 months post-commissioning and showed zero measurable fin corrosion and no e-coat delamination. This inspection report was
+provided to the customer's engineering team during technical evaluation.
+(cid:127) SS 564:2010 Singapore Standard compliance: TMI has completed SS 564-compliant electrical documentation for two prior
+Singapore installations. All electrical panels are wired to SS 564 requirements for equipment installed in Singapore. The SS 564
+inspection body (SAC-accredited) appointment must be confirmed by Week 4 of the engineering phase.
+(cid:127) CIF delivery via Singapore logistics partner: TMI uses a Montreal-based freight forwarder with a Singapore receiving agent for CIF
+delivery. Transit time from TMI Montreal to Singapore port is approximately 28 days via Panama Canal. Marine insurance is included
+in CIF terms at replacement value plus 10%.
+Critical design decision: The critical design decision on this project was specifying a 10-row deep dehumidification coil at 6°C/12°C
+CHW delta-T as the base design — rather than a standard 8-row coil with supplementary dehumidification — because Singapore's
+27°C WB entering condition requires aggressive condensation across the full fin depth from the first coil row, and a shallower coil
+does not provide sufficient contact time at the 8°C fin surface temperature to achieve the 10°C leaving dew-point target.
+OUTCOME: WON
+Awarded in a field of five bidders. TMI's tropical climate 2N engineering expertise — specifically the factory-demonstrated dual-fault
+simulation under simulated 35°C DB / 27°C WB tropical conditions — combined with a competitive price and a well-established
+Singapore logistics partner were the decisive factors. The customer's engineering team cited the Miami reference installation
+(TMI-Q-2023-014) as evidence that TMI's epoxy fin and e-coat tropical corrosion protection had been validated in a comparable
+high-humidity coastal environment.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

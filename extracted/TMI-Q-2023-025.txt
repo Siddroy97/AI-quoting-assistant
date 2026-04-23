@@ -1,0 +1,135 @@
+Quote No.: TMI-Q-2023-025
+Revision: Rev 1
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-05-15
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-06-13
+Prepared by: Daniel Rousseau
+QUOTATION
+Customer: Northern Shield Digital LLC
+Project Name: Toronto Hyperscale Campus — Hall A Tier 4
+Site Location: Toronto, ON, Canada
+Contact: Alain Beauchamp, Chief Technology Officer
+Application: Tier 4 hyperscale — chilled water AHU, 2N redundancy, dual CHW circuit, arctic
+cold-climate, 14 units
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 3,000 kW sensible — complete Tier 4 facility, Hall A. Fourteen (14) large chilled water AHUs in 2N configuration:
+seven active units, seven standby, each capable of independent full-load operation.
+Tier 4 dual-CHW-path with arctic provisions: each unit is connected to two fully independent chilled water plants (Plant A and Plant
+B). Two independent CHW circuits share the coil matrix. Automatic changeover valve switches between A and B CHW sources within
+5 seconds. Arctic heat trace on all CHW connection stubs exposed to the building exterior — CHW connections pass through an
+exterior mechanical room wall and require heat trace to prevent freezing at Toronto's winter design of -23°C DB.
+Cooling coil: 10-row, 14 fins per inch, aluminium-fin copper-tube; two independent CHW circuits; face area 2,200 mm x 1,500 mm;
+CHW supply 6°C / return 13°C. The 6°C supply achieves a 10°C leaving dew-point — appropriate for Toronto's summer humidity
+peaks when outdoor WB can reach 24°C.
+Waterside economiser: modulating bypass valve per unit, active when outdoor WB is below 8°C — approximately 4,200 hours per
+year in Toronto. At 4,200 annual hours this is the highest economiser utilisation of any North American project in TMI's reference
+portfolio; compressor energy savings are substantial at campus scale.
+Fan section: four (4) EC backward-curved fans per unit, 50,000 CFM total at 0.90 in. w.g., dual-power-feed motor connections for 2N
+electrical compliance.
+Controls: 2N dual-processor group controller, BACnet IP, redundant network; CHW A/B changeover within 5 seconds; arctic
+cold-start logic; economiser management. Bilingual English/French alarm messages throughout.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall arctic insulated, SDC B seismic. CSA C22.2 electrical certification and
+bilingual O&M; documentation included as standard for Canadian market.
+Filtration: 4-inch MERV-13, redundant dual-track for online filter replacement without airflow interruption.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW dual-circuit coil, 10-row, 14 FPI, 2200x1500mm, A+B CHW
+14 ea $24,000.00 $336,000.00
+headers
+EC fan, 50,000 CFM, dual-power-feed motor (x4 per unit) 56 ea $5,600.00 $313,600.00
+EC motor, 37 kW, VSD, dual-feed wiring harness 56 ea $5,400.00 $302,400.00
+2N CHW changeover valve, spring-return fail-to-A, per unit 14 ea $4,000.00 $56,000.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Waterside economiser bypass valve and actuator, per unit 14 ea $1,900.00 $26,600.00
+Arctic CHW connection heat trace kit, per unit 14 set $680.00 $9,520.00
+2N dual-processor group controller, redundant Ethernet, BACnet
+4 ea $15,000.00 $60,000.00
+IP
+MERV-13 redundant dual-track filter rack, per unit 14 ea $1,700.00 $23,800.00
+100 mm arctic insulated double-wall cabinet, SDC B seismic, per
+14 set $14,000.00 $196,000.00
+unit
+Power metering, dual-feed, Modbus, per unit 14 ea $540.00 $7,560.00
+Bilingual O&M; documentation and CSA C22.2 electrical cert., full
+1 set $4,200.00 $4,200.00
+facility
+Condensate drain system, per unit 14 ea $820.00 $11,480.00
+SUBTOTAL — MATERIALS $1,347,160.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, arctic dual-circuit 2N assembly, 14-unit 1100 $65.00 $71,500.00
+Dual-circuit coil installation, heat trace, hydraulic test A and
+280 $75.00 $21,000.00
+B sides
+Fan, dual-power-feed motor installation (x56 fans) 224 $72.00 $16,128.00
+CHW changeover valve, economiser, and arctic cold-start
+84 $78.00 $6,552.00
+logic installation
+2N controller wiring, changeover test, bilingual HMI
+160 $78.00 $12,480.00
+programming
+Factory Tier 4 2N simulation, 14-unit dual-fault test 96 $85.00 $8,160.00
+Domestic Canadian crating and DAP Toronto freight
+64 $55.00 $3,520.00
+preparation
+SUBTOTAL — LABOR & FABRICATION $139,340.00
+4. PRICING SUMMARY
+Materials Subtotal $1,347,160.00
+Labor & Fabrication Subtotal $139,340.00
+Overhead (18% of Materials + Labor) $267,570.00
+Pre-Margin Subtotal $1,754,070.00
+Gross Margin (22%) $494,737.69
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $2,248,807.69
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 5 weeks from purchase order — 2N dual-circuit design and arctic cold-start analysis
+Procurement: 9 weeks — dual-circuit coils and dual-feed motors; domestic Canadian sourcing where
+available
+Fabrication & Assembly: 9 weeks — three parallel production lines
+Factory Test: 4 weeks — 2N simulation test and customer factory witness
+Total Lead Time: 27 weeks from purchase order
+Phased Delivery: Active units 1-7 delivered Week 25; Standby units 8-14 delivered Week 27; DAP Toronto
+Shipping: DAP Toronto — domestic freight included in quoted price
+Key Dependencies: CHW plant A and B schematic Week 2; 2N power path single-line diagram Week 3;
+economiser set-point requirements Week 4
+6. COMMERCIAL TERMS
+Payment Terms: 20% with purchase order; 20% engineering completion; 30% at 50% fabrication; 20% factory
+readiness; 10% net 30 from commissioning
+Warranty: 48 months from commissioning or 60 months from ship — Tier 4 extended
+Tier 4 2N Guarantee: Zero cooling interruption through dual-fault scenario as witnessed at factory test
+Delivery Terms: DAP Toronto — domestic freight included; unloading and rigging excluded
+Currency: Canadian Dollars (CAD) — no FX risk, no import duties
+Domestic Content: TMI certifies greater than 85% Canadian-origin content by value
+Exclusions: Installation, commissioning, CHW plants A and B, electrical dual-feeds, rigging, DCIM
+licences
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Toronto winter design: -23°C DB (ASHRAE 99.6%). Arctic heat trace on CHW connection stubs is the critical cold-weather
+protection feature for a 2N chilled water system in Toronto. Both the A-circuit and B-circuit stubs require independent heat trace
+circuits — loss of heat trace on either stub during a winter building pressurisation event can freeze that circuit independently of the
+other.
+(cid:127) Waterside economiser at 4,200 annual hours: Toronto outdoor WB falls below 8°C for approximately 4,200 hours annually — more
+than any North American TMI installation in the reference portfolio. During these hours the chilled water plant compressors are fully
+bypassed and only fluid cooler fan energy is consumed. Annual compressor energy saving per unit is approximately 240 MWh,
+yielding a waterside economiser payback of less than 2 years at Canadian grid electricity rates.
+(cid:127) 2N changeover valve achieves A-to-B switchover within 5 seconds: during switchover, no cooling interruption occurs because both
+circuits are pre-charged and the coil thermal mass maintains supply air temperature within 2°C of setpoint throughout the transition.
+This was verified at factory test by interrupting Plant A CHW flow on a fully loaded unit and measuring supply air temperature
+deviation.
+(cid:127) Bilingual alarm messages and CSA C22.2 certification are standard on all TMI units for the Canadian market and add no cost. CSA
+certification is required by the Ontario Building Code for mechanical equipment with factory-assembled electrical panels; the
+certification documentation is included in the building permit package.
+(cid:127) SR&ED; eligibility: the dual-circuit arctic coil design incorporates novel thermal engineering that may qualify for Canadian federal
+Scientific Research and Experimental Development (SR&ED;) tax credits; TMI can provide a project cost breakdown in
+SR&ED-compatible; format at the customer's request.
+Critical design decision: The critical design decision on this project was specifying independent arctic heat trace circuits on both
+the A-side and B-side CHW connection stubs rather than a single shared heat trace loop, because a failure of a single shared heat
+trace loop during a Toronto -23°C winter event could freeze both CHW circuits simultaneously — defeating the 2N redundancy and
+creating the exact dual-failure mode the Tier 4 architecture is designed to prevent.
+OUTCOME: WON
+Awarded on the basis of TMI's cold-climate engineering expertise and the domestic Canadian manufacturing advantage. TMI's
+Montreal fabrication facility eliminated cross-border duties and customs risk on a programme of this scale. The customer's board also
+cited preference for a Canadian strategic supplier on critical national infrastructure. The combination of technically superior
+cold-climate provisions, competitive pricing, and domestic supply chain was the basis for the unanimous board approval.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

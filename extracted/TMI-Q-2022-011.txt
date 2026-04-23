@@ -1,0 +1,126 @@
+Quote No.: TMI-Q-2022-011
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2022-04-18
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2022-05-17
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: Lone Star Carrier Neutral DC LLC
+Project Name: Dallas Regional Data Centre — Hall A Chilled Water Cooling
+Site Location: Dallas, TX, USA
+Contact: Ryan Fitzgerald, Director of Facilities
+Application: Regional carrier-neutral DC — chilled water AHU, N+1 redundancy, 900 kW sensible
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 900 kW sensible at chilled water design conditions — CHW supply 7°C / return 14°C, entering air 24°C DB / 50%
+RH. Three (3) large chilled water AHUs at 450 kW sensible each, N+1 configuration: two active units carry the full load, one unit on
+168-hour auto-standby rotation.
+Configuration: Three (3) large floor-mounted chilled water air handling units installed in a dedicated mechanical room adjacent to the
+data hall. Supply is distributed via an overhead perforated-ceiling diffuser array; return air flows back through an underfloor plenum.
+This separation of mechanical room from live data hall allows coil and filter maintenance without entering the IT space.
+Cooling coil: 8-row, 12 fins per inch, aluminium-fin copper-tube; face area 1,800 mm x 1,200 mm. At 7°C/14°C CHW delta-T the coil
+achieves a leaving air condition of 13°C DB / 11°C DP — adequate for Dallas humidity control without a supplementary
+dehumidification stage.
+Fan section: two (2) backward-curved EC plenum fans per unit, direct-drive, variable-speed drives integrated into the motor frame.
+Sized for 42,000 CFM at 0.80 in. w.g. combined coil, filter, and distribution resistance. At 50% cooling load, fan speed reduces to
+approximately 70% via supply-air temperature control, cutting fan energy by 66%.
+Humidification: electrode steam humidifier, 8 kg/hr per unit, for winter-season dew-point supplementation when Dallas outdoor DB
+drops to its 99.6% winter design of -1°C. Humidifier engages automatically when supply air dew-point drops below 10°C.
+Controls: N+1 group controller, BACnet IP, 168-hour rotation, supply air temperature and dew-point control, power metering per unit
+via integrated kWh meter with Modbus TCP output.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated panels; side access doors on both faces for coil pull access. Unit
+weight approximately 2,800 kg; floor loading confirmation required.
+Filtration: 4-inch MERV-13 filters. Dallas cedar pollen season (December-February) warrants MERV-13 even in a recirculating
+installation due to high infiltration rates through the mechanically ventilated mechanical room.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW coil, 8-row, 12 FPI, 1800x1200mm face, aluminium-fin
+3 ea $8,400.00 $25,200.00
+copper-tube
+Backward-curved EC plenum fan, 42,000 CFM, direct-drive (x2
+6 ea $3,800.00 $22,800.00
+per unit)
+EC motor, 22 kW, integrated VSD 6 ea $3,200.00 $19,200.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+2-way modulating CHW valve, 4-inch, spring-return fail-closed 3 ea $1,100.00 $3,300.00
+Valve actuator, spring-return, 24V, position feedback 3 ea $420.00 $1,260.00
+Electrode steam humidifier, 8 kg/hr 3 ea $2,800.00 $8,400.00
+Electric pre-heat section, 12 kW — cold-start freeze protection 3 ea $1,200.00 $3,600.00
+N+1 group controller, BACnet IP, dew-point and power metering 1 ea $4,200.00 $4,200.00
+kWh sub-meter, Modbus TCP, per unit 3 ea $380.00 $1,140.00
+4-inch MERV-13 filter rack, 12 filters per unit 3 ea $680.00 $2,040.00
+100 mm double-wall insulated cabinet, side access, per unit 3 set $5,800.00 $17,400.00
+Condensate drain pan, stainless, per unit 3 ea $640.00 $1,920.00
+Wiring harness and control enclosure, per unit 3 set $780.00 $2,340.00
+SUBTOTAL — MATERIALS $112,800.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Large-format cabinet fabrication, 3-unit batch 160 $65.00 $10,400.00
+Coil installation, hydraulic pressure test at 200 psi, pipe
+48 $72.00 $3,456.00
+connections
+Fan and EC motor installation, VSD parameter setup,
+36 $72.00 $2,592.00
+vibration check
+Humidifier and pre-heat section installation, interlock wiring 24 $72.00 $1,728.00
+N+1 controller wiring, dew-point, metering, rotation
+36 $78.00 $2,808.00
+programming
+Factory performance test: airflow, thermal, and dew-point
+20 $68.00 $1,360.00
+verification
+Crating, oversized freight preparation 16 $58.00 $928.00
+SUBTOTAL — LABOR & FABRICATION $23,272.00
+4. PRICING SUMMARY
+Materials Subtotal $112,800.00
+Labor & Fabrication Subtotal $23,272.00
+Overhead (18% of Materials + Labor) $24,492.96
+Pre-Margin Subtotal $160,564.96
+Gross Margin (22%) $45,287.55
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $205,852.51
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 3 weeks from purchase order and approved submittals
+Procurement: 5 weeks — 8-row CHW coils fabricated to order; 4-week lead from coil supplier
+Fabrication & Assembly: 5 weeks
+Factory Test: 2 weeks
+Total Lead Time: 15 weeks from purchase order
+Shipping: FCA TMI Montreal; customer arranges flatbed freight to Dallas
+Key Dependencies: CHW plant flow rate and supply/return pressures required Week 2; ceiling diffuser layout and
+return plenum depth required Week 3
+6. COMMERCIAL TERMS
+Payment Terms: 25% with purchase order; 45% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship or 18 months from commissioning — coil integrity, fan/motor assembly,
+and humidifier electrode
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant and piping, steam supply to humidifier, electrical
+service, freight, rigging
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) CHW design conditions: 7°C supply / 14°C return, 7°C delta-T. Coil selections are optimised for this delta-T; if the CHW plant
+delivers supply above 8°C, the leaving dew-point rises above 12°C and humidity control at Dallas summer conditions will be
+marginal. The customer's mechanical engineer should confirm chiller setpoint and pipe insulation standard before finalising the CHW
+plant design.
+(cid:127) N+1 logic at 900 kW total load: each active unit runs at 450 kW — 100% of its rated capacity. Unlike smaller N+1 systems where
+units run at 50% with spare capacity headroom, this system is capacity-limited on the active units. The standby unit must be healthy
+and ready to assume full load at all times; the group controller self-tests standby unit fan operation and CHW valve response before
+each 168-hour rotation.
+(cid:127) Electrode humidifier water quality: Dallas municipal water hardness ranges from 100 to 180 ppm as CaCO3. Electrode humidifiers
+operate reliably at 100 to 300 ppm hardness; below 100 ppm the conductivity is insufficient for reliable electrode current flow, and
+above 350 ppm scale build-up on electrodes accelerates replacement frequency. Dallas water quality is within the acceptable range
+and no water treatment is required for this application.
+(cid:127) Electric pre-heat section is for cold-start and freeze protection only; it is not sized for space heating. It is interlocked with the CHW
+valve to prevent simultaneous heating and cooling, and it energises only when entering air temperature drops below 5°C.
+(cid:127) Unit weight 2,800 kg each: customer must confirm floor slab loading capacity with structural engineer before finalising unit
+placement. TMI provides a six-point load distribution drawing in the submittal package.
+Critical design decision: The critical design decision on this project was pairing the 8-row, 12 FPI chilled water coil at 7°C/14°C
+delta-T with an independent electrode steam humidifier on each unit rather than specifying a single central humidifier, ensuring
+dew-point control and winter humidity supplementation are maintained independently for each unit so that the N+1 rotation schedule
+does not create dew-point excursions when the standby unit assumes full humidification load during a Dallas winter cold snap.
+OUTCOME: WON
+Awarded without further negotiation after value engineering review. TMI's component-level bill of materials — showing separate coil,
+fan-motor, and valve costs — allowed the customer's procurement team to independently verify the cost basis for each
+sub-assembly. No competing bid provided equivalent line-item transparency. The procurement committee approved the budget
+based on the BOM review without requesting a further price reduction.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

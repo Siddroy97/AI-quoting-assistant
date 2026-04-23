@@ -1,0 +1,137 @@
+Quote No.: TMI-Q-2023-019
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-12-05
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2024-01-03
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: Heartland Data Infrastructure LLC
+Project Name: Columbus Regional DC — Phase 2 Expansion
+Site Location: Columbus, OH, USA
+Contact: Sandra Reynolds, Facilities Director
+Application: Regional data centre — chilled water AHU, N+1 redundancy, value-engineered 10 FPI coil
+specification
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 1,100 kW sensible — CHW supply 7°C / return 14°C, entering air 23°C DB / 50% RH. Four (4) large chilled water
+AHUs at 370 kW sensible each, N+1: three active units, one standby on 168-hour auto-rotation. Original RFQ specified 275 kW per
+unit with four active units; the face area increase required for the 10 FPI coil selection increased unit capacity from 275 kW to 370
+kW, allowing the load to be carried by three active units with improved margin.
+Value-engineered coil specification: 8-row, 10 fins per inch, aluminium-fin copper-tube; face area 1,900 mm x 1,250 mm. The original
+specification was 12 FPI at 1,700 mm x 1,150 mm face area. The 10 FPI change reduces fin surface density; to maintain equivalent
+total heat transfer area, face dimensions are increased by 12% in each direction. The result is a coil with the same thermal duty but
+15% lower airside pressure drop — reducing fan motor input power from 18.5 kW to 16.8 kW per fan at design airflow.
+Fan energy benefit of 10 FPI: at design airflow, the 10 FPI coil reduces total system pressure drop by 0.12 in. w.g. per unit. This
+translates to a fan speed reduction of approximately 6%. Fan power scales as the cube of speed: a 6% speed reduction cuts fan
+power by approximately 17%, or 3.1 kW per fan unit. With two fans per unit and three active units, annual fan energy saving is
+approximately 147,000 kWh per year — meaningful at Ohio's electricity rate.
+Fan section: two (2) backward-curved EC plenum fans per unit, 38,000 CFM at 0.68 in. w.g. system resistance versus 0.80 in. w.g. in
+the original specification. EC motor 18.5 kW, integrated VSD — downsized from the 22 kW specified in the original RFQ. The lower
+fan pressure requirement allows the motor to be downsized with no reduction in airflow.
+CHW valve: 2-way modulating, 4-inch, spring-return fail-closed. Valve authority maintained at 10% as per TMI design standard. The
+larger coil face area does not change the CHW flow rate required — thermal duty is identical — so valve sizing is unchanged from
+the original specification.
+Controls: N+1 group controller, BACnet IP, 168-hour rotation; supply air temperature and dew-point; energy metering per unit.
+Energy metering documents the fan energy saving attributable to the 10 FPI value engineering for the customer's sustainability
+reporting.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated. The larger coil face area (1,900 mm x 1,250 mm) adds 120 mm
+to the unit width versus the original specification — confirmed within the mechanical room layout clearances at the time of the value
+engineering proposal.
+Filtration: 4-inch MERV-11. With the 10 FPI coil, coil face velocity is maintained at 2.7 m/s — within the coil operational range.
+MERV-11 is appropriate for this recirculating application.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW coil, 8-row, 10 FPI (VE spec), 1900x1250mm, aluminium-fin
+4 ea $8,600.00 $34,400.00
+copper-tube
+Backward-curved EC fan, 38,000 CFM, low-resistance VE spec
+8 ea $3,500.00 $28,000.00
+(x2/unit)
+EC motor, 18.5 kW, integrated VSD — downsized from 22 kW
+8 ea $2,850.00 $22,800.00
+original
+2-way CHW valve, 4-inch, modulating, spring-return 4 ea $1,020.00 $4,080.00
+Valve actuator, position feedback 4 ea $380.00 $1,520.00
+N+1 group controller, BACnet IP, energy metering for VE
+1 ea $4,400.00 $4,400.00
+documentation
+MERV-11 filter rack, 10 filters per unit 4 ea $490.00 $1,960.00
+100 mm double-wall insulated cabinet, wider 10 FPI profile, per
+4 set $6,500.00 $26,000.00
+unit
+Condensate drain pan, stainless, per unit 4 ea $640.00 $2,560.00
+Controls wiring harness, per unit 4 set $720.00 $2,880.00
+SUBTOTAL — MATERIALS $128,600.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, wider 10 FPI profile, 4-unit batch 165 $65.00 $10,725.00
+10 FPI coil installation, hydraulic test — wide-face
+46 $72.00 $3,312.00
+configuration
+Fan and downsized motor installation, VSD commissioning 34 $72.00 $2,448.00
+Group controller wiring, energy metering for VE
+36 $78.00 $2,808.00
+documentation
+Factory performance test with VE coil pressure drop
+18 $68.00 $1,224.00
+verification
+Crating and export preparation 16 $58.00 $928.00
+SUBTOTAL — LABOR & FABRICATION $21,445.00
+4. PRICING SUMMARY
+Materials Subtotal $128,600.00
+Labor & Fabrication Subtotal $21,445.00
+Overhead (18% of Materials + Labor) $27,008.10
+Pre-Margin Subtotal $177,053.10
+Gross Margin (22%) $49,938.05
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $226,991.15
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 3 weeks — additional week versus standard for VE coil redesign confirmation with customer
+sign-off
+Procurement: 5 weeks — 10 FPI coils at wider dimensions fabricated to order; standard lead from coil
+supplier
+Fabrication & Assembly: 5 weeks
+Factory Test: 1 week — includes VE coil pressure drop verification against 0.68 in. w.g. design target
+Total Lead Time: 14 weeks from purchase order
+Shipping: FCA Montreal; customer arranges Midwest freight to Columbus
+Key Dependencies: Customer sign-off on VE coil specification and wider cabinet dimensions required before
+Week 2 procurement
+6. COMMERCIAL TERMS
+Payment Terms: 25% with purchase order; 45% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship or 18 months from commissioning
+VE Performance Guarantee: 10 FPI coil confirmed to deliver equivalent thermal duty to original 12 FPI specification at
+design CHW conditions; factory pressure drop test report issued confirming 0.68 in. w.g.
+system resistance versus 0.80 in. w.g. original
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, electrical, freight, customs
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Columbus ASHRAE 0.4% cooling design: 34°C DB / 23°C WB. Standard mid-continent climate; the design is not driven by ambient
+extremes. The 1,100 kW cooling load is the primary dimensioning input and the value engineering opportunity arises from the coil
+specification rather than the climate.
+(cid:127) 10 FPI versus 12 FPI coil selection: reducing fin density from 12 to 10 FPI reduces the number of fins per unit coil depth by
+approximately 17%. Each fin creates a flow channel; at 10 FPI the channels are 17% wider, reducing the air velocity gradient and
+friction losses through the fin pack. The measured 15% pressure drop reduction at design face velocity is consistent with TMI's
+historical coil test data for 10 FPI versus 12 FPI configurations at equivalent face area.
+(cid:127) Fan motor downsizing from 22 kW to 18.5 kW: the lower system pressure resistance allows the fan to deliver 38,000 CFM at 0.68
+in. w.g. at a shaft power of approximately 17.2 kW — within the 18.5 kW motor frame without thermal overload. The original 22 kW
+motor would have been oversized by 28%, operating at low efficiency in the low-shaft-power range during part-load conditions.
+(cid:127) Annual energy saving calculation: fan power reduction of 3.1 kW per fan x 2 fans x 3 active units x 8,760 hours x 0.90 capacity
+factor = approximately 147,000 kWh per year. At Ohio's 2023 commercial electricity rate of approximately USD 0.085 per kWh, the
+annual energy cost saving is approximately USD 12,500 — a 3.2-year simple payback on a zero-incremental-cost VE change.
+(cid:127) VE documentation for sustainability reporting: the energy sub-meter on each unit reports fan energy separately from cooling plant
+energy. The customer uses this data in their annual sustainability report to demonstrate the measured performance of the VE coil
+selection versus the baseline specification.
+Critical design decision: The critical design decision on this project was proposing a 10 FPI coil at a 12% larger face area in place
+of the specified 12 FPI coil — an unsolicited value engineering change that reduces airside pressure drop by 15% and annual fan
+energy by approximately 147,000 kWh with no thermal performance reduction — demonstrating that the lowest-cost selection is not
+always the default specification and that coil fin density is an under-examined parameter in standard data centre AHU procurement.
+OUTCOME: WON
+Awarded after TMI proposed an unsolicited coil specification change that reduced the project cost by 11% without impacting thermal
+performance. The customer's original RFQ specified a 12 fins-per-inch coil at the industry standard face velocity. TMI's application
+engineering team identified that a 10 fins-per-inch coil at a marginally larger face area delivered equivalent thermal performance at
+lower airside pressure drop, reducing annual fan energy consumption by approximately 8%. No other bidder submitted a
+value-engineering proposal; the customer's procurement committee cited TMI's proactive technical engagement as the differentiating
+factor.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

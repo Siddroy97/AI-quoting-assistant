@@ -1,0 +1,119 @@
+Quote No.: TMI-Q-2023-015
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-04-24
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-05-23
+Prepared by: Daniel Rousseau
+QUOTATION
+Customer: Redwood Infrastructure Partners LLC
+Project Name: San Jose Hyperscale Pre-Deployment Hall
+Site Location: San Jose, CA, USA
+Contact: Kevin Yip, Technical Procurement Lead
+Application: Hyperscale pre-deployment data hall — chilled water AHU, N+1 redundancy, DCIM API
+integration
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 700 kW sensible — CHW supply 7°C / return 14°C, entering air 23°C DB / 45% RH. San Jose's mild Pacific climate
+produces a relatively low design sensible heat ratio; the 45% RH entering condition places modest demands on latent removal. Three
+(3) large chilled water AHUs at 350 kW sensible each, N+1: two active, one standby on 168-hour auto-rotation.
+Configuration: Floor-mounted chilled water AHUs, hot-aisle containment, cold-aisle underfloor supply. San Jose's mild outdoor
+climate makes this an economiser-eligible application: the customer's chilled water plant is designed with a waterside economiser
+that provides free cooling when outdoor wet-bulb is below 10°C — approximately 3,800 hours per year in San Jose. TMI's unit
+controls are pre-configured to accept an economiser enable signal from the CHW plant.
+Cooling coil: 8-row, 12 fins per inch, aluminium-fin copper-tube; face area 1,800 mm x 1,200 mm; CHW supply 7°C / return 14°C.
+Standard delta-T coil; San Jose's 45% RH entering condition means latent load is minimal and a standard 11°C leaving dew-point is
+more than adequate.
+Fan section: two (2) backward-curved EC plenum fans per unit, 38,000 CFM at 0.75 in. w.g., variable-speed drives. San Jose's cool
+ambient means the system will operate at low part-load for the majority of the year; EC motor efficiency at 40 to 60% speed is the
+primary energy cost driver for this installation.
+DCIM integration: N+1 group controller, BACnet IP, 168-hour rotation; supply air temperature and dew-point; RESTful JSON API
+over LAN connection. The API exposes supply air temperature, return air temperature, fan speed, valve position, and energy meter
+data at 30-second polling intervals. Pre-validated against Nlyte and Sunbird DCIM platforms; compatibility with the customer's
+specific platform confirmed at quotation stage.
+California Title 24 compliance: fan motor VSD efficiency meets CEC Appliance Efficiency Regulations for variable-speed motor
+drives. A Title 24 compliance data sheet is included in the submittal package for building permit purposes.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated.
+Filtration: 4-inch MERV-13. California Title 24 and Santa Clara County air quality regulations require MERV-13 minimum for
+mechanical systems in commercial occupancies.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW coil, 8-row, 12 FPI, 1800x1200mm, aluminium-fin
+3 ea $8,200.00 $24,600.00
+copper-tube
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Backward-curved EC plenum fan, 38,000 CFM (x2 per unit) 6 ea $3,600.00 $21,600.00
+EC motor, 22 kW, integrated VSD, CEC Title 24 compliant 6 ea $3,300.00 $19,800.00
+2-way CHW valve, 4-inch, modulating, spring-return 3 ea $1,050.00 $3,150.00
+Valve actuator, position feedback 3 ea $410.00 $1,230.00
+N+1 group controller, BACnet IP, RESTful DCIM API, economiser
+1 ea $4,800.00 $4,800.00
+input
+4-inch MERV-13 filter rack, 10 filters per unit 3 ea $640.00 $1,920.00
+100 mm double-wall insulated cabinet, per unit 3 set $6,200.00 $18,600.00
+Condensate drain pan, stainless, per unit 3 ea $660.00 $1,980.00
+SUBTOTAL — MATERIALS $97,680.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Large-format cabinet fabrication, 3-unit batch 155 $65.00 $10,075.00
+Coil installation, hydraulic test, pipe connections 44 $72.00 $3,168.00
+EC fan and motor installation, VSD commissioning, Title 24
+36 $72.00 $2,592.00
+documentation
+N+1 controller wiring, DCIM RESTful API integration test,
+38 $78.00 $2,964.00
+economiser signal
+Factory performance test 18 $68.00 $1,224.00
+Crating and export preparation 16 $58.00 $928.00
+SUBTOTAL — LABOR & FABRICATION $20,951.00
+4. PRICING SUMMARY
+Materials Subtotal $97,680.00
+Labor & Fabrication Subtotal $20,951.00
+Overhead (18% of Materials + Labor) $21,353.58
+Pre-Margin Subtotal $139,984.58
+Gross Margin (22%) $39,482.83
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $179,467.41
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 3 weeks from purchase order
+Procurement: 5 weeks — 8-row coils on 4-week fabrication lead
+Fabrication & Assembly: 5 weeks
+Factory Test: 2 weeks
+Total Lead Time: 15 weeks from purchase order
+Shipping: FCA Montreal; customer arranges West Coast freight
+Key Dependencies: DCIM RESTful API schema and CHW plant waterside economiser enable signal
+specification required Week 2
+6. COMMERCIAL TERMS
+Payment Terms: 25% with purchase order; 45% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship or 18 months from commissioning
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, electrical, freight, customs, DCIM software licences
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) San Jose ASHRAE 0.4% cooling design: 35°C DB / 21°C WB. The mild summer climate means the cooling system is never
+thermally stressed at design conditions. The dominant design consideration is part-load efficiency, because San Jose outdoor DB is
+below 25°C for more than 6,000 hours per year.
+(cid:127) Waterside economiser availability: San Jose outdoor WB falls below 10°C for approximately 3,800 hours annually. At 10°C WB a
+properly designed cooling tower or fluid cooler can deliver CHW supply at 7°C without mechanical compression, saving all
+compressor energy during those hours. TMI's unit economiser interface is a standard feature in the California market and adds no
+cost.
+(cid:127) CEC Title 24 VSD compliance: California's Appliance Efficiency Regulations require fan motor drives for commercial cooling
+equipment above 0.75 kW to meet minimum VSD efficiency standards. TMI's EC motor drives meet the current CEC requirements; a
+compliance data sheet is included in the submittal package for building permit purposes.
+(cid:127) DCIM RESTful API: the group controller exposes a JSON REST API over the LAN connection. The API schema was developed in
+coordination with the Nlyte platform and tested against Sunbird; compatibility with other platforms requires customer-side mapping.
+The API is a standard feature on all TMI large-format AHUs ordered with the optional DCIM integration package.
+(cid:127) Scope escalation trigger: this quotation was originally for 2 active plus 1 standby units at 350 kW each. A design revision added a
+fourth unit (3 active plus 1 standby), increasing the total project value above the hyperscaler's preferred-vendor agreement trigger
+and changing the procurement pathway from local discretion to mandatory corporate sourcing.
+Critical design decision: The critical design decision on this project was pre-configuring the group controller with a DCIM RESTful
+JSON API and a waterside economiser binary input at the factory — treating DCIM integration and free-cooling readiness as
+base-specification features rather than options — to minimise field integration work in a hyperscale environment where the
+commissioning window is typically measured in days rather than weeks.
+OUTCOME: LOST
+Lost due to a hyperscaler preferred-vendor agreement. The customer's parent company had a global master supply agreement with
+a competing manufacturer covering all cooling equipment purchases above USD 400,000. The local procurement team had
+discretion for projects under this threshold and had intended to award to TMI; a late scope change added one unit, bringing the total
+above the USD 400,000 trigger and mandating escalation to corporate procurement, who awarded under the master agreement
+without a competitive bid process.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

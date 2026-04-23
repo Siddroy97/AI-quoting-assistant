@@ -1,0 +1,138 @@
+Quote No.: TMI-Q-2022-021
+Revision: Rev 1
+TMI CLIMATE SOLUTIONS
+Issue Date: 2022-05-24
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2022-06-22
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: Capital Corridor Data LLC
+Project Name: Northern Virginia Hyperscale Campus — Block 1 AHU
+Site Location: Ashburn, VA, USA
+Contact: Timothy Blake, SVP Infrastructure
+Application: Hyperscale campus — hybrid CHW primary / DX trim, Tier 3, 2N paired-failover, 8 units
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 3,200 kW sensible — Block 1 of a three-block hyperscale campus. Eight (8) large hybrid chilled water primary / DX
+trim-cooling AHUs, 500 kW CHW primary and 100 kW DX trim per unit at design conditions, configured in a 2N fully redundant
+arrangement: four active units carry the 3,200 kW load simultaneously; four standby units are ready to assume any active unit's load
+within 30 seconds.
+2N paired-failover architecture: each standby unit is assigned to mirror one specific active unit rather than pooled as shared standby.
+This deterministic pairing ensures the group controller's failover logic is unambiguous — any active unit failure triggers one identified
+standby unit to start, preventing simultaneous multi-unit start events that can cause electrical demand spikes on the facility's utility
+connection.
+CHW primary coil: 10-row, 14 fins per inch, aluminium-fin copper-tube; face area 2,400 mm x 1,600 mm; CHW supply 6°C / return
+13°C. The 6°C/13°C delta-T achieves a 10°C leaving dew-point for Northern Virginia's summer humidity profile. Waterside
+economiser valve on CHW supply: free-cooling mode available when outdoor WB is below 10°C — approximately 2,800 hours per
+year in Northern Virginia.
+DX trim circuit: R-410A, 2-row trim-cooling coil, single scroll compressor per unit, remote air-cooled condenser. Provides up to 100
+kW supplementary cooling to maintain supply air temperature precision during the waterside economiser transition period, when
+CHW supply temperature can fluctuate by 1 to 2°C as the fluid cooler bypass circuit equalises.
+Fan section: four (4) backward-curved EC plenum fans per unit, 60,000 CFM total at 0.90 in. w.g. Four-fan fault tolerance: loss of one
+fan reduces airflow 25%, compensated by group controller increasing adjacent active-unit fan speeds — no failover triggered for a
+single fan fault.
+Controls: zone-level group controller, BACnet IP with DCIM API, managing four 2N paired units per zone. 30-second failover
+guaranteed and verified at factory test. Waterside economiser switchover logic and outdoor WB monitoring included. Power metering
+per unit via integrated kWh meter.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated; seismic SDC B provisions per ASCE 7-22 for Northern Virginia.
+Filtration: 4-inch MERV-13 with MERV-8 pre-filter. Dual-stage filtration for Northern Virginia's spring pollen season — the MERV-8
+pre-filter captures coarser pollen particles before they load the MERV-13 media, extending MERV-13 service life from approximately
+8 weeks to 14 weeks during the March-to-May season.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW primary coil, 10-row, 14 FPI, 2400x1600mm, aluminium-fin
+8 ea $18,500.00 $148,000.00
+copper-tube
+DX trim coil, 2-row, R-410A, with remote condenser provision, per
+8 ea $4,800.00 $38,400.00
+unit
+Backward-curved EC fan, 60,000 CFM (x4 per unit) 32 ea $5,200.00 $166,400.00
+EC motor, 37 kW, VSD, per fan 32 ea $5,000.00 $160,000.00
+6-inch modulating CHW valve, spring-return fail-closed 8 ea $2,200.00 $17,600.00
+Waterside economiser bypass valve and outdoor WB sensor array 8 ea $1,800.00 $14,400.00
+DX trim scroll compressor, 50 kW equivalent, per unit 8 ea $3,400.00 $27,200.00
+R-410A charge, DX trim circuit, approx. 14 kg per unit 8 charge $500.00 $4,000.00
+Remote DX condenser, EC fans, per unit 8 ea $5,800.00 $46,400.00
+Zone group controller, BACnet IP, DCIM API, 2N paired logic,
+2 ea $9,500.00 $19,000.00
+10-unit cap.
+MERV-13 + MERV-8 dual-stage filter rack, per unit 8 ea $920.00 $7,360.00
+100 mm insulated double-wall cabinet, SDC B seismic, per unit 8 set $11,500.00 $92,000.00
+Power metering, kWh, Modbus, per unit 8 ea $380.00 $3,040.00
+SUBTOTAL — MATERIALS $743,800.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Large-format cabinet fabrication, SDC B seismic provision,
+480 $65.00 $31,200.00
+8-unit
+CHW and DX coil installation, hydraulic test, refrigerant
+160 $75.00 $12,000.00
+circuit
+4-fan EC array installation, VSD commissioning, vibration
+96 $72.00 $6,912.00
+baseline
+Economiser valve and DX trim installation, switchover logic
+40 $78.00 $3,120.00
+programming
+Zone controller wiring, 2N paired-failover logic, DCIM API
+80 $78.00 $6,240.00
+integration
+Factory 2N failover simulation test, 8-unit phased 48 $68.00 $3,264.00
+Oversized crating, phased delivery preparation 48 $60.00 $2,880.00
+SUBTOTAL — LABOR & FABRICATION $65,616.00
+4. PRICING SUMMARY
+Materials Subtotal $743,800.00
+Labor & Fabrication Subtotal $65,616.00
+Overhead (18% of Materials + Labor) $145,694.88
+Pre-Margin Subtotal $955,110.88
+Gross Margin (22%) $269,390.25
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $1,224,501.13
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 4 weeks from purchase order
+Procurement: 8 weeks — 10-row coils 7-week fabrication lead; EC 37 kW motors 6-week lead, ordered in
+parallel
+Fabrication & Assembly: 8 weeks — two parallel production lines
+Factory Test: 3 weeks — phased 2N failover test, 4 units per phase
+Total Lead Time: 23 weeks from purchase order
+Phased Delivery: Units 1-4 delivered Week 21; Units 5-8 delivered Week 23
+Shipping: FCA Montreal; customer arranges flatbed freight and crane at Ashburn site
+Key Dependencies: CHW plant schematic and 6°C/13°C supply confirmation Week 2; condenser pad layout
+Week 3; DCIM API schema Week 4
+6. COMMERCIAL TERMS
+Payment Terms: 20% with purchase order; 30% at 50% fabrication; 30% factory readiness; 20% net 30 from
+ship
+Warranty: 36 months from ship or 24 months from commissioning — extended campus warranty
+2N Performance Guarantee: Any active unit failure results in standby unit assuming full load within 30 seconds; verified at
+factory test for all 8 units
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, DX refrigerant line installation, electrical service,
+freight, rigging
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Northern Virginia ASHRAE 0.4% cooling design: 36°C DB / 24°C WB. The 24°C WB is the design driver for coil selection; at this
+humidity a 10°C leaving dew-point requires a 10-row coil at 6°C CHW supply. The customer's CHW plant has been designed for the
+6°C/13°C delta-T used here; this specification is not interchangeable with the standard 7°C/14°C product.
+(cid:127) 2N paired failover versus pool standby: pool standby is simpler to programme but introduces a race condition where simultaneous
+active unit faults can request more standby units than are available. Paired failover is deterministic — unit A1 always calls
+A1-standby, unit B1 always calls B1-standby — ensuring predictable electrical demand during failover events, which is important
+where utility demand charges apply.
+(cid:127) Waterside economiser at 2,800 annual hours: during these hours the CHW compressors are bypassed and a fluid cooler provides
+6°C CHW supply using only fan energy. Annual compressor energy saving per unit is approximately 180 MWh — significant at
+campus scale.
+(cid:127) DX trim circuit purpose: the 2-row R-410A trim coil handles the 1 to 3°C supply air temperature deviation that occurs during the
+waterside economiser switchover transition, typically lasting 3 to 8 minutes as the CHW supply temperature equalises. Without the
+trim circuit, supply air temperature can rise to 19 to 21°C during this transition, triggering IT equipment thermal alarms.
+(cid:127) Northern Virginia reference installations: Leesburg Data Park (2020, 6 units) and Manassas Carrier Hotel (2021, 4 units). Both sites
+have experienced summer peak ambient events reaching 36°C DB and maintained cooling capacity without unit fault. Reference
+contacts available to the customer on request.
+Critical design decision: The critical design decision on this project was implementing deterministic 2N paired-failover logic —
+assigning each standby unit to mirror one specific active unit — rather than a pool standby architecture, ensuring predictable
+single-unit electrical demand during any failover event and eliminating the race condition where simultaneous multiple faults could
+exhaust the standby pool before all affected zones are recovered.
+OUTCOME: WON
+Awarded following a formal BAFO process. TMI's final price came within 3% of the lowest competing bid after the BAFO reduction.
+The customer's technical evaluation committee cited two prior Northern Virginia TMI installations as reference evidence for
+performance in the NoVA temperature and humidity profile; no competing bidder had equivalent regional reference data. The
+combination of a competitive post-BAFO price and demonstrated regional performance record was the basis for the award.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

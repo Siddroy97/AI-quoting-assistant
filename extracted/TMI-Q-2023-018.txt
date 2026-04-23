@@ -1,0 +1,129 @@
+Quote No.: TMI-Q-2023-018
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-10-16
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-11-14
+Prepared by: Sophie Lafleur
+QUOTATION
+Customer: Cascade Cloud Infrastructure Inc.
+Project Name: Portland Regional Data Centre — Hall 2 Expansion
+Site Location: Portland, OR, USA
+Contact: David Kim, Director of Engineering
+Application: Regional data centre — chilled water AHU, N+1 redundancy, waterside economiser, high
+free-cooling potential
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 850 kW sensible — CHW supply 7°C / return 14°C, entering air 23°C DB / 50% RH. Three (3) large chilled water
+AHUs at 425 kW sensible each, N+1: two active, one standby on 168-hour auto-rotation.
+Configuration: Floor-mounted chilled water AHUs, raised-floor supply, overhead return. Portland's climate is exceptional for data
+centre cooling economics: outdoor wet-bulb is below 10°C for approximately 5,600 hours per year — nearly two-thirds of annual
+hours — enabling sustained waterside free-cooling through the CHW plant's fluid cooler bypass circuit. TMI's unit controls include a
+pre-wired waterside economiser interface enabling full or partial free-cooling operation without unit-level modification.
+Cooling coil: 8-row, 12 fins per inch, aluminium-fin copper-tube; face area 2,000 mm x 1,300 mm; CHW supply 7°C / return 14°C. Coil
+face velocity is 2.8 m/s, below the standard 3.0 m/s maximum, reducing coil pressure drop and fan energy — justified by Portland's
+high proportion of part-load operating hours.
+Fan section: two (2) backward-curved EC fans per unit, 44,000 CFM at 0.80 in. w.g. EC motor selection is optimised for Portland's
+part-load profile; the motor is selected at its highest efficiency point at 60% speed, corresponding to the dominant operating condition
+(low ambient, free-cooling active, reduced supply air temperature demand).
+Waterside economiser interface: pre-wired BACnet binary input for the CHW plant economiser enable signal. When enabled, unit
+controller reduces fan speed to maintain a relaxed supply air setpoint of 18°C versus 16°C in mechanical cooling mode; the higher
+setpoint reduces fan speed to approximately 50%, cutting fan energy by approximately 87% relative to full-load mechanical cooling.
+Controls: N+1 group controller, BACnet IP, 168-hour rotation; supply temperature and dew-point; energy metering per unit. Waterside
+economiser logic in group controller: when economiser enable signal is active, supply temperature setpoint is automatically raised to
+18°C and fan speed ramps down smoothly.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated.
+Filtration: 4-inch MERV-13. Portland air quality is affected by West Coast wildfire smoke during August and September; MERV-13
+captures fine particulate matter (PM2.5) at greater than 85% efficiency and is TMI's standard specification for all Pacific Northwest
+data centre applications.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW coil, 8-row, 12 FPI, 2000x1300mm, low face velocity
+3 ea $9,800.00 $29,400.00
+selection
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Backward-curved EC fan, 44,000 CFM, part-load optimised motor
+6 ea $4,200.00 $25,200.00
+(x2/unit)
+EC motor, 22 kW, integrated VSD, peak efficiency at 60% speed 6 ea $3,500.00 $21,000.00
+2-way CHW valve, 4-inch, modulating, spring-return 3 ea $1,050.00 $3,150.00
+N+1 group controller, BACnet IP, waterside economiser logic,
+1 ea $4,800.00 $4,800.00
+energy metering
+4-inch MERV-13 filter rack, 12 filters per unit 3 ea $660.00 $1,980.00
+100 mm double-wall insulated cabinet, per unit 3 set $6,600.00 $19,800.00
+Condensate drain pan, stainless, per unit 3 ea $680.00 $2,040.00
+kWh sub-meter, Modbus TCP, per unit 3 ea $360.00 $1,080.00
+Controls wiring harness, per unit 3 set $740.00 $2,220.00
+SUBTOTAL — MATERIALS $110,670.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Large-format cabinet fabrication, 3-unit batch 160 $65.00 $10,400.00
+Coil installation, hydraulic test — low face velocity
+46 $72.00 $3,312.00
+configuration
+EC fan and motor installation, part-load optimisation
+36 $72.00 $2,592.00
+verification
+Group controller wiring, economiser logic, energy metering
+36 $78.00 $2,808.00
+programming
+Factory performance test 20 $68.00 $1,360.00
+Crating and export preparation 16 $58.00 $928.00
+SUBTOTAL — LABOR & FABRICATION $21,400.00
+4. PRICING SUMMARY
+Materials Subtotal $110,670.00
+Labor & Fabrication Subtotal $21,400.00
+Overhead (18% of Materials + Labor) $23,772.60
+Pre-Margin Subtotal $155,842.60
+Gross Margin (22%) $43,955.61
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $199,798.21
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 3 weeks from purchase order
+Procurement: 6 weeks — 8-row coils on 5-week fabrication lead; EC motors with custom speed-efficiency
+specification on 5-week lead
+Fabrication & Assembly: 5 weeks
+Factory Test: 2 weeks
+Total Lead Time: 16 weeks — standard schedule; customer required 11 weeks
+Expedite Option: 13 weeks achievable with CAD 14,000 priority procurement surcharge; 11 weeks not
+achievable without pre-purchase risk of approximately CAD 30,000
+Shipping: FCA Montreal; customer arranges Pacific Northwest freight
+6. COMMERCIAL TERMS
+Payment Terms: 25% with purchase order; 45% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship or 18 months from commissioning
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, electrical, freight, customs
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Portland ASHRAE 0.4% cooling design: 35°C DB / 23°C WB. The moderate summer peak means the system is thermally
+understressed; the 850 kW cooling load would be delivered at well below the coil's peak thermal duty for the vast majority of
+operating hours.
+(cid:127) Waterside economiser at 5,600 annual hours: Portland's climate makes this one of the highest free-cooling-potential sites in North
+America. For comparison, the same economiser interface in Dallas provides approximately 1,200 hours of annual free cooling. The
+5,600-hour Portland figure means the chilled water plant's compressors are off and only fluid cooler fans are running for
+approximately 64% of annual hours — the dominant operating mode, not an occasional benefit.
+(cid:127) EC motor optimisation at 60% speed: TMI's EC motor supplier provides efficiency curves for multiple operating speed points. For
+Portland, the motor was selected to peak at 60% speed (approximately 35% of rated power) rather than the standard 80% speed
+selection. This shifts the motor's highest efficiency region to the actual operating point, reducing motor copper losses by
+approximately 8% relative to a standard selection at the same nameplate power.
+(cid:127) MERV-13 and wildfire smoke: the ASHRAE Filtration and Air Cleaning Technical Committee recommends MERV-13 minimum for
+data centres in the western US fire corridor. Wildfire smoke PM2.5 particles (0.1 to 1.0 micron diameter) penetrate MERV-8 and
+MERV-11 media at high rates but are captured at 85 to 90% efficiency by MERV-13. IT equipment exposed to PM2.5 smoke can
+experience accelerated metallic corrosion at solder joints and connector pins.
+(cid:127) Lead time analysis: TMI's 16-week standard lead time is dominated by the 5-week custom coil fabrication lead. Pre-purchasing the
+coils before drawing approval would have reduced total lead time to 11 weeks but exposed TMI to a coil replacement cost of
+approximately CAD 30,000 if a post-approval drawing change modified the coil specification. For a project yielding approximately
+CAD 24,000 in gross margin, this risk was not commercially viable.
+Critical design decision: The critical design decision on this project was selecting an EC motor with peak efficiency calibrated at
+60% of rated speed rather than the standard 80% selection — reflecting Portland's dominant part-load operating profile — a
+specification that reduces annual fan energy consumption by approximately 9,600 kWh per unit at Portland's average operating point
+versus a standard selection, prioritising operational cost over the simpler approach of oversizing the motor for peak conditions.
+OUTCOME: LOST
+Lost on lead time. The customer required delivery in 11 weeks to maintain a data centre go-live milestone that triggered a tenant
+lease commencement date worth approximately USD 1.2 million in revenue. TMI's standard lead time for this configuration is 16
+weeks; after reviewing the production schedule in detail, TMI determined that 13 weeks was achievable with a priority procurement
+surcharge but 11 weeks was not achievable without pre-purchasing components before engineering sign-off — a risk TMI was not
+willing to accept. The competing manufacturer had a North American fabrication facility with a shorter component procurement lead
+time and could commit to 11 weeks.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

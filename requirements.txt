@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+anthropic
+python-dotenv
+chromadb
+sentence-transformers
+pdfplumber
+requests

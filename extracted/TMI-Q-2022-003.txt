@@ -1,0 +1,138 @@
+Quote No.: TMI-Q-2022-003
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2022-07-19
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2022-08-18
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: RockFront Technologies Ltd.
+Project Name: Denver Micro Data Centre — Building 4
+Site Location: Denver, CO, USA
+Contact: Sarah Kim, Facilities Manager
+Application: Micro data centre — single-zone air-cooled rooftop DX, altitude-derated, N redundancy
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 95 kW sensible guaranteed at site conditions — Denver, CO at 1,609 m (5,280 ft) elevation, outdoor DB 36°C / WB
+15°C, entering air 22°C DB / 40% RH.
+Configuration: One (1) roof-mounted packaged direct-expansion unit, 95 kW sensible at altitude. The Denver elevation of 1,609 m
+reduces ambient air density to approximately 83% of sea-level standard. Every performance figure in this quotation — capacity,
+airflow, fan static, condenser rejection — has been corrected for this density reduction. A unit selected on sea-level ratings would
+deliver only 79 kW at this site.
+Altitude de-rating methodology: compressor volumetric efficiency corrected using the ratio of actual air density (1.020 kg/m3 at
+Denver) to standard sea-level air density (1.225 kg/m3). Condenser fan blade pitch increased by 4° from the sea-level setting to
+maintain equivalent mass-flow rate at lower air density. Evaporator coil face velocity held constant at sea-level equivalent by reducing
+airflow volume by the same density ratio.
+Refrigerant circuit: R-410A, dual-circuit scroll compressors, 6-row aluminium-fin copper-tube evaporator coil at 12 FPI. Altitude-rated
+compressors confirmed operable down to 1,800 m — providing margin above the Denver site elevation.
+Condensing: Remote air-cooled condenser, roof-mounted, EC fans with altitude-corrected blade pitch. Condenser coil selected at
+36°C outdoor DB with a minimum 5°C approach to target condensing temperature, ensuring the compressor operates within rated
+discharge pressure limits at Denver's combination of moderate dry-bulb and low air density.
+Airflow: 4,800 CFM at 0.50 in. w.g. external static — this is the altitude-corrected volume flow; the equivalent mass flow rate is 4,800
+x 1.020/1.225 = 3,995 CFM at sea-level equivalent. Fan motor is sized for the volume flow at Denver density, not sea-level mass
+flow.
+Controls: BACnet IP microprocessor controller; supply-air temperature control at 16°C; altitude compensation algorithm adjusts
+refrigerant charge monitoring thresholds — low-pressure cutout set-point corrected for Denver suction pressure.
+Cabinet: 16-gauge galvanised steel, 50 mm double-wall insulated, powder-coat RAL 7035. Roof curb with neoprene perimeter seal.
+Filtration: 2-inch MERV-8 panel filters. Denver's brown cloud particulate environment: filter replacement interval estimated at 10
+weeks.
+Redundancy tier: N — single unit, no standby in Phase 1. Customer has requested provision for a second unit in Phase 2; condenser
+section structural frame includes a pre-drilled expansion flange to accommodate a second condenser module without modifying the
+roof curb.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+DX evaporator coil, 6-row, 12 FPI, altitude-rated, dual-circuit 1 ea $4,100.00 $4,100.00
+Scroll compressor, altitude-rated to 1,800 m, 47.5 kW equiv. 2 ea $2,300.00 $4,600.00
+Air-cooled condenser section, altitude-corrected blade pitch, EC
+1 ea $3,200.00 $3,200.00
+fans
+R-410A refrigerant charge, approx. 10 kg 1 charge $380.00 $380.00
+Phase 2 expansion flange, pre-drilled, structural, condenser frame 1 ea $420.00 $420.00
+16-ga cabinet panels, 50 mm double-wall insulated 1 set $1,950.00 $1,950.00
+BACnet IP controller with altitude-compensation algorithm 1 ea $1,250.00 $1,250.00
+Low-pressure cutout, altitude-corrected set-point, per circuit 2 ea $185.00 $370.00
+MERV-8 2-inch filter rack, 4 filters 1 ea $220.00 $220.00
+Roof curb, galvanised, neoprene perimeter seal 1 ea $510.00 $510.00
+Vibration isolators, spring-type 1 set $140.00 $140.00
+Wiring harness and sealed control enclosure, IP54 1 set $275.00 $275.00
+SUBTOTAL — MATERIALS $17,415.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Cabinet fabrication, condenser frame with expansion flange 32 $65.00 $2,080.00
+Coil assembly and altitude-rated compressor installation 12 $72.00 $864.00
+Refrigerant piping, brazing, pressure test at 450 psi, vacuum
+14 $75.00 $1,050.00
+pull
+Condenser fan blade pitch adjustment, torque verification 6 $72.00 $432.00
+Controls installation, BACnet IP commissioning, altitude
+10 $72.00 $720.00
+algorithm load
+Altitude performance test — capacity verification at
+8 $78.00 $624.00
+simulated Denver conditions
+Crating, export documentation, expedited release 4 $60.00 $240.00
+SUBTOTAL — LABOR & FABRICATION $6,010.00
+4. PRICING SUMMARY
+Materials Subtotal $17,415.00
+Labor & Fabrication Subtotal $6,010.00
+Overhead (18% of Materials + Labor) $4,216.50
+Pre-Margin Subtotal $27,641.50
+Gross Margin (22%) $7,796.32
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $35,437.82
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Approved 1 week — standard rooftop geometry; altitude de-rating calculations completed at quotation
+Drawings: stage, no redesign required on order
+Component Procurement: 2 weeks — altitude-rated compressors confirmed in stock at Montreal distributor;
+pre-purchase authorised at quotation stage to hold stock
+Fabrication & Assembly: 2 weeks — dedicated single-unit production cell, no queue delay
+Altitude Performance Test: 1 week — included in factory test phase; test conditions simulated via low-pressure test rig
+Crating & Freight Release: 1 week
+Total Lead Time: 7 weeks from purchase order — EXPEDITED, CONFIRMED SCHEDULE
+Shipping: FCA TMI Montreal; customer arranges freight to Denver site
+Key Dependencies: Roof curb dimensions confirmed at quotation stage. Power supply 480V/3ph/60Hz
+confirmed. No outstanding dependencies; order can proceed immediately on signature
+6. COMMERCIAL TERMS
+Payment Terms: 50% with purchase order; 50% net 15 days from ship date — expedited payment terms
+aligned with accelerated production schedule
+Warranty: 18 months from ship date or 12 months from commissioning. Performance guarantee at
+Denver altitude: 95 kW sensible at 36°C DB / 15°C WB site conditions. If post-installation
+measurement shows capacity below 90.25 kW (95% of guarantee), TMI will remediate at no
+charge.
+Performance Certificate: Factory test report and altitude de-rating calculation package issued with equipment;
+customer may use these documents for commissioning sign-off with local AHJ
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Field installation, commissioning, electrical service, freight, customs, Phase 2 second-unit
+supply (separate quotation on request)
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Denver ASHRAE 2021 0.4% cooling design: 36°C DB / 15°C WB at 1,609 m elevation. The 15°C WB is unusually low for a location
+with a 36°C DB peak, and this combination is characteristic of the Denver semi-arid climate. The low WB means outdoor air is dry
+and condenser heat rejection is efficient even at 36°C DB — this is an important distinction from Phoenix, where the high dry-bulb is
+the governing constraint. In Denver, air density is the governing constraint.
+(cid:127) Air density at 1,609 m and 36°C: 1.020 kg/m3. At sea-level standard (20°C): 1.225 kg/m3. Density ratio: 0.833. This ratio is applied
+to compressor volumetric efficiency, condenser airflow mass rate, and evaporator coil psychrometrics. A unit specified on sea-level
+ratings delivers 95 kW x 0.833 = 79 kW at this site without altitude correction — a 17% shortfall that would go undetected until
+commissioning on a less rigorously specified project.
+(cid:127) Condenser fan blade pitch increase of 4°: at 1,609 m, the standard blade pitch moves the same volume of air but at lower mass flow
+rate. Increasing pitch by 4° restores mass flow rate to within 2% of the sea-level equivalent, maintaining the required condenser heat
+rejection rate. This adjustment is made at the TMI factory and verified on the performance test rig; field adjustment is not permitted
+and the blade pitch is marked with a paint witness mark on assembly.
+(cid:127) Low-pressure cutout altitude correction: R-410A suction pressure at Denver is approximately 14 kPa lower than sea-level for
+equivalent evaporating temperature, due to the reduced atmospheric back-pressure on the suction side. Standard low-pressure
+cutout set-points would trigger nuisance trips at Denver without correction. The BACnet controller stores the altitude-corrected
+suction pressure thresholds and applies them automatically; no field adjustment to refrigerant charge is required.
+(cid:127) Phase 2 expansion provision: the pre-drilled structural flange adds 420 CAD to this project but eliminates the need to remove and
+re-fabricate the condenser frame when the second unit is ordered. Phase 2 unit lead time will be standard (9 to 10 weeks) as no
+expedite programme will be in place.
+(cid:127) Roof structural loading: 590 kg shipping weight. Customer's structural engineer confirmed slab capacity at 1,200 kg/m2 design load;
+unit footprint produces 680 kg/m2 — within capacity with margin.
+Critical design decision: The critical design decision on this project was correcting all performance parameters — compressor
+volumetric efficiency, condenser fan blade pitch, and low-pressure cutout set-points — for Denver's 1,609 m elevation and 0.833
+sea-level air density ratio, rather than applying a generic altitude de-rating factor, ensuring the 95 kW capacity guarantee is met
+precisely at site conditions without over-specifying the equipment.
+OUTCOME: WON
+TMI was the only vendor that confirmed a 7-week delivery in writing with a detailed procurement schedule. The two competing bids
+quoted 14 and 16 weeks respectively. The customer's certificate-of-occupancy date created a hard deadline; TMI's ability to
+pre-stage components for an expedited build was the deciding factor. Price was within 4% of the lower competing bid.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

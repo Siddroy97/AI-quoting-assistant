@@ -1,0 +1,121 @@
+Quote No.: TMI-Q-2023-027
+Revision: Rev 1
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-09-19
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-10-18
+Prepared by: Marc Tremblay
+QUOTATION
+Customer: Peachtree Hyperscale Partners LLC
+Project Name: Atlanta Tier-3 Hyperscale Campus — Phases 1 and 2
+Site Location: Atlanta, GA, USA
+Contact: Marcus Webb, SVP Infrastructure
+Application: Hyperscale campus — chilled water AHU, Tier 3 2N, 24 units two-phase with 5-year PM
+agreement
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 4,500 kW sensible — Phase 1 (2,250 kW) and Phase 2 (2,250 kW), Atlanta Tier 3 campus delivered under a single
+master supply agreement. Twelve (12) large chilled water AHUs per phase (24 total), 300 kW each, Tier 3 2N: eleven active, one
+standby per phase; CHW supply 7°C / return 14°C.
+Configuration: Large floor-mounted chilled water AHUs, hot-aisle containment, underfloor supply. Phase 1 and Phase 2 equipment is
+mechanically identical; phase labelling is for site sequencing only. Zone group controllers are shared infrastructure across both
+phases.
+Cooling coil: 8-row, 12 fins per inch, aluminium-fin copper-tube; face area 1,800 mm x 1,200 mm; CHW supply 7°C / return 14°C.
+Waterside economiser per unit: free-cooling active when outdoor WB is below 13°C — approximately 2,400 hours per year in Atlanta.
+Fan section: two (2) EC backward-curved fans per unit, 34,000 CFM total at 0.75 in. w.g., variable-speed drives.
+Service package: 5-year preventive maintenance agreement covering all 24 units — four PM visits per unit per year, 24/7 emergency
+response with on-site response within 24 hours from TMI's Atlanta spare parts depot, semi-annual coil cleaning, annual refrigerant
+check, VSD calibration, and filter replacement at each visit.
+Spare parts depot: TMI establishes a dedicated Atlanta depot kit for this programme covering: 2 complete fan/motor assemblies, 4
+VSD units, 6 CHW valves with actuators, 1 group controller spare PCB, and 1 year of filter stock. Depot is maintained by TMI
+throughout the 5-year PM agreement.
+Controls: zone group controller, BACnet IP, DCIM API, 2N rotation logic; expandable for Phase 3 if required. Power metering per unit
+for tenant billing.
+Filtration: 4-inch MERV-13.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW coil, 8-row, 12 FPI, 1800x1200mm, aluminium-fin
+24 ea $8,200.00 $196,800.00
+copper-tube
+Backward-curved EC fan, 34,000 CFM (x2 per unit) 48 ea $3,600.00 $172,800.00
+EC motor, 18.5 kW, integrated VSD 48 ea $3,000.00 $144,000.00
+4-inch modulating CHW valve, spring-return 24 ea $1,050.00 $25,200.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Waterside economiser valve and actuator, per unit 24 ea $1,450.00 $34,800.00
+Zone group controller, BACnet IP, DCIM API, 2N logic, 14-unit
+4 ea $7,200.00 $28,800.00
+cap.
+MERV-13 filter rack, per unit 24 ea $680.00 $16,320.00
+100 mm insulated double-wall cabinet, per unit 24 set $7,800.00 $187,200.00
+Power metering, Modbus, per unit 24 ea $340.00 $8,160.00
+5-year PM service agreement — 24 units, 4 visits/year, 24/7
+1 contract $180,000.00 $180,000.00
+response
+Atlanta spare parts depot kit — 1-year critical spares 1 set $24,000.00 $24,000.00
+Condensate drain system, per unit 24 ea $640.00 $15,360.00
+SUBTOTAL — MATERIALS $1,033,440.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Phase 1 cabinet fabrication and assembly (x12 units) 660 $65.00 $42,900.00
+Phase 2 cabinet fabrication and assembly (x12 units) 660 $65.00 $42,900.00
+Coil installation, hydraulic test — 24 units 240 $75.00 $18,000.00
+Fan and motor installation (x48 fans) 144 $72.00 $10,368.00
+Economiser valve and zone controller programming — 24
+144 $78.00 $11,232.00
+units
+Factory performance test, 24-unit phased 80 $68.00 $5,440.00
+Crating and export preparation — 24 units 80 $60.00 $4,800.00
+SUBTOTAL — LABOR & FABRICATION $135,640.00
+4. PRICING SUMMARY
+Materials Subtotal $1,033,440.00
+Labor & Fabrication Subtotal $135,640.00
+Overhead (18% of Materials + Labor) $210,434.40
+Pre-Margin Subtotal $1,379,514.40
+Gross Margin (22%) $389,093.81
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $1,768,608.21
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 4 weeks from purchase order
+Phase 1 Procurement: 7 weeks — 12 units
+Phase 1 Fabrication: 7 weeks
+Phase 1 Factory Test: 2 weeks
+Phase 1 Delivery: 20 weeks from purchase order
+Phase 2 Delivery: 26 weeks from purchase order — 6-week lag after Phase 1
+Shipping: FCA Montreal; customer arranges Atlanta freight and rigging
+Key Dependencies: Phase 1 CHW plant schematic and condenser layout Week 2; Phase 2 layout Week 8
+6. COMMERCIAL TERMS
+Payment Terms: 20% with purchase order; 35% Phase 1 factory readiness; 25% Phase 1 ship; 20% Phase 2
+ship
+Warranty: 36 months from Phase 1 ship — both phases covered under a single warranty document
+PM Service Agreement: 5-year PM agreement covers Phases 1 and 2; first annual visit scheduled 12 months
+post-commissioning; 4 visits per unit per year
+24/7 Emergency Response: Remote diagnostics via BACnet IP within 2 hours; on-site response from Atlanta depot within
+24 hours
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, electrical, freight, rigging
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Atlanta ASHRAE 0.4% cooling design: 35°C DB / 24°C WB. Waterside economiser contributes approximately 2,400 hours per year
+of full or partial free cooling. Estimated annual compressor energy saving per unit is approximately 80 MWh — at campus scale this
+represents a meaningful annual operating cost reduction.
+(cid:127) 5-year PM agreement total value: CAD 180,000 covering 24 units at 4 visits per unit per year over 5 years — equivalent to
+approximately CAD 375 per unit per PM visit. This rate reflects TMI's volume discount for a dedicated Atlanta depot programme
+versus call-out PM at standard rates.
+(cid:127) Atlanta spare parts depot kit: the on-site depot eliminates the 3 to 5 business day lead time for critical spare parts that would
+otherwise be shipped from Montreal. The fan/motor assemblies, VSDs, and CHW valves in the depot cover the statistical top three
+failure modes for this equipment class at Atlanta ambient conditions.
+(cid:127) Two-phase delivery alignment: Phase 1 and Phase 2 equipment is mechanically identical; the 6-week production gap between
+phases allows the customer's installation contractor to complete Phase 1 installation and commissioning before Phase 2 equipment
+arrives — avoiding site storage of multiple phases simultaneously.
+(cid:127) Phase 3 pricing: TMI commits to holding Phase 1 and Phase 2 pricing within 5% for a Phase 3 addition if purchase orders are
+placed within 18 months of Phase 2 delivery.
+Critical design decision: The critical design decision on this project was bundling the 5-year PM service agreement and Atlanta
+spare parts depot into the master supply contract rather than treating them as optional add-ons, because the customer's
+total-cost-of-ownership evaluation weighted operational cost predictability over a 5-year period as heavily as capital cost — a
+purchasing perspective that equipment-only competitors could not address regardless of their unit pricing.
+OUTCOME: WON
+A comprehensive 5-year service and preventive maintenance agreement bundled with the equipment supply gave the customer a
+total-cost-of-ownership advantage over a lower-priced equipment-only bid. The customer's board prioritised OpEx predictability for a
+programme of this scale; the competing bid was 6% lower in capital cost but offered no service provision. The bundled PM
+agreement, Atlanta spare parts depot, and 24/7 emergency response commitment were the decisive factors.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

@@ -1,0 +1,116 @@
+Quote No.: TMI-Q-2023-023
+Revision: Rev 0
+TMI CLIMATE SOLUTIONS
+Issue Date: 2023-01-16
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2023-02-14
+Prepared by: Sophie Lafleur
+QUOTATION
+Customer: Meridian Hyperscale Partners LLC
+Project Name: Dallas Tier-3 Hyperscale Campus — Phase 1
+Site Location: Dallas, TX, USA
+Contact: Chris Nakamura, Chief Infrastructure Officer
+Application: Hyperscale campus — chilled water AHU, Tier 3 2N redundancy, Phase 1 of 3
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 2,800 kW sensible — Phase 1 of a three-phase campus totalling 12,000 kW. Eight (8) large chilled water AHUs,
+450 kW sensible each, Tier 3 2N configuration: four active units, four standby on 120-hour auto-rotation.
+Configuration: Large floor-mounted chilled water AHUs with hot-aisle containment. CHW supply 7°C / return 14°C. Zone group
+controller is designed for expansion to a 24-unit total system to accommodate Phase 2 and Phase 3 additions — no controller
+replacement required as the campus builds out.
+Cooling coil: 10-row, 12 fins per inch, aluminium-fin copper-tube; face area 2,100 mm x 1,400 mm; CHW supply 7°C / return 14°C.
+The 10-row depth is required at this delta-T to achieve a leaving dew-point of 11°C for Dallas's humidity profile at 24°C WB design
+condition.
+Fan section: three (3) EC backward-curved fans per unit, 48,000 CFM total at 0.85 in. w.g. Three-fan design for fault tolerance: single
+fan failure reduces airflow by 33%, managed by the group controller increasing adjacent unit fan speed without triggering an
+automatic N failover.
+Waterside economiser: modulating bypass valve on CHW supply line, activated when an outdoor WB sensor array reads below
+13°C. Partial free-cooling mode allows mixed operation at outdoor WB between 10°C and 13°C — approximately 1,200 hours per
+year in Dallas.
+Controls: zone group controller, BACnet IP, DCIM API, 120-hour 2N rotation. Expandable controller architecture: current 8-unit
+deployment occupies 8 of 24 available unit addresses. Phase 2 and 3 units connect to the same controller infrastructure.
+Cabinet: 14-gauge galvanised steel, 100 mm double-wall insulated.
+Filtration: 4-inch MERV-13.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+CHW coil, 10-row, 12 FPI, 2100x1400mm, aluminium-fin
+8 ea $14,800.00 $118,400.00
+copper-tube
+Backward-curved EC fan, 48,000 CFM (x3 per unit) 24 ea $4,800.00 $115,200.00
+EC motor, 30 kW, VSD 24 ea $4,600.00 $110,400.00
+6-inch modulating CHW valve, spring-return 8 ea $2,000.00 $16,000.00
+Waterside economiser bypass valve and outdoor WB sensor array 8 ea $1,800.00 $14,400.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Zone group controller, BACnet IP, DCIM API, expandable to 24
+2 ea $9,500.00 $19,000.00
+units
+MERV-13 filter rack, per unit 8 ea $840.00 $6,720.00
+100 mm insulated double-wall cabinet, per unit 8 set $10,800.00 $86,400.00
+Power metering, Modbus, per unit 8 ea $360.00 $2,880.00
+Condensate drain system, per unit 8 ea $740.00 $5,920.00
+SUBTOTAL — MATERIALS $495,320.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Large-format cabinet fabrication, 8-unit batch 440 $65.00 $28,600.00
+10-row coil installation, hydraulic test 136 $75.00 $10,200.00
+3-fan EC array installation, VSD commissioning 84 $72.00 $6,048.00
+Economiser valve installation and partial free-cool
+36 $78.00 $2,808.00
+programming
+Zone controller wiring, 2N rotation, DCIM API integration 72 $78.00 $5,616.00
+Factory performance test, 8-unit phased 48 $68.00 $3,264.00
+Oversized crating and freight preparation 40 $60.00 $2,400.00
+SUBTOTAL — LABOR & FABRICATION $58,936.00
+4. PRICING SUMMARY
+Materials Subtotal $495,320.00
+Labor & Fabrication Subtotal $58,936.00
+Overhead (18% of Materials + Labor) $99,766.08
+Pre-Margin Subtotal $654,022.08
+Gross Margin (22%) $184,467.77
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $838,489.85
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 4 weeks from purchase order
+Procurement: 8 weeks — 10-row coils 7-week fabrication; EC motors 6-week lead
+Fabrication & Assembly: 6 weeks
+Factory Test: 2 weeks
+Total Lead Time: 20 weeks — standard schedule; customer required 14 weeks
+Expedite Option: 17 weeks achievable with CAD 28,000 priority procurement surcharge; 14 weeks not
+achievable without pre-purchase risk of approximately CAD 120,000
+Shipping: FCA Montreal; customer arranges flatbed and crane
+Key Dependencies: CHW plant schematic and DCIM API schema required Week 2
+6. COMMERCIAL TERMS
+Payment Terms: 20% with purchase order; 40% factory readiness; 40% net 30 from ship
+Warranty: 36 months from ship or 24 months from commissioning
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, electrical, freight, rigging
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) Dallas ASHRAE 0.4% cooling design: 40°C DB / 24°C WB. The 24°C WB drives the 10-row coil depth requirement; a standard
+8-row coil at this humidity would not achieve the 11°C leaving dew-point without reducing CHW supply below 6°C.
+(cid:127) Waterside economiser at 1,200 annual hours: Dallas's warm climate provides significantly fewer free-cooling hours than Pacific
+Northwest or Canadian sites. The economiser provides meaningful compressor energy savings during November to March but is not
+the primary efficiency driver for a Dallas installation — it is specified primarily for Tier 3 design resilience and partial-load cost
+reduction.
+(cid:127) Expandable zone controller architecture: the current 8-unit Phase 1 deployment uses 8 of 24 available unit addresses. Phase 2 and
+Phase 3 units connect directly to the same controller infrastructure without hardware replacement. This commitment was made at the
+Phase 1 engineering stage at no additional cost and eliminates a controller replacement estimated at CAD 38,000 per zone at full
+campus buildout.
+(cid:127) Lead time analysis: TMI's 20-week standard lead time is dominated by the 7-week custom coil fabrication lead from the coil
+supplier. Pre-purchasing the coils before drawing approval would have reduced total lead time to 14 weeks but exposed TMI to a coil
+replacement cost of approximately CAD 120,000 if a post-approval drawing change modified the coil specification. For a project
+yielding approximately CAD 175,000 in gross margin, this risk was not commercially acceptable.
+(cid:127) Competitor proximity advantage: a Dallas-area fabrication facility reduces the competitor's coil procurement lead time from 7 weeks
+(Montreal-to-Dallas import) to approximately 3 weeks (local fabrication). This structural supply chain advantage is a sustainable
+competitive factor for hyperscale campus projects in the Texas market where go-live schedule drives contract awards.
+Critical design decision: The critical design decision on this project was architecting the zone group controller for 24-unit
+expandability from the Phase 1 outset, so that Phase 2 and Phase 3 AHU groups can be added to the same controller without
+hardware replacement — a forward-compatibility investment that adds no cost to Phase 1 but eliminates a controller replacement
+cost estimated at CAD 38,000 per zone when the campus reaches full 12,000 kW buildout.
+OUTCOME: LOST
+Lost on lead time. The competing manufacturer had a fabrication facility in the Dallas area and could guarantee delivery in 14 weeks.
+TMI's standard lead time for this configuration was 20 weeks and the expedite path reduced this to 17 weeks at best. In a hyperscale
+programme where server deployment follows cooling system commissioning by 3 weeks, the 6-week lead time difference
+represented a direct delay in revenue recognition on the customer's server lease agreements — a financial impact the customer's
+CFO quantified at approximately USD 1.8 million in foregone revenue, which exceeded the cost differential between the two bids.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.

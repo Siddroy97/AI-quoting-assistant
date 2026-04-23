@@ -1,0 +1,117 @@
+Quote No.: TMI-Q-2022-013
+Revision: Rev 2
+TMI CLIMATE SOLUTIONS
+Issue Date: 2022-08-15
+Custom Air Handling & Cooling Systems | Montreal, QC, Canada
+Valid Until: 2022-09-14
+Prepared by: Sophie Lafleur
+QUOTATION
+Customer: Metro Colocation Services Inc.
+Project Name: New York Financial District DC — Level 4 Cooling
+Site Location: New York, NY, USA
+Contact: Jonathan Walsh, Director of Operations
+Application: Urban high-density DC — hybrid DX/CHW AHU, N+1, constrained 900 mm depth floor plate
+1. EQUIPMENT SPECIFICATION
+Cooling capacity: 750 kW sensible — hybrid configuration; 400 kW direct-expansion primary, 350 kW chilled water supplementary;
+entering air 23°C DB / 50% RH. Four (4) units at 190 kW each, N+1: three active, one standby. The mechanical room floor plate
+imposes a hard 900 mm depth constraint per unit due to structural column spacing; TMI's minimum achievable depth for this hybrid
+configuration is 950 mm after two rounds of design revision.
+Configuration: Hybrid DX/CHW precision cooling units for a constrained urban mechanical room. The hybrid architecture is specified
+because the building's chilled water plant is sized for 50% of the total cooling load; the DX primary circuit provides the balance
+without requiring immediate CHW plant expansion.
+DX primary circuit: R-410A, 4-row evaporator coil, scroll compressors with hot-gas bypass, remote air-cooled condenser on roof. DX
+is the base-load circuit; when outdoor DB exceeds 32°C or DX compressor head pressure rises above a programmed set-point, the
+CHW supplementary circuit is engaged.
+CHW supplementary circuit: 3-row coil, 2-way modulating valve, CHW supply 7°C / return 14°C. Hybrid controller manages the load
+division between DX and CHW circuits to minimise total energy consumption while maintaining supply air temperature setpoint.
+Cabinet depth constraint: TMI's standard hybrid unit is 1,200 mm deep. The constrained site requires 900 mm. After two engineering
+iterations, TMI achieved 950 mm depth through fan wheel diameter reduction from 630 mm to 540 mm and coil width reduction
+compensated by increased row count. The 950 mm unit meets the thermal specification but exceeds the 900 mm hard constraint by
+50 mm.
+Controls: Hybrid controller, BACnet IP; DX/CHW load split managed by compressor head pressure and CHW valve position. N+1
+group controller with 168-hour rotation.
+Filtration: 2-inch MERV-11, front-access. Filter rack depth reduced to 55 mm in the narrow-profile cabinet.
+Airflow: 22,000 CFM per unit at 0.45 in. w.g. Design airflow is reduced 9% from the standard for this capacity class due to the smaller
+fan wheel diameter.
+2. BILL OF MATERIALS
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+Hybrid DX/CHW unit, 190 kW, custom 950 mm depth
+4 ea $19,800.00 $79,200.00
+narrow-profile
+Narrow-profile cabinet panels, custom 950 mm depth, per unit 4 set $4,800.00 $19,200.00
+Remote DX condenser, EC fans, roof-mount, per unit 4 ea $5,800.00 $23,200.00
+Description Qty Unit Unit Cost (CAD) Line Total (CAD)
+R-410A charge, DX circuit, approx. 12 kg per unit 4 charge $440.00 $1,760.00
+CHW supplementary coil, 3-row, custom 1,200 mm width 4 ea $4,200.00 $16,800.00
+2-way CHW valve, 2-inch, modulating 4 ea $720.00 $2,880.00
+Hybrid DX/CHW controller, BACnet IP, per unit 4 ea $2,800.00 $11,200.00
+N+1 group controller, 5-unit capacity 1 ea $3,200.00 $3,200.00
+MERV-11 narrow-profile filter rack, 55 mm depth, per unit 4 ea $480.00 $1,920.00
+Refrigerant line set, DX circuit, per unit 4 set $590.00 $2,360.00
+SUBTOTAL — MATERIALS $161,720.00
+3. LABOR & FABRICATION COSTS
+Workstation / Process Est. Hours Rate (CAD/hr) Total (CAD)
+Custom narrow-profile cabinet fabrication, 4-unit 180 $65.00 $11,700.00
+DX and CHW hybrid coil installation, both circuit pressure
+64 $75.00 $4,800.00
+tests
+Hybrid controller wiring, DX/CHW load split programming 48 $78.00 $3,744.00
+Factory test: DX-only, CHW-only, and hybrid mode
+24 $68.00 $1,632.00
+verification
+Narrow-profile protective crating 16 $58.00 $928.00
+SUBTOTAL — LABOR & FABRICATION $22,804.00
+4. PRICING SUMMARY
+Materials Subtotal $161,720.00
+Labor & Fabrication Subtotal $22,804.00
+Overhead (18% of Materials + Labor) $33,214.32
+Pre-Margin Subtotal $217,738.32
+Gross Margin (22%) $61,413.37
+TOTAL QUOTED PRICE (CAD, ex-works Montreal) $279,151.69
+5. LEAD TIME & DELIVERY SCHEDULE
+Engineering & Drawings: 4 weeks — custom cabinet design required two iterations to approach depth constraint
+Procurement: 6 weeks — custom-width coils and narrow-profile panels on 5-week fabrication lead
+Fabrication & Assembly: 6 weeks
+Factory Test: 2 weeks
+Total Lead Time: 18 weeks from purchase order
+Shipping: FCA Montreal; customer arranges urban NYC site delivery via service elevator
+Key Dependencies: Column grid drawing and confirmed depth constraint required Week 1; CHW pipe sizes and
+plant capacity Week 2
+6. COMMERCIAL TERMS
+Payment Terms: 30% with purchase order; 40% factory readiness; 30% net 30 from ship
+Warranty: 24 months from ship — custom cabinet dimensions covered for manufacturing defects; does
+not cover site-fit issues
+Delivery Terms: FCA TMI Montreal (Incoterms 2020)
+Currency: Canadian Dollars (CAD)
+Exclusions: Installation, commissioning, CHW plant, electrical, freight, building hoisting and service
+elevator coordination
+Quote Validity: 30 days from issue date
+7. ENGINEERING NOTES & ASSUMPTIONS
+(cid:127) New York City ASHRAE 0.4% cooling design: 34°C DB / 24°C WB. Moderate summer condition; the design is not thermally
+stressed. The governing constraint on this project is the 900 mm depth limit, which has required custom engineering at every
+sub-assembly level.
+(cid:127) Fan wheel diameter reduction from 630 mm to 540 mm reduces fan wheel tip area by approximately 27%. At the same rotational
+speed this reduces maximum achievable airflow by approximately 18%; fan speed is increased to compensate, recovering airflow to
+within 9% of the standard. The 9% airflow deficit at design static is acceptable — design cooling capacity at reduced airflow is 190
+kW versus 210 kW for the standard product.
+(cid:127) Hybrid load split strategy: DX provides base cooling at all times due to its lower operating cost versus CHW in New York's electricity
+tariff structure. CHW supplements when DX head pressure is elevated during summer afternoons. The hybrid controller minimises
+simultaneous full-load operation of both circuits to avoid overshooting the supply air temperature setpoint.
+(cid:127) Phase 2 DX decommissioning provision: the DX compressors are mounted on a removable chassis within the cabinet, accessible
+from the rear. When the CHW plant is expanded, the DX chassis can be removed and the unit converted to a standard CHW AHU.
+This provision is included in the engineering design at no additional cost.
+(cid:127) Column grid constraint: the 900 mm structural column spacing is a concrete slab dimension that cannot be modified without
+significant structural cost. TMI's minimum achievable 950 mm product depth made the column constraint technically binding — 50
+mm over the available space — after exhausting all available design optimisations.
+Critical design decision: The critical design decision on this project was attempting to achieve the 900 mm depth constraint through
+fan wheel diameter reduction and coil face area optimisation rather than immediately declaring the constraint unachievable — an
+engineering approach that produced a 950 mm solution meeting the thermal specification but falling 50 mm short of the architectural
+limit, ultimately leaving the project without an award despite two full engineering iterations.
+OUTCOME: LOST
+Lost despite two rounds of specification revision. The customer's mechanical room floor plate imposes a 900 mm depth constraint
+from a structural column grid that cannot be modified. TMI's minimum achievable depth for this hybrid configuration is 950 mm,
+adding CAD 4,800 per unit in custom fabrication costs. A competing manufacturer had a proprietary narrow-chassis product line with
+an 800 mm standard depth that fit the constraint without a custom engineering premium, and was awarded at a price below TMI's
+custom-cabinet quotation.
+TMI Climate Solutions | Montreal, QC, Canada | www.tmiclimatesolutions.com | sales@tmiclimate.com | +1 (514) 555-0190 | This document is confidential and intended
+solely for the named customer.
