@@ -43,10 +43,30 @@
       background: var(--surface);
       border-bottom: 1px solid var(--border);
       padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     header h1 { font-size: 18px; font-weight: 500; letter-spacing: -0.3px; }
     header p  { font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
+
+    .how-it-works-btn {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-bg);
+      border: 1px solid #c5d6fd;
+      border-radius: 6px;
+      padding: 7px 14px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .how-it-works-btn:hover {
+      background: #d6e4fe;
+    }
 
     .page { max-width: 960px; margin: 40px auto; padding: 0 24px; }
 
@@ -1079,8 +1099,11 @@
 <body>
 
 <header>
-  <h1>TMI Climate Solutions</h1>
-  <p>AI-assisted quoting system</p>
+  <div>
+    <h1>TMI Climate Solutions</h1>
+    <p>AI-assisted quoting system</p>
+  </div>
+  <a href="#" id="how-it-works-link" class="how-it-works-btn">How does this work?</a>
 </header>
 
 <div class="page">
@@ -1115,6 +1138,7 @@
     </div>
     <div class="form-actions">
       <button id="submit-btn" onclick="runPipeline()">Generate Quote</button>
+      <button onclick="loadExample()" style="background:transparent;color:var(--accent);border:1px solid var(--accent);padding:9px 18px;font-size:13px;">Load example</button>
     </div>
     <div id="progress-wrap" class="progress-wrap hidden">
       <div class="progress-header">
@@ -1244,7 +1268,17 @@
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
   const API_BASE = (window.location.hostname === "localhost" || window.location.hostname === "") ? "http://localhost:8000" : "";
+  document.getElementById("how-it-works-link").href = API_BASE + "/how-it-works";
   const ESTIMATED_QUOTE_CHARS = 8000;
+
+  function loadExample() {
+    document.getElementById("facility_size").value = "5000 sqm";
+    document.getElementById("cooling_load").value = "900 kW";
+    document.getElementById("config_type").value = "Chilled water AHU";
+    document.getElementById("location").value = "Dallas, TX";
+    document.getElementById("redundancy_tier").value = "N+1";
+    document.getElementById("timeline").value = "12 weeks";
+  }
   var sectionStates = [];
   var appliedRules = [];
   var retrievedDocumentsStore = [];

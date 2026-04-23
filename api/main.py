@@ -287,6 +287,12 @@ def serve_frontend():
     return FileResponse(FRONTEND_FOLDER / "index.html")
 
 
+# Serves the how-it-works page
+@app.get("/how-it-works")
+def serve_how_it_works():
+    return FileResponse(FRONTEND_FOLDER / "how-it-works.html")
+
+
 # Serves a historical quote PDF from the quotes folder by filename
 @app.get("/pdf/{filename}")
 def serve_pdf(filename: str):

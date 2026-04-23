@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From RFQ to Quote — TMI Quoting Assistant</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #f4f5f7;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .back-link {
+      font-size: 13px;
+      color: #3b6bff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    .header-divider {
+      width: 1px;
+      height: 18px;
+      background: #e0e0e0;
+    }
+
+    header h1 { font-size: 18px; font-weight: 500; letter-spacing: -0.3px; }
+    header p  { font-size: 13px; color: #666666; margin-top: 2px; }
+
+    .page {
+      max-width: 900px;
+      margin: 48px auto;
+      padding: 0 24px;
+    }
+
+    .intro {
+      margin-bottom: 40px;
+    }
+
+    .intro h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      font-size: 14px;
+      color: #444444;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    .diagram-card {
+      background: #1a1b1e;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+
+    .diagram-card svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 680px;
+      width: 100%;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .step {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+
+    .step-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #888888;
+      margin-bottom: 6px;
+    }
+
+    .step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.6;
+    }
+
+    .color-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .section-heading {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: #444444;
+      line-height: 1.7;
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+
+    .process-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 32px;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+
+    .process-step-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 32px;
+    }
+
+    .process-step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      font-size: 12px;
+      font-weight: 600;
+      color: #444444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-step-line {
+      width: 1px;
+      flex: 1;
+      background: #e0e0e0;
+      min-height: 24px;
+    }
+
+    .process-step:last-child .process-step-line {
+      display: none;
+    }
+
+    .process-step-body {
+      padding-bottom: 28px;
+      flex: 1;
+    }
+
+    .process-step:last-child .process-step-body {
+      padding-bottom: 0;
+    }
+
+    .process-step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+      padding-top: 6px;
+    }
+
+    .process-step-desc {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.65;
+    }
+
+    .bottleneck-callout {
+      background: #fffbeb;
+      border: 1px solid #f5d680;
+      border-left: 4px solid #f0a500;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 48px;
+    }
+
+    .bottleneck-callout-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: #b07800;
+      margin-bottom: 8px;
+    }
+
+    .bottleneck-callout p {
+      font-size: 13px;
+      color: #5a4000;
+      line-height: 1.65;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 0 0 48px 0;
+    }
+
+    /* Data sources */
+    .source-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .source-card {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+
+    .source-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #888888;
+      margin-bottom: 6px;
+    }
+
+    .source-card-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+
+    .source-card-desc {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.55;
+    }
+
+    .retrieval-note {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 16px 24px;
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+
+    .retrieval-note strong { color: #1a1a2e; font-weight: 600; }
+
+    /* Evaluation */
+    .eval-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .eval-col-heading {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #888888;
+      margin-bottom: 12px;
+    }
+
+    .eval-card {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+
+    .eval-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .eval-item:last-child { margin-bottom: 0; }
+
+    .eval-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #5dcaa5;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .eval-dot.judge { background: #afa9ec; }
+
+    .eval-item-text {
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.55;
+    }
+
+    .eval-item-text strong { color: #1a1a2e; font-weight: 600; }
+
+    /* Prompts */
+    .prompt-block {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .prompt-block-header {
+      padding: 14px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .prompt-call-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #ede9ff;
+      color: #5b4fcf;
+      border-radius: 4px;
+      padding: 2px 8px;
+    }
+
+    .prompt-block-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+
+    .prompt-role {
+      padding: 14px 20px;
+      border-bottom: 1px solid #eeeeee;
+      background: #fafafa;
+    }
+
+    .prompt-role-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #aaaaaa;
+      margin-bottom: 6px;
+    }
+
+    .prompt-role-text {
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .prompt-instructions {
+      padding: 14px 20px;
+    }
+
+    .prompt-instructions-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #aaaaaa;
+      margin-bottom: 10px;
+    }
+
+    .prompt-instruction-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .prompt-instruction-item:last-child { margin-bottom: 0; }
+
+    .prompt-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: #aaaaaa;
+      flex-shrink: 0;
+      width: 16px;
+      padding-top: 1px;
+    }
+
+    .prompt-instruction-text {
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="#" id="back-link" class="back-link">&#8592; Back</a>
+  <div class="header-divider"></div>
+  <div>
+    <h1>TMI Climate Solutions</h1>
+    <p>From RFQ to Quote</p>
+  </div>
+</header>
+
+<div class="page">
+
+  <div style="margin-bottom: 48px;">
+    <h2 class="section-heading">The current quoting process</h2>
+    <p class="section-intro">The quoting process at TMI is assumed to be entirely manual. It relies on experienced engineers to translate incoming project requirements into a detailed and accurate price. Below is a step-by-step walkthrough of how that process works today and where the time is lost.</p>
+
+    <div class="process-list">
+
+      <div class="process-step">
+        <div class="process-step-left">
+          <div class="process-step-num">1</div>
+          <div class="process-step-line"></div>
+        </div>
+        <div class="process-step-body">
+          <div class="process-step-title">Requirements arrive</div>
+          <div class="process-step-desc">A data center developer sends TMI their project specifications — the scale of the facility, cooling requirements, configuration preferences, location, and timeline. It arrives as an unstructured document written by a human for a human.</div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-step-left">
+          <div class="process-step-num">2</div>
+          <div class="process-step-line"></div>
+        </div>
+        <div class="process-step-body">
+          <div class="process-step-title">Engineer reviews the requirements</div>
+          <div class="process-step-desc">An experienced engineer reads the document and begins translating it into something workable. They reference standard designs stored as CAD files and start customising those designs for the specific project. Decisions about which configurations to use, which components fit, and how to handle constraints all happen here — entirely in the engineer's head.</div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-step-left">
+          <div class="process-step-num">3</div>
+          <div class="process-step-line"></div>
+        </div>
+        <div class="process-step-body">
+          <div class="process-step-title">Cost logic is developed</div>
+          <div class="process-step-desc">Once the engineer understands what needs to be built, they work out what it costs — materials, labour at each fabrication stage, and any project-specific factors. This reasoning is not documented anywhere. It is reconstructed from experience every single time.</div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-step-left">
+          <div class="process-step-num">4</div>
+          <div class="process-step-line"></div>
+        </div>
+        <div class="process-step-body">
+          <div class="process-step-title">Logic is entered into the CPQ system</div>
+          <div class="process-step-desc">The engineering and cost logic is then translated into TMI's homegrown CPQ system. Because it is purpose-built for their specific workflow, this step requires either an in-house developer or someone who understands the system deeply enough to encode the logic correctly — an additional translation layer between what the engineer knows and what the system can execute.</div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-step-left">
+          <div class="process-step-num">5</div>
+          <div class="process-step-line"></div>
+        </div>
+        <div class="process-step-body">
+          <div class="process-step-title">CPQ produces the quote</div>
+          <div class="process-step-desc">Once the logic is in the system, the CPQ generates the final price quote. This part of the process works well. The CPQ is built specifically for TMI's level of customisation and is capable of producing detailed, granular output. The bottleneck is everything that happens before the CPQ can do its job.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bottleneck-callout">
+      <div class="bottleneck-callout-label">Where the time goes</div>
+      <p>The time is lost in Steps 2 and 3. Every new project requires an engineer to reconstruct the full reasoning process from scratch. There is no system that remembers how similar projects were handled, no way to reuse logic across similar requests, and no mechanism to capture what an experienced engineer knows so that it can be applied consistently.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <div style="margin-bottom: 32px;">
+    <h2 class="section-heading">Two-call generation pipeline</h2>
+    <p class="section-intro">The system addresses Steps 2 and 3 directly. When a new RFQ comes in, it retrieves the most relevant historical quotes and engineering rules, runs them through two sequential Claude calls to produce an engineering brief and a full quote draft, then surfaces the output for engineer review before anything reaches the CPQ.</p>
+  </div>
+
+  <div class="diagram-card">
+    <svg width="100%" viewBox="0 0 680 800" role="img" xmlns="http://www.w3.org/2000/svg">
+<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">TMI quote pipeline — two-call generation</title>
+<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Flowchart showing RFQ input, retrieval agent, two sequential Claude calls for engineering brief and quote drafting, parallel mechanical and LLM judge evaluation, human review, and CPQ export with a nightly correction loop feeding back into prompt assembly.</desc>
+<defs>
+<marker id="tmi-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="230" y="40" width="220" height="52" rx="8" stroke-width="0.5" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="57" text-anchor="middle" dominant-baseline="central" style="fill:rgb(181, 212, 244);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">RFQ input form</text>
+<text x="340" y="75" text-anchor="middle" dominant-baseline="central" style="fill:rgb(133, 183, 235);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">6 project fields</text>
+</g>
+
+<line x1="340" y1="92" x2="340" y2="122" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="40" y="124" width="155" height="52" rx="8" stroke-width="0.5" style="fill:rgb(68, 68, 65);stroke:rgb(180, 178, 169);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="117" y="141" text-anchor="middle" dominant-baseline="central" style="fill:rgb(211, 209, 199);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Quote library</text>
+<text x="117" y="159" text-anchor="middle" dominant-baseline="central" style="fill:rgb(180, 178, 169);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">30 historical PDFs</text>
+</g>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="495" y="124" width="140" height="52" rx="8" stroke-width="0.5" style="fill:rgb(68, 68, 65);stroke:rgb(180, 178, 169);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="565" y="141" text-anchor="middle" dominant-baseline="central" style="fill:rgb(211, 209, 199);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Rule library</text>
+<text x="565" y="159" text-anchor="middle" dominant-baseline="central" style="fill:rgb(180, 178, 169);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">356 rules</text>
+</g>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="230" y="124" width="220" height="52" rx="8" stroke-width="0.5" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="141" text-anchor="middle" dominant-baseline="central" style="fill:rgb(181, 212, 244);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Retrieval agent</text>
+<text x="340" y="159" text-anchor="middle" dominant-baseline="central" style="fill:rgb(133, 183, 235);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">3 quotes · 3 rules</text>
+</g>
+
+<line x1="195" y1="150" x2="228" y2="150" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="495" y1="150" x2="452" y2="150" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="340" y1="176" x2="340" y2="206" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="230" y="208" width="220" height="52" rx="8" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="225" text-anchor="middle" dominant-baseline="central" style="fill:rgb(206, 203, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Prompt assembly</text>
+<text x="340" y="243" text-anchor="middle" dominant-baseline="central" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">Call 1 · RFQ + rules + history</text>
+</g>
+
+<line x1="340" y1="260" x2="340" y2="290" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="230" y="292" width="220" height="52" rx="8" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="309" text-anchor="middle" dominant-baseline="central" style="fill:rgb(206, 203, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Claude Sonnet</text>
+<text x="340" y="327" text-anchor="middle" dominant-baseline="central" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">Call 1 · engineering brief</text>
+</g>
+
+<line x1="340" y1="344" x2="340" y2="366" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="348" y="356" text-anchor="start" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">→ engineering_brief SSE</text>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="230" y="368" width="220" height="52" rx="8" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="385" text-anchor="middle" dominant-baseline="central" style="fill:rgb(206, 203, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Prompt assembly</text>
+<text x="340" y="403" text-anchor="middle" dominant-baseline="central" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">Call 2 · brief only</text>
+</g>
+
+<line x1="340" y1="420" x2="340" y2="450" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="230" y="452" width="220" height="52" rx="8" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="469" text-anchor="middle" dominant-baseline="central" style="fill:rgb(206, 203, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Claude Sonnet</text>
+<text x="340" y="487" text-anchor="middle" dominant-baseline="central" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">Call 2 · streams 7 sections</text>
+</g>
+
+<line x1="340" y1="504" x2="340" y2="520" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<path d="M340,520 L135,520 L135,534" fill="none" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<path d="M340,520 L552,520 L552,534" fill="none" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="60" y="536" width="150" height="52" rx="8" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="135" y="553" text-anchor="middle" dominant-baseline="central" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Mechanical</text>
+<text x="135" y="571" text-anchor="middle" dominant-baseline="central" style="fill:rgb(93, 202, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">4 programmatic tests</text>
+</g>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="470" y="536" width="165" height="52" rx="8" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="552" y="553" text-anchor="middle" dominant-baseline="central" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">LLM judge</text>
+<text x="552" y="571" text-anchor="middle" dominant-baseline="central" style="fill:rgb(93, 202, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">5 dimensions · verdict</text>
+</g>
+
+<path d="M135,588 L135,604 L340,604" fill="none" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<path d="M552,588 L552,604 L340,604" fill="none" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="340" y1="604" x2="340" y2="618" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="230" y="620" width="220" height="52" rx="8" stroke-width="0.5" style="fill:rgb(99, 56, 6);stroke:rgb(239, 159, 39);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="637" text-anchor="middle" dominant-baseline="central" style="fill:rgb(250, 199, 117);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Human review</text>
+<text x="340" y="655" text-anchor="middle" dominant-baseline="central" style="fill:rgb(239, 159, 39);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">edit · approve · assign SME</text>
+</g>
+
+<line x1="340" y1="672" x2="340" y2="688" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<path d="M340,688 L135,688 L135,702" fill="none" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<path d="M340,688 L552,688 L552,702" fill="none" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="60" y="704" width="150" height="52" rx="8" stroke-width="0.5" style="fill:rgb(39, 80, 10);stroke:rgb(151, 196, 89);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="135" y="721" text-anchor="middle" dominant-baseline="central" style="fill:rgb(192, 221, 151);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">CPQ export</text>
+<text x="135" y="739" text-anchor="middle" dominant-baseline="central" style="fill:rgb(151, 196, 89);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">bill of materials</text>
+</g>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="470" y="704" width="165" height="52" rx="8" stroke-width="0.5" style="fill:rgb(113, 43, 19);stroke:rgb(240, 153, 123);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="552" y="721" text-anchor="middle" dominant-baseline="central" style="fill:rgb(245, 196, 179);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Correction log</text>
+<text x="552" y="739" text-anchor="middle" dominant-baseline="central" style="fill:rgb(240, 153, 123);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">engineer feedback</text>
+</g>
+
+<path d="M635,730 L638,730 L638,234 L452,234" fill="none" stroke="rgba(222, 220, 209, 0.3)" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#tmi-arrow)" style="fill:none;stroke:rgba(222, 220, 209, 0.3);color:rgb(255, 255, 255);stroke-width:1px;stroke-dasharray:5px, 4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="630" y="480" text-anchor="end" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:end;dominant-baseline:auto">correction loop</text>
+<text x="630" y="493" text-anchor="end" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:end;dominant-baseline:auto">(planned nightly)</text>
+
+    </svg>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-label">Step 1</div>
+      <div class="step-title"><span class="color-dot" style="background:#85b7eb;"></span>RFQ input &amp; retrieval</div>
+      <div class="step-desc">The engineer fills in 6 project fields. The retrieval agent queries ChromaDB to pull the 3 most similar historical quotes and the 3 most relevant engineering rules.</div>
+    </div>
+    <div class="step">
+      <div class="step-label">Step 2</div>
+      <div class="step-title"><span class="color-dot" style="background:#afa9ec;"></span>Call 1 — engineering brief</div>
+      <div class="step-desc">A blocking Claude Sonnet call receives the RFQ, retrieved history, and rules. It returns a structured engineering brief inside <code>&lt;engineering_brief&gt;</code> tags, streamed to the UI as an SSE event.</div>
+    </div>
+    <div class="step">
+      <div class="step-label">Step 3</div>
+      <div class="step-title"><span class="color-dot" style="background:#afa9ec;"></span>Call 2 — quote draft</div>
+      <div class="step-desc">A second Claude call takes only the engineering brief and streams the full 7-section quote directly to the browser. Tag stripping removes wrapper markup before it reaches the UI.</div>
+    </div>
+    <div class="step">
+      <div class="step-label">Step 4</div>
+      <div class="step-title"><span class="color-dot" style="background:#5dcaa5;"></span>Parallel evaluation</div>
+      <div class="step-desc">A mechanical evaluator runs 4 programmatic checks (pricing formula, section presence, word count). An LLM judge scores 5 quality dimensions and returns a pass/flag/fail verdict.</div>
+    </div>
+    <div class="step">
+      <div class="step-label">Step 5</div>
+      <div class="step-title"><span class="color-dot" style="background:#efb85b;"></span>Human review</div>
+      <div class="step-desc">The engineer edits, approves, or regenerates individual sections. SME routing lets them assign sections to specialists. All changes are tracked.</div>
+    </div>
+    <div class="step">
+      <div class="step-label">Step 6</div>
+      <div class="step-title"><span class="color-dot" style="background:#97c459;"></span>CPQ export &amp; correction loop</div>
+      <div class="step-desc">Approved quotes export as a bill of materials into the CPQ system. Engineer corrections feed back into the prompt assembly as a nightly improvement loop (planned).</div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- DATA SOURCES -->
+  <div style="margin-bottom: 48px;">
+    <h2 class="section-heading">Data sources</h2>
+    <p class="section-intro">The AI does not generate from general knowledge. Everything it produces is grounded in two TMI-specific databases built before the system was deployed.</p>
+
+    <div class="source-grid">
+      <div class="source-card">
+        <div class="source-card-label">Quote library</div>
+        <div class="source-card-value">30</div>
+        <div class="source-card-desc">Historical TMI quote PDFs, each extracted into plain text and stored as a vector embedding. When a new RFQ arrives, the three most similar historical quotes are retrieved and included in the prompt.</div>
+      </div>
+      <div class="source-card">
+        <div class="source-card-label">Rule library</div>
+        <div class="source-card-value">356</div>
+        <div class="source-card-desc">Engineering rules extracted from TMI's internal standards. Each rule is stored as a separate embedding. The three rules most relevant to the incoming RFQ are retrieved and passed to Call 1.</div>
+      </div>
+    </div>
+
+    <style>
+      .coldstart-flow {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        margin-bottom: 12px;
+        margin-top: 12px;
+      }
+      .coldstart-step {
+        flex: 1;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 16px 18px;
+      }
+      .coldstart-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        color: #aaaaaa;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .coldstart-step-badge {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #aaaaaa;
+        margin-bottom: 6px;
+      }
+      .coldstart-step-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1a1a2e;
+        margin-bottom: 5px;
+      }
+      .coldstart-step-desc {
+        font-size: 12px;
+        color: #666666;
+        line-height: 1.55;
+      }
+      .coldstart-note {
+        font-size: 12px;
+        color: #888888;
+        line-height: 1.6;
+        padding: 10px 0 0 0;
+      }
+      .coldstart-note strong { color: #555555; font-weight: 600; }
+    </style>
+
+    <div class="coldstart-flow">
+      <div class="coldstart-step">
+        <div class="coldstart-step-badge">Step 1</div>
+        <div class="coldstart-step-title">30 synthetic quote PDFs</div>
+        <div class="coldstart-step-desc">Generated using real industry research into how data center cooling RFQs are structured and what drives cost in custom air handling systems. Not real TMI data, but grounded in real industry patterns.</div>
+      </div>
+      <div class="coldstart-arrow">→</div>
+      <div class="coldstart-step">
+        <div class="coldstart-step-badge">Step 2</div>
+        <div class="coldstart-step-title">Claude extracts and deduplicates rules</div>
+        <div class="coldstart-step-desc">Claude reads the engineering notes and critical design decisions from all 30 quotes, pulls out reusable standalone rules from each document, then runs a deduplication pass across all raw outputs to remove near-duplicates.</div>
+      </div>
+      <div class="coldstart-arrow">→</div>
+      <div class="coldstart-step">
+        <div class="coldstart-step-badge">Step 3</div>
+        <div class="coldstart-step-title">356 rules embedded into ChromaDB</div>
+        <div class="coldstart-step-desc">The result is a rule library that captures distilled engineering judgment from the entire quote corpus — not just individual documents. Retrievable by semantic similarity at generation time.</div>
+      </div>
+    </div>
+    <p class="coldstart-note"><strong>When real TMI quote data becomes available</strong> it gets added to the corpus, <code>extract_rules.py</code> runs again, and the knowledge base updates automatically.</p>
+
+    <div class="retrieval-note">
+      <strong>How retrieval works:</strong> Both libraries use <strong>sentence-transformer embeddings</strong> stored in ChromaDB. When an RFQ is submitted, its text is embedded using the same model and compared against every stored document using <strong>cosine similarity</strong>. The top 3 matches from each library are returned with their similarity scores. Nothing is retrieved randomly — every document in the prompt earned its place against the specific RFQ.
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ENGINEERING RULES PANEL -->
+  <style>
+    .rules-panel-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #888888;
+      margin-bottom: 12px;
+    }
+    .rules-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .rule-card {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .rule-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      border-bottom: 1px solid #eeeeee;
+      background: #fafafa;
+    }
+    .rule-source-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #aaaaaa;
+    }
+    .rule-remove-btn {
+      font-size: 11px;
+      font-weight: 500;
+      color: #888888;
+      background: none;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 2px 8px;
+      cursor: default;
+    }
+    .rule-textarea {
+      display: block;
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.6;
+      background: #ffffff;
+      border: none;
+      resize: none;
+      font-family: inherit;
+      outline: none;
+    }
+    .rule-add-row {
+      padding-top: 4px;
+    }
+    .rule-add-btn {
+      font-size: 12px;
+      font-weight: 500;
+      color: #3b6bff;
+      background: #e8f0fe;
+      border: 1px solid #c5d6fd;
+      border-radius: 5px;
+      padding: 6px 14px;
+      cursor: default;
+    }
+    .rules-steering-note {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.65;
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 16px;
+    }
+    .rules-steering-note strong { color: #1a1a2e; font-weight: 600; }
+  </style>
+
+  <div style="margin-bottom: 48px;">
+    <h2 class="section-heading">Engineering rules panel</h2>
+    <p class="section-intro">Before Claude writes a single word, 3 engineering rules are retrieved from the rule library and injected into the generation prompt. These rules are not hidden. The engineer can see exactly which rules were applied, read what they say, and change them.</p>
+
+    <div class="rules-panel-label">Rules injected into this generation</div>
+
+    <div class="rules-list">
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <span class="rule-source-label">Retrieved from knowledge base · similarity 91%</span>
+          <button class="rule-remove-btn">Remove</button>
+        </div>
+        <textarea class="rule-textarea" rows="3" readonly>For chilled water AHU configurations serving facilities above 500 kW, minimum coil specification is 6 rows with 8 fins per inch. Reduce to 4 rows only where supply water temperature is confirmed below 7°C.</textarea>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <span class="rule-source-label">Retrieved from knowledge base · similarity 87%</span>
+          <button class="rule-remove-btn">Remove</button>
+        </div>
+        <textarea class="rule-textarea" rows="3" readonly>N+1 redundancy tier requires all fan assemblies to be individually replaceable without system shutdown. Specify dual EC fan arrays with variable speed drives on all units above 200 kW.</textarea>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-card-header">
+          <span class="rule-source-label">Retrieved from knowledge base · similarity 84%</span>
+          <button class="rule-remove-btn">Remove</button>
+        </div>
+        <textarea class="rule-textarea" rows="3" readonly>Dallas, TX and broader Gulf Coast region: design to ASHRAE 0.4% cooling conditions — dry bulb 99°F (37.2°C), wet bulb 78°F (25.6°C). Local water hardness typically 200–400 ppm; specify copper-brazed coils with inhibited glycol loop.</textarea>
+      </div>
+
+    </div>
+
+    <div class="rule-add-row">
+      <button class="rule-add-btn">+ Add rule</button>
+    </div>
+
+    <div class="rules-steering-note">
+      Every rule is editable. The engineer can reword a rule to be more specific, delete one that does not apply to this project, or add a new rule from their own experience. When the engineer clicks <strong>Re-generate</strong> on any section, the regeneration uses their modified rules — not the original retrieved set. This makes the rules panel both an <strong>audit trail</strong> and a <strong>steering wheel</strong>.
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- EVALUATION -->
+  <div style="margin-bottom: 48px;">
+    <h2 class="section-heading">How the output is evaluated</h2>
+    <p class="section-intro">The generated quote is not passed directly to the engineer. Two parallel evaluators run first — one programmatic, one AI — so that obvious errors are flagged before human review begins.</p>
+
+    <div class="eval-grid">
+      <div>
+        <div class="eval-col-heading">Mechanical checks</div>
+        <div class="eval-card">
+          <div class="eval-item">
+            <div class="eval-dot"></div>
+            <div class="eval-item-text"><strong>Pricing arithmetic</strong> — verifies that Overhead = (Materials + Labour) × 18% and Total = Subtotal ÷ 0.78, with figures pulled directly from the quote.</div>
+          </div>
+          <div class="eval-item">
+            <div class="eval-dot"></div>
+            <div class="eval-item-text"><strong>Section presence</strong> — confirms all 7 required section headings appear in the correct order.</div>
+          </div>
+          <div class="eval-item">
+            <div class="eval-dot"></div>
+            <div class="eval-item-text"><strong>Word count</strong> — flags quotes that are significantly under or over expected length, which typically signals a truncated or padded response.</div>
+          </div>
+          <div class="eval-item">
+            <div class="eval-dot"></div>
+            <div class="eval-item-text"><strong>Bill of materials completeness</strong> — checks that Section 3 contains line items with quantities and unit costs, not vague placeholders.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="eval-col-heading">LLM judge — 5 dimensions (scored 1–5)</div>
+        <div class="eval-card">
+          <div class="eval-item">
+            <div class="eval-dot judge"></div>
+            <div class="eval-item-text"><strong>Section completeness</strong> — are all required content areas covered, even if headings differ?</div>
+          </div>
+          <div class="eval-item">
+            <div class="eval-dot judge"></div>
+            <div class="eval-item-text"><strong>Technical specificity</strong> — are coil configuration, fan type, controls, and filtration appropriate for the stated cooling load and redundancy tier?</div>
+          </div>
+          <div class="eval-item">
+            <div class="eval-dot judge"></div>
+            <div class="eval-item-text"><strong>Location awareness</strong> — does the engineering notes section include climate conditions, local codes, and regional factors specific to the project location?</div>
+          </div>
+          <div class="eval-item">
+            <div class="eval-dot judge"></div>
+            <div class="eval-item-text"><strong>Pricing coherence</strong> — do the line items and figures reflect the actual equipment scope and match the reference pricing from similar historical quotes?</div>
+          </div>
+          <div class="eval-item">
+            <div class="eval-dot judge"></div>
+            <div class="eval-item-text"><strong>Style match</strong> — does the draft read like a professional TMI quotation, with precise language and properly flagged assumptions?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- HUMAN REVIEW WORKFLOW -->
+  <style>
+    .review-progress-wrap {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .review-progress-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a2e;
+      white-space: nowrap;
+      min-width: 90px;
+    }
+    .review-progress-track {
+      flex: 1;
+      height: 6px;
+      background: #eeeeee;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .review-progress-fill {
+      height: 100%;
+      background: #3b6bff;
+      border-radius: 99px;
+      transition: width 0.3s ease;
+    }
+    .review-progress-fill.complete { background: #2e9e5e; }
+    .review-section-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .review-card {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .review-card.approved {
+      background: #f2fbf6;
+      border-color: #7ed4a4;
+    }
+    .review-card-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: #aaaaaa;
+      width: 18px;
+      flex-shrink: 0;
+    }
+    .review-card.approved .review-card-num { color: #2e9e5e; }
+    .review-card-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: #1a1a2e;
+      flex: 1;
+      min-width: 0;
+    }
+    .review-card.approved .review-card-name { color: #1d6b40; }
+    .review-sme-chip {
+      font-size: 11px;
+      font-weight: 500;
+      color: #555555;
+      background: #f4f5f7;
+      border: 1px solid #e0e0e0;
+      border-radius: 99px;
+      padding: 3px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .review-card.approved .review-sme-chip {
+      background: #e4f5ec;
+      border-color: #9ed9bc;
+      color: #1d6b40;
+    }
+    .review-actions {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .review-btn {
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 5px;
+      padding: 5px 10px;
+      border: 1px solid #e0e0e0;
+      background: #ffffff;
+      color: #444444;
+      cursor: default;
+      white-space: nowrap;
+    }
+    .review-btn-approve {
+      border-color: #c5d6fd;
+      background: #e8f0fe;
+      color: #3b6bff;
+      cursor: pointer;
+    }
+    .review-btn-approve:hover { background: #d6e4fe; }
+    .review-card.approved .review-btn-approve {
+      border-color: #9ed9bc;
+      background: #e4f5ec;
+      color: #2e9e5e;
+      cursor: default;
+      pointer-events: none;
+    }
+    .review-export-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-export-btn {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+      background: #f4f5f7;
+      color: #aaaaaa;
+      cursor: not-allowed;
+      transition: all 0.2s;
+    }
+    .review-export-btn.active {
+      background: #2e9e5e;
+      border-color: #2e9e5e;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    .review-export-btn.active:hover { background: #247d4a; }
+    .review-export-btn.success {
+      background: #1d6b40;
+      border-color: #1d6b40;
+      color: #ffffff;
+      cursor: default;
+      pointer-events: none;
+    }
+    .review-export-note {
+      font-size: 12px;
+      color: #888888;
+    }
+    .correction-loop-note {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-top: 24px;
+    }
+    .correction-loop-note h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+    .correction-loop-note p {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.65;
+    }
+  </style>
+
+  <div style="margin-bottom: 48px;">
+    <h2 class="section-heading">Human review workflow</h2>
+    <p class="section-intro">Generation and evaluation happen automatically. Control stays with the engineer. The quote renders as 7 independent sections — each one editable, regenerable, and assignable before it can be approved. Nothing reaches the CPQ until every section has been signed off by a human.</p>
+
+    <div class="review-progress-wrap">
+      <div class="review-progress-label" id="review-label">0 of 7 approved</div>
+      <div class="review-progress-track">
+        <div class="review-progress-fill" id="review-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="review-section-list" id="review-list">
+
+      <div class="review-card" data-sid="0">
+        <div class="review-card-num">1</div>
+        <div class="review-card-name">Project Scope Summary</div>
+        <div class="review-sme-chip">Engineering Lead</div>
+        <div class="review-actions">
+          <button class="review-btn">Edit</button>
+          <button class="review-btn">Re-generate</button>
+          <button class="review-btn review-btn-approve" onclick="approveSection(this)">Approve</button>
+        </div>
+      </div>
+
+      <div class="review-card" data-sid="1">
+        <div class="review-card-num">2</div>
+        <div class="review-card-name">Equipment Specification</div>
+        <div class="review-sme-chip">Engineering Lead</div>
+        <div class="review-actions">
+          <button class="review-btn">Edit</button>
+          <button class="review-btn">Re-generate</button>
+          <button class="review-btn review-btn-approve" onclick="approveSection(this)">Approve</button>
+        </div>
+      </div>
+
+      <div class="review-card" data-sid="2">
+        <div class="review-card-num">3</div>
+        <div class="review-card-name">Bill of Materials</div>
+        <div class="review-sme-chip">Engineering Lead</div>
+        <div class="review-actions">
+          <button class="review-btn">Edit</button>
+          <button class="review-btn">Re-generate</button>
+          <button class="review-btn review-btn-approve" onclick="approveSection(this)">Approve</button>
+        </div>
+      </div>
+
+      <div class="review-card" data-sid="3">
+        <div class="review-card-num">4</div>
+        <div class="review-card-name">Pricing Summary</div>
+        <div class="review-sme-chip">Sales Director</div>
+        <div class="review-actions">
+          <button class="review-btn">Edit</button>
+          <button class="review-btn">Re-generate</button>
+          <button class="review-btn review-btn-approve" onclick="approveSection(this)">Approve</button>
+        </div>
+      </div>
+
+      <div class="review-card" data-sid="4">
+        <div class="review-card-num">5</div>
+        <div class="review-card-name">Lead Time and Schedule</div>
+        <div class="review-sme-chip">Operations</div>
+        <div class="review-actions">
+          <button class="review-btn">Edit</button>
+          <button class="review-btn">Re-generate</button>
+          <button class="review-btn review-btn-approve" onclick="approveSection(this)">Approve</button>
+        </div>
+      </div>
+
+      <div class="review-card" data-sid="5">
+        <div class="review-card-num">6</div>
+        <div class="review-card-name">Commercial Terms</div>
+        <div class="review-sme-chip">Legal</div>
+        <div class="review-actions">
+          <button class="review-btn">Edit</button>
+          <button class="review-btn">Re-generate</button>
+          <button class="review-btn review-btn-approve" onclick="approveSection(this)">Approve</button>
+        </div>
+      </div>
+
+      <div class="review-card" data-sid="6">
+        <div class="review-card-num">7</div>
+        <div class="review-card-name">Engineering Notes</div>
+        <div class="review-sme-chip">Engineering Lead</div>
+        <div class="review-actions">
+          <button class="review-btn">Edit</button>
+          <button class="review-btn">Re-generate</button>
+          <button class="review-btn review-btn-approve" onclick="approveSection(this)">Approve</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="review-export-row">
+      <button class="review-export-btn" id="review-export-btn" disabled onclick="exportCPQ()">Export to CPQ</button>
+      <span class="review-export-note" id="review-export-note">Approve all 7 sections to enable export</span>
+    </div>
+
+    <div class="correction-loop-note">
+      <h4>The correction loop</h4>
+      <p>Every engineer edit logs the original AI output and the corrected version to <code>corrections.json</code>. This data is already structured for future use — running rule extraction against the corrections periodically would fold human judgment back into the knowledge base and raise the baseline for every future quote. Currently captured, not yet automated.</p>
+    </div>
+  </div>
+
+  <script>
+    var reviewApproved = 0;
+    function approveSection(btn) {
+      var card = btn.closest('.review-card');
+      if (card.classList.contains('approved')) return;
+      card.classList.add('approved');
+      btn.textContent = '✓ Approved';
+      reviewApproved++;
+      var pct = (reviewApproved / 7) * 100;
+      var fill = document.getElementById('review-fill');
+      fill.style.width = pct + '%';
+      if (reviewApproved === 7) fill.classList.add('complete');
+      document.getElementById('review-label').textContent = reviewApproved + ' of 7 approved';
+      if (reviewApproved === 7) {
+        var expBtn = document.getElementById('review-export-btn');
+        expBtn.classList.add('active');
+        expBtn.disabled = false;
+        document.getElementById('review-export-note').textContent = 'All sections approved — ready to export';
+      }
+    }
+    function exportCPQ() {
+      var btn = document.getElementById('review-export-btn');
+      btn.classList.remove('active');
+      btn.classList.add('success');
+      btn.textContent = '✓ Exported to CPQ';
+      document.getElementById('review-export-note').textContent = 'Quote sent to CPQ system successfully';
+    }
+  </script>
+
+  <hr class="section-divider" />
+
+  <!-- PROMPTS -->
+  <div style="margin-bottom: 48px;">
+    <h2 class="section-heading">What Claude is being asked to do</h2>
+    <p class="section-intro">Each call gives Claude a distinct role and a constrained set of instructions. The key design choice is separation: Call 1 does only engineering judgment, Call 2 does only formatting and arithmetic. Neither call tries to do both.</p>
+
+    <div class="prompt-block">
+      <div class="prompt-block-header">
+        <span class="prompt-call-badge">Call 1</span>
+        <span class="prompt-block-title">Engineering brief — blocking, not streamed</span>
+      </div>
+      <div class="prompt-role">
+        <div class="prompt-role-label">System role</div>
+        <div class="prompt-role-text">"You are a senior applications engineer at TMI Climate Solutions. Your job at this stage is engineering judgment only — not documentation, not pricing. You think before you write."</div>
+      </div>
+      <div class="prompt-instructions">
+        <div class="prompt-instructions-label">Key instructions</div>
+        <div class="prompt-instruction-item">
+          <div class="prompt-num">1</div>
+          <div class="prompt-instruction-text">Identify the two historical precedents most similar in cooling load and configuration type — state why each is relevant and what is materially different about this RFQ.</div>
+        </div>
+        <div class="prompt-instruction-item">
+          <div class="prompt-num">2</div>
+          <div class="prompt-instruction-text">Define the full equipment configuration: cooling load derivation, unit type, coil spec, fan arrangement, filtration grade, controls, and redundancy tier implications.</div>
+        </div>
+        <div class="prompt-instruction-item">
+          <div class="prompt-num">3</div>
+          <div class="prompt-instruction-text">Surface every assumption where the RFQ is underspecified — what is unknown, what is assumed, and why that assumption is reasonable.</div>
+        </div>
+        <div class="prompt-instruction-item">
+          <div class="prompt-num">4</div>
+          <div class="prompt-instruction-text">Flag location-specific requirements: applicable codes, climate design conditions, and any regional environmental or water quality factors.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-block-header">
+        <span class="prompt-call-badge">Call 2</span>
+        <span class="prompt-block-title">Quote draft — streamed in 7 sections</span>
+      </div>
+      <div class="prompt-role">
+        <div class="prompt-role-label">System role</div>
+        <div class="prompt-role-text">"Your engineering decisions have already been made and are captured in the brief below. Your job now is to express those decisions precisely and completely in TMI's standard quotation format. Formatting accuracy and pricing arithmetic are the two things that cannot have errors."</div>
+      </div>
+      <div class="prompt-instructions">
+        <div class="prompt-instructions-label">Key instructions</div>
+        <div class="prompt-instruction-item">
+          <div class="prompt-num">1</div>
+          <div class="prompt-instruction-text">Write all 7 sections in order: Project Scope Summary, Equipment Specification, Bill of Materials, Pricing Summary, Lead Time and Schedule, Commercial Terms, Engineering Notes.</div>
+        </div>
+        <div class="prompt-instruction-item">
+          <div class="prompt-num">2</div>
+          <div class="prompt-instruction-text">Section 3 (Bill of Materials) must list every line item with quantity, unit cost, and extended cost — no vague placeholders.</div>
+        </div>
+        <div class="prompt-instruction-item">
+          <div class="prompt-num">3</div>
+          <div class="prompt-instruction-text">Section 4 (Pricing Summary) must apply the formula explicitly: Materials + Labour + Overhead = Subtotal, Subtotal ÷ 0.78 = Total, shown as separate line items.</div>
+        </div>
+        <div class="prompt-instruction-item">
+          <div class="prompt-num">4</div>
+          <div class="prompt-instruction-text">Before closing, verify pricing arithmetic, section heading order, and assumption coverage inside &lt;verification&gt; tags. Do not close the response until verification is complete.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const base = (window.location.hostname === "localhost" || window.location.hostname === "") ? "http://localhost:8000" : "";
+  document.getElementById("back-link").href = base + "/";
+</script>
+</body>
+</html>
