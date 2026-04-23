@@ -1241,8 +1241,7 @@
     <div class="review-section-list" id="review-list">
 
       <div class="review-card" data-sid="0">
-        <div class="review-card-num">1</div>
-        <div class="review-card-name">Project Scope Summary</div>
+        <div class="review-card-title"><div class="review-card-num">1</div><div class="review-card-name">Project Scope Summary</div></div>
         <div class="review-sme-chip">Engineering Lead</div>
         <div class="review-actions">
           <button class="review-btn">Edit</button>
@@ -1252,8 +1251,7 @@
       </div>
 
       <div class="review-card" data-sid="1">
-        <div class="review-card-num">2</div>
-        <div class="review-card-name">Equipment Specification</div>
+        <div class="review-card-title"><div class="review-card-num">2</div><div class="review-card-name">Equipment Specification</div></div>
         <div class="review-sme-chip">Engineering Lead</div>
         <div class="review-actions">
           <button class="review-btn">Edit</button>
@@ -1263,8 +1261,7 @@
       </div>
 
       <div class="review-card" data-sid="2">
-        <div class="review-card-num">3</div>
-        <div class="review-card-name">Bill of Materials</div>
+        <div class="review-card-title"><div class="review-card-num">3</div><div class="review-card-name">Bill of Materials</div></div>
         <div class="review-sme-chip">Engineering Lead</div>
         <div class="review-actions">
           <button class="review-btn">Edit</button>
@@ -1274,8 +1271,7 @@
       </div>
 
       <div class="review-card" data-sid="3">
-        <div class="review-card-num">4</div>
-        <div class="review-card-name">Pricing Summary</div>
+        <div class="review-card-title"><div class="review-card-num">4</div><div class="review-card-name">Pricing Summary</div></div>
         <div class="review-sme-chip">Sales Director</div>
         <div class="review-actions">
           <button class="review-btn">Edit</button>
@@ -1285,8 +1281,7 @@
       </div>
 
       <div class="review-card" data-sid="4">
-        <div class="review-card-num">5</div>
-        <div class="review-card-name">Lead Time and Schedule</div>
+        <div class="review-card-title"><div class="review-card-num">5</div><div class="review-card-name">Lead Time and Schedule</div></div>
         <div class="review-sme-chip">Operations</div>
         <div class="review-actions">
           <button class="review-btn">Edit</button>
@@ -1296,8 +1291,7 @@
       </div>
 
       <div class="review-card" data-sid="5">
-        <div class="review-card-num">6</div>
-        <div class="review-card-name">Commercial Terms</div>
+        <div class="review-card-title"><div class="review-card-num">6</div><div class="review-card-name">Commercial Terms</div></div>
         <div class="review-sme-chip">Legal</div>
         <div class="review-actions">
           <button class="review-btn">Edit</button>
@@ -1307,8 +1301,7 @@
       </div>
 
       <div class="review-card" data-sid="6">
-        <div class="review-card-num">7</div>
-        <div class="review-card-name">Engineering Notes</div>
+        <div class="review-card-title"><div class="review-card-num">7</div><div class="review-card-name">Engineering Notes</div></div>
         <div class="review-sme-chip">Engineering Lead</div>
         <div class="review-actions">
           <button class="review-btn">Edit</button>
@@ -1624,6 +1617,62 @@
 
 
 </div>
+
+<style>
+  @media (max-width: 640px) {
+    header {
+      padding: 14px 16px;
+    }
+
+    .page {
+      margin: 16px auto;
+      padding: 0 12px;
+    }
+
+    .diagram-card {
+      padding: 20px 14px;
+    }
+
+    .diagram-card svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .steps {
+      grid-template-columns: 1fr;
+    }
+
+    .source-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .eval-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .limitation-item {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .limitation-item-title {
+      min-width: unset;
+      white-space: normal;
+    }
+
+    .review-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .review-card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+</style>
 
 <script>
   const base = (window.location.hostname === "localhost" || window.location.hostname === "") ? "http://localhost:8000" : "";
