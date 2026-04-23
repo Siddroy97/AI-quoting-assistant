@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TMI Climate Solutions — Quoting Assistant</title>
+  <style>
+    :root {
+      --bg:            #f4f5f7;
+      --surface:       #ffffff;
+      --surface-alt:   #fafafa;
+      --border:        #e0e0e0;
+      --border-light:  #eeeeee;
+      --ink:           #1a1a2e;
+      --ink-secondary: #444444;
+      --ink-muted:     #666666;
+      --ink-faint:     #888888;
+      --placeholder:   #bbbbbb;
+      --disabled:      #aaaaaa;
+      --accent:        #3b6bff;
+      --accent-bg:     #e8f0fe;
+      --fill:          #1a1a2e;
+
+      /* New naming scheme — aliases to existing values */
+      --color-background-primary:   #f4f5f7;
+      --color-background-secondary: #ffffff;
+      --color-border-secondary:     #e0e0e0;
+      --color-border-tertiary:      #eeeeee;
+      --color-text-primary:         #1a1a2e;
+      --color-text-secondary:       #444444;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+    }
+
+    header h1 { font-size: 18px; font-weight: 500; letter-spacing: -0.3px; }
+    header p  { font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
+
+    .page { max-width: 960px; margin: 40px auto; padding: 0 24px; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+
+    /* Numbered section headers */
+    .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink-faint);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 2px 8px;
+      letter-spacing: 0.4px;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Form */
+    .form-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+
+    label { font-size: 13px; font-weight: 500; color: var(--ink-secondary); }
+
+    input {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 9px 12px;
+      font-size: 14px;
+      color: var(--ink);
+      background: var(--surface);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input:focus       { border-color: var(--accent); }
+    input::placeholder { color: var(--placeholder); }
+
+    .form-actions { margin-top: 20px; display: flex; align-items: center; gap: 16px; }
+
+    button {
+      background: var(--ink);
+      color: var(--surface);
+      border: none;
+      border-radius: 6px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    button:hover    { opacity: 0.85; }
+    button:disabled { background: var(--disabled); cursor: not-allowed; }
+
+    /* Progress */
+    .progress-wrap   { margin-top: 20px; }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .progress-label  { font-size: 13px; color: var(--ink-muted); }
+
+    .progress-number {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress-number span { font-size: 13px; font-weight: 400; color: var(--ink-faint); margin-left: 1px; }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: var(--border);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--fill);
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Pills — semantic colors hardcoded per spec */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      padding: 3px 9px;
+      border-radius: 99px;
+      flex-shrink: 0;
+    }
+
+    .pill-pass   { background: #EAF3DE; color: #27500A; }
+    .pill-review { background: #FAEEDA; color: #633806; }
+    .pill-fail   { background: #FCEBEB; color: #791F1F; }
+    .pill-skip   { background: var(--border); color: var(--ink-faint); }
+
+    /* Eval bar */
+    .eval-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin-bottom: 24px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    .eval-bar:hover           { background: var(--surface-alt); }
+    .eval-bar.open            { border-radius: 8px 8px 0 0; margin-bottom: 0; }
+
+    .eval-bar-left  { display: flex; align-items: center; gap: 12px; }
+    .eval-bar-label { font-size: 13px; font-weight: 500; color: var(--ink-secondary); }
+    .eval-bar-pills { display: flex; gap: 6px; }
+    .eval-bar-right { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-muted); }
+
+    .eval-chevron {
+      display: inline-block;
+      font-size: 11px;
+      color: var(--ink-faint);
+      transition: transform 0.2s ease;
+    }
+
+    .eval-chevron.open { transform: rotate(180deg); }
+
+    /* Eval panel */
+    .eval-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+    }
+
+    .eval-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .eval-panel-ref  { font-size: 13px; font-weight: 500; color: var(--ink); }
+    .eval-panel-note { font-size: 12px; color: var(--ink-faint); }
+
+    /* Metric grid */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .metric-label {
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--ink-faint);
+      margin-bottom: 6px;
+    }
+
+    .metric-value {
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .metric-desc { font-size: 12px; color: var(--ink-muted); }
+
+    /* Panel section labels */
+    .panel-section-label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--ink-faint);
+      margin-bottom: 12px;
+    }
+
+    /* Mechanical checks list */
+    .eval-check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .eval-check       { display: flex; gap: 12px; align-items: flex-start; }
+    .eval-check-body  { flex: 1; }
+    .eval-check-name  { font-size: 13px; font-weight: 500; color: var(--ink); }
+    .eval-check-detail { font-size: 12px; color: var(--ink-muted); margin-top: 2px; line-height: 1.5; }
+
+    /* Judge scores */
+    .judge-scores {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .judge-score-row   { display: flex; align-items: flex-start; gap: 14px; }
+
+    .judge-score-label {
+      width: 190px;
+      flex-shrink: 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      padding-top: 1px;
+    }
+
+    .judge-score-dots  { display: flex; gap: 4px; padding-top: 3px; flex-shrink: 0; }
+
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--border); }
+    .dot.filled { background: #27500A; }
+
+    .judge-score-num {
+      font-size: 12px;
+      color: var(--ink-faint);
+      flex-shrink: 0;
+      padding-top: 1px;
+      font-variant-numeric: tabular-nums;
+      min-width: 28px;
+    }
+
+    .judge-score-reasoning { font-size: 12px; color: var(--ink-muted); line-height: 1.5; }
+
+    /* Verdict row */
+    .verdict-row   { display: flex; align-items: center; justify-content: space-between; }
+    .verdict-body  { flex: 1; }
+    .verdict-label { font-size: 13px; font-weight: 500; color: var(--ink-secondary); }
+    .verdict-reasoning { font-size: 12px; color: var(--ink-muted); margin-top: 4px; line-height: 1.6; }
+
+    .recommendation-badge {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      padding: 6px 16px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-left: 20px;
+    }
+
+    .recommendation-badge.approve { background: #EAF3DE; color: #27500A; }
+    .recommendation-badge.revise  { background: #FAEEDA; color: #633806; }
+    .recommendation-badge.reject  { background: #FCEBEB; color: #791F1F; }
+
+    /* Results */
+    .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .match-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--surface-alt);
+    }
+
+    .match-card .score {
+      display: inline-block;
+      background: var(--accent-bg);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .match-card .filename { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px; word-break: break-all; }
+    .match-card .meta-row { font-size: 12px; color: var(--ink-muted); margin-top: 4px; }
+    .match-card .meta-row span { font-weight: 500; color: var(--ink-secondary); }
+
+    .outcome-won  { color: #27500A; font-weight: 500; }
+    .outcome-lost { color: #791F1F; font-weight: 500; }
+
+    /* Generated quote */
+    #generated-quote-text { font-size: 14px; line-height: 1.8; color: var(--ink); }
+
+    .quote-section-header { margin-top: 28px; margin-bottom: 10px; }
+    .quote-section-header:first-child { margin-top: 0; }
+
+    .quote-h1 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .quote-sub-heading {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      margin: 14px 0 6px;
+    }
+
+    .quote-body {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--ink-muted);
+      white-space: pre-wrap;
+      margin-bottom: 8px;
+    }
+
+    .quote-divider {
+      height: 1px;
+      background: var(--border-light);
+      margin: 16px 0;
+    }
+
+    /* Engineering note blocks */
+    .eng-notes-wrapper { display: flex; flex-direction: column; }
+
+    .eng-note-block {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .eng-note-block:first-child { padding-top: 0; }
+    .eng-note-block:last-child  { border-bottom: none; padding-bottom: 0; }
+
+    .eng-note-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+    .eng-note-body  { font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+
+    .hidden { display: none; }
+
+    /* ── Document quote components ─────────────────────────────── */
+
+    .doc-header {
+      text-align: center;
+      padding-bottom: 24px;
+      border-bottom: 0.5px solid var(--color-border-secondary);
+      margin-bottom: 28px;
+    }
+
+    .doc-company-name {
+      font-size: 22px;
+      color: var(--color-text-primary);
+      margin-bottom: 10px;
+    }
+
+    .doc-company-name strong { font-weight: 500; }
+    .doc-company-name span   { font-weight: 400; color: var(--ink-secondary); }
+
+    .doc-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 4px;
+    }
+
+    .doc-subtitle {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .doc-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 0.5px solid var(--color-border-secondary);
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .doc-meta-cell {
+      padding: 10px 14px;
+      border: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .doc-meta-label {
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--ink-faint);
+      margin-bottom: 3px;
+    }
+
+    .doc-meta-value {
+      font-size: 13px;
+      color: var(--color-text-primary);
+    }
+
+    .doc-section {
+      padding-top: 24px;
+      border-top: 0.5px solid var(--color-border-tertiary);
+      margin-bottom: 24px;
+    }
+
+    .doc-prose {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+      margin-top: 12px;
+    }
+
+    .doc-prose p            { margin-bottom: 10px; }
+    .doc-prose p:last-child { margin-bottom: 0; }
+    .doc-prose strong       { font-weight: 500; }
+    .doc-prose em           { font-style: italic; }
+
+    .doc-prose ul, .doc-prose ol {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .doc-prose li { margin-bottom: 4px; }
+
+    .doc-prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    .doc-prose th, .doc-prose td {
+      border: 0.5px solid var(--color-border-secondary);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    .doc-prose th {
+      font-weight: 500;
+      color: var(--color-text-primary);
+      background: var(--color-background-primary);
+    }
+
+    .doc-prose blockquote {
+      border-left: 2px solid var(--color-border-secondary);
+      padding-left: 14px;
+      color: var(--ink-muted);
+      margin: 10px 0;
+    }
+
+    .doc-prose pre {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: 4px;
+      padding: 12px 16px;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+
+    .doc-prose pre code {
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 12px;
+      color: var(--ink-muted);
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .doc-pricing-card {
+      margin-top: 12px;
+      border: 0.5px solid var(--color-border-secondary);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .doc-pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 16px;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+
+    .doc-pricing-row:last-child { border-bottom: none; }
+
+    .doc-pricing-row--total {
+      border-top: 0.5px solid var(--color-border-secondary);
+      font-weight: 500;
+      color: var(--color-text-primary);
+      background: var(--color-background-primary);
+    }
+
+    .doc-pricing-value { font-variant-numeric: tabular-nums; }
+
+    .doc-milestone-list { margin-top: 12px; }
+
+    .doc-milestone-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      font-size: 13px;
+    }
+
+    .doc-milestone-row:last-of-type { border-bottom: none; }
+
+    .doc-milestone-week {
+      min-width: 80px;
+      flex-shrink: 0;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .doc-milestone-label { color: var(--color-text-secondary); }
+
+    .doc-milestone-note {
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: #FAEEDA;
+      border-left: 2px solid #633806;
+      border-radius: 0 4px 4px 0;
+      font-size: 13px;
+      color: #633806;
+      line-height: 1.6;
+    }
+
+    .doc-cdd-box {
+      margin-top: 12px;
+      padding: 16px 20px;
+      background: var(--accent-bg);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .doc-cdd-lead {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .doc-cdd-lead p            { margin-bottom: 0; }
+    .doc-cdd-body              { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; }
+    .doc-cdd-body p            { margin-bottom: 8px; }
+    .doc-cdd-body p:last-child { margin-bottom: 0; }
+
+    .doc-footer {
+      border-top: 0.5px solid var(--color-border-secondary);
+      padding-top: 16px;
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--ink-faint);
+    }
+
+    /* ── Section co-authoring ────────────────────────────────── */
+
+    .section-action-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .section-status-pill {
+      font-size: 11px;
+      font-weight: 400;
+      padding: 2px 8px;
+      border-radius: 99px;
+      letter-spacing: 0.3px;
+    }
+
+    .section-status-draft    { background: var(--border); color: var(--ink-faint); }
+    .section-status-approved { background: #EAF3DE; color: #27500A; }
+
+    .section-action-btn {
+      background: var(--surface);
+      color: var(--ink-secondary);
+      border: 0.5px solid var(--color-border-secondary);
+      border-radius: 4px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .section-action-btn:hover    { opacity: 0.75; }
+    .section-action-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .section-textarea {
+      width: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-secondary);
+      border-radius: 4px;
+      padding: 12px;
+      resize: vertical;
+      outline: none;
+      margin-top: 12px;
+      min-height: 120px;
+    }
+
+    .approval-progress-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--surface);
+      padding: 12px 0 14px;
+      margin-bottom: 14px;
+    }
+
+    .approval-progress-wrap.is-stuck {
+      border-bottom: 0.5px solid var(--border-light);
+    }
+
+    .approval-progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .approval-progress-label { font-size: 12px; color: var(--ink-muted); }
+
+    .approval-progress-track {
+      width: 100%;
+      height: 4px;
+      background: var(--border);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .approval-progress-fill {
+      height: 100%;
+      background: #1D9E75;
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .export-cpq-wrap { margin-top: 14px; }
+
+    .export-cpq-btn {
+      background: #1D9E75;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .export-cpq-btn:hover { opacity: 0.85; }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--ink);
+      color: var(--surface);
+      font-size: 13px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      z-index: 1000;
+      pointer-events: none;
+      animation: toast-fade 2s ease forwards;
+    }
+
+    @keyframes toast-fade {
+      0%   { opacity: 0; transform: translateY(8px); }
+      15%  { opacity: 1; transform: translateY(0); }
+      75%  { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* ── Engineering rules panel ─────────────────────────────── */
+
+    .rules-panel {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+
+    .rules-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .rules-panel-header:hover { background: var(--surface-alt); }
+
+    .rules-panel-label { font-size: 13px; font-weight: 500; color: var(--ink-secondary); }
+
+    .rules-panel-chevron {
+      font-size: 11px;
+      color: var(--ink-faint);
+      transition: transform 0.2s ease;
+    }
+
+    .rules-panel-chevron.open { transform: rotate(180deg); }
+
+    .rules-panel-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease;
+    }
+
+    .rules-panel-body.open { max-height: 2000px; }
+
+    .rules-panel-inner { padding: 0 20px 16px; }
+
+    .rules-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 0.5px solid var(--border-light);
+    }
+
+    .rules-row:last-child { border-bottom: none; }
+
+    .rules-row-input {
+      flex: 1;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: var(--ink-secondary);
+      border: none;
+      outline: none;
+      background: transparent;
+      resize: none;
+      line-height: 1.6;
+      padding: 1px 0;
+      overflow: hidden;
+    }
+
+    .rules-row-tag {
+      font-size: 10px;
+      font-weight: 500;
+      background: var(--border);
+      color: var(--ink-faint);
+      padding: 2px 7px;
+      border-radius: 99px;
+    }
+
+    .rules-row-tag:empty { display: none; }
+
+    .rules-add-row { padding-top: 12px; }
+
+    /* ── Match detail modals ─────────────────────────────────── */
+
+    .match-card { cursor: pointer; }
+    .match-card:hover { border-color: var(--ink-secondary); }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-box {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      width: 600px;
+      max-width: calc(100vw - 48px);
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .pdf-modal-box {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      width: 90vw;
+      max-width: 90vw;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-bottom: 0.5px solid var(--border-light);
+      flex-shrink: 0;
+    }
+
+    .modal-header-left { display: flex; flex-direction: column; gap: 3px; }
+
+    .modal-title { font-size: 14px; font-weight: 500; color: var(--ink); }
+
+    .modal-subtitle { font-size: 12px; color: var(--ink-faint); }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--ink-faint);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 16px;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover { opacity: 0.6; }
+
+    .modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .modal-footer {
+      padding: 14px 24px;
+      border-top: 0.5px solid var(--border-light);
+      flex-shrink: 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .modal-section {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 0.5px solid var(--border-light);
+    }
+
+    .modal-section:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+    .modal-section-label {
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--ink-faint);
+      margin-bottom: 12px;
+    }
+
+    .modal-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 24px;
+    }
+
+    .modal-meta-key {
+      font-size: 11px;
+      color: var(--ink-faint);
+      margin-bottom: 2px;
+    }
+
+    .modal-meta-value { font-size: 13px; color: var(--ink-secondary); }
+
+    .modal-text-content {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    .pdf-iframe { width: 100%; flex: 1; border: none; display: block; }
+
+    /* ── Judge reasoning bullets ─────────────────────────────── */
+
+    .judge-reasoning-lead {
+      display: block;
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+
+    .judge-reasoning-list {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    .judge-reasoning-list li { margin-bottom: 3px; }
+    .judge-reasoning-list li:last-child { margin-bottom: 0; }
+
+    /* ── Modal pricing table + eng notes ─────────────────────── */
+
+    .modal-pricing-table { display: flex; flex-direction: column; }
+
+    .modal-pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 7px 0;
+      border-bottom: 0.5px solid var(--border-light);
+      font-size: 13px;
+      color: var(--ink-secondary);
+    }
+
+    .modal-pricing-row:last-child { border-bottom: none; }
+
+    .modal-pricing-row--total { font-weight: 500; color: var(--ink); }
+
+    .modal-pricing-value { font-variant-numeric: tabular-nums; }
+
+    .modal-eng-notes { display: flex; flex-direction: column; }
+
+    .modal-eng-note {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--border-light);
+    }
+
+    .modal-eng-note:last-child { border-bottom: none; padding-bottom: 0; }
+
+    /* ── SME assignee chip + dropdown ────────────────────────── */
+
+    .assignee-chip {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      background: var(--accent-bg);
+      color: var(--accent);
+      border: 0.5px solid #c8d6ec;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .assignee-chip-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .assignee-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 100;
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      min-width: 160px;
+      margin-top: 4px;
+    }
+
+    .assignee-dropdown-item {
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--ink-secondary);
+      cursor: pointer;
+    }
+
+    .assignee-dropdown-item:hover { background: var(--surface-alt); }
+
+    .sme-review-line {
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TMI Climate Solutions</h1>
+  <p>AI-assisted quoting system</p>
+</header>
+
+<div class="page">
+
+  <div class="card">
+    <div class="form-label">New Request for Quotation</div>
+    <div class="form-grid">
+      <div class="form-field">
+        <label for="facility_size">Facility Size</label>
+        <input id="facility_size" type="text" placeholder="e.g. 5000 sqm" list="dl-facility-size" autocomplete="off" />
+      </div>
+      <div class="form-field">
+        <label for="cooling_load">Cooling Load</label>
+        <input id="cooling_load" type="text" placeholder="e.g. 900 kW" list="dl-cooling-load" autocomplete="off" />
+      </div>
+      <div class="form-field">
+        <label for="config_type">Configuration Type</label>
+        <input id="config_type" type="text" placeholder="e.g. Chilled water AHU" list="dl-config-type" autocomplete="off" />
+      </div>
+      <div class="form-field">
+        <label for="location">Location</label>
+        <input id="location" type="text" placeholder="e.g. Dallas, TX, USA" list="dl-location" autocomplete="off" />
+      </div>
+      <div class="form-field">
+        <label for="redundancy_tier">Redundancy Tier</label>
+        <input id="redundancy_tier" type="text" placeholder="e.g. N+1" list="dl-redundancy" autocomplete="off" />
+      </div>
+      <div class="form-field">
+        <label for="timeline">Timeline</label>
+        <input id="timeline" type="text" placeholder="e.g. 12 weeks" list="dl-timeline" autocomplete="off" />
+      </div>
+    </div>
+    <div class="form-actions">
+      <button id="submit-btn" onclick="runPipeline()">Generate Quote</button>
+    </div>
+    <div id="progress-wrap" class="progress-wrap hidden">
+      <div class="progress-header">
+        <div class="progress-label" id="progress-label">Retrieving similar quotes...</div>
+        <div class="progress-number" id="progress-number">0<span>/ 100</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="eval-bar" class="eval-bar hidden" onclick="toggleEvalPanel()">
+    <div class="eval-bar-left">
+      <span class="eval-bar-label">AI evaluation report</span>
+      <div class="eval-bar-pills" id="eval-bar-pills"></div>
+    </div>
+    <div class="eval-bar-right">
+      <span>View details</span>
+      <span class="eval-chevron" id="eval-chevron">▾</span>
+    </div>
+  </div>
+
+  <div id="eval-panel" class="eval-panel hidden">
+    <div class="eval-panel-header">
+      <div class="eval-panel-ref" id="eval-panel-ref">—</div>
+      <div class="eval-panel-note">Based on 30 synthetic historical records</div>
+    </div>
+    <div class="metric-grid">
+      <div class="metric-col">
+        <div class="metric-label">Pass Rate</div>
+        <div class="metric-value" id="metric-pass-rate">—</div>
+        <div class="metric-desc">mechanical checks</div>
+      </div>
+      <div class="metric-col">
+        <div class="metric-label">Engineering Logic</div>
+        <div class="metric-value" id="metric-eng-logic">—</div>
+        <div class="metric-desc">judge score out of 5</div>
+      </div>
+      <div class="metric-col">
+        <div class="metric-label">Price Variance</div>
+        <div class="metric-value" id="metric-price-var">—</div>
+        <div class="metric-desc">vs historical reference</div>
+      </div>
+      <div class="metric-col">
+        <div class="metric-label">Hallucination Check</div>
+        <div class="metric-value" id="metric-hallucination">—</div>
+        <div class="metric-desc">location + style score</div>
+      </div>
+    </div>
+    <div class="panel-section-label">Mechanical checks</div>
+    <div class="eval-check-list" id="eval-checks"></div>
+    <div class="panel-section-label">LLM judge</div>
+    <div class="judge-scores" id="judge-scores"></div>
+    <div class="verdict-row" id="judge-recommendation"></div>
+  </div>
+
+  <div id="results-section" class="card hidden">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Matched Historical Quotes</span>
+    </div>
+    <div id="results-grid" class="results-grid"></div>
+  </div>
+
+  <div id="quote-section" class="card hidden">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Generated Quote</span>
+    </div>
+    <div id="generated-quote-text"></div>
+  </div>
+
+</div>
+
+<datalist id="dl-facility-size">
+  <option value="500 sqm">
+  <option value="1000 sqm">
+  <option value="2000 sqm">
+  <option value="3000 sqm">
+  <option value="5000 sqm">
+  <option value="10000 sqm">
+  <option value="20000 sqm">
+</datalist>
+<datalist id="dl-cooling-load">
+  <option value="200 kW">
+  <option value="400 kW">
+  <option value="600 kW">
+  <option value="900 kW">
+  <option value="1200 kW">
+  <option value="1500 kW">
+  <option value="2000 kW">
+</datalist>
+<datalist id="dl-config-type">
+  <option value="Chilled water AHU">
+  <option value="Direct expansion (DX)">
+  <option value="Evaporative cooling">
+  <option value="Air-side economiser">
+  <option value="Hybrid chilled water + DX">
+</datalist>
+<datalist id="dl-location">
+  <option value="Dallas, TX">
+  <option value="Phoenix, AZ">
+  <option value="Chicago, IL">
+  <option value="Seattle, WA">
+  <option value="New York, NY">
+  <option value="Los Angeles, CA">
+  <option value="Toronto, ON">
+  <option value="Montreal, QC">
+  <option value="Vancouver, BC">
+</datalist>
+<datalist id="dl-redundancy">
+  <option value="N">
+  <option value="N+1">
+  <option value="N+2">
+  <option value="2N">
+</datalist>
+<datalist id="dl-timeline">
+  <option value="8 weeks">
+  <option value="10 weeks">
+  <option value="12 weeks">
+  <option value="16 weeks">
+  <option value="20 weeks">
+  <option value="24 weeks">
+</datalist>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  const API_BASE = "http://localhost:8000";
+  const ESTIMATED_QUOTE_CHARS = 8000;
+  var sectionStates = [];
+  var appliedRules = [];
+  var retrievedDocumentsStore = [];
+  var currentRFQFields = {};
+  var matchResults = [];
+  var sectionAssignments = {};
+
+  var smeDefaults = {
+    "PROJECT SCOPE SUMMARY":   "Sales",
+    "EQUIPMENT SPECIFICATION": "Engineering Lead",
+    "BILL OF MATERIALS":       "Engineering Lead",
+    "PRICING SUMMARY":         "Sales Director",
+    "LEAD TIME AND SCHEDULE":  "Operations",
+    "COMMERCIAL TERMS":        "Sales Director",
+    "ENGINEERING NOTES":       "Engineering Lead",
+  };
+
+  // --- Utilities ---
+
+  function getRFQFields() {
+    return {
+      facility_size:   document.getElementById("facility_size").value.trim(),
+      cooling_load:    document.getElementById("cooling_load").value.trim(),
+      config_type:     document.getElementById("config_type").value.trim(),
+      location:        document.getElementById("location").value.trim(),
+      redundancy_tier: document.getElementById("redundancy_tier").value.trim(),
+      timeline:        document.getElementById("timeline").value.trim(),
+    };
+  }
+
+  function setButtonDisabled(disabled) {
+    document.getElementById("submit-btn").disabled = disabled;
+  }
+
+  function setProgress(percent, label) {
+    const clamped = Math.min(100, Math.max(0, Math.round(percent)));
+    document.getElementById("progress-fill").style.width = clamped + "%";
+    document.getElementById("progress-number").innerHTML = clamped + '<span>/ 100</span>';
+    if (label) document.getElementById("progress-label").textContent = label;
+  }
+
+  function showProgress() { document.getElementById("progress-wrap").classList.remove("hidden"); }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  // --- Eval bar toggle ---
+
+  function toggleEvalPanel() {
+    const panel   = document.getElementById("eval-panel");
+    const chevron = document.getElementById("eval-chevron");
+    const bar     = document.getElementById("eval-bar");
+    const opening = panel.classList.contains("hidden");
+    panel.classList.toggle("hidden");
+    chevron.classList.toggle("open", opening);
+    bar.classList.toggle("open", opening);
+  }
+
+  // --- Engineering notes parser ---
+
+  function parseEngineeringNotes(sectionText) {
+    const notes = [];
+    let current = null;
+    for (const line of sectionText.split("\n")) {
+      const match = line.match(/^[-•*]\s+\*\*(.+?)\*\*[:\s\u2014\u2013-]*(.*)/)
+              || line.match(/^#{2,}\s+[\d.]*\s*(.+)$/);
+      if (match) {
+        if (current) notes.push(current);
+        current = { title: match[1].trim(), body: "" };
+      } else if (current) {
+        current.body += " " + line.trim();
+      }
+    }
+    if (current) notes.push(current);
+    return notes;
+  }
+
+  // Splits markdown text into a pre-section header block and an array of numbered section strings
+  function splitIntoSections(text) {
+    var positions = [];
+    var re = /^##\s+\d+/mg;
+    var m;
+    while ((m = re.exec(text)) !== null) { positions.push(m.index); }
+    if (positions.length === 0) return { header: text, sections: [] };
+    var header = text.slice(0, positions[0]);
+    var sections = positions.map(function (pos, i) {
+      return text.slice(pos, positions[i + 1] || text.length);
+    });
+    return { header: header, sections: sections };
+  }
+
+  // Searches text for a meta field by exact label and returns the value string, or "" if not found
+  function extractMetaField(text, fieldName) {
+    var escaped = fieldName.replace(/\s+/g, "\\s+");
+    var pattern = new RegExp("\\*{0,2}" + escaped + "\\*{0,2}\\s*[:|]\\s*([^|\\n*]+)", "i");
+    var match = text.match(pattern);
+    if (!match) return "";
+    return match[1].replace(/\*+/g, "").replace(/\|.*$/, "").trim();
+  }
+
+  // Renders the document header: company name, title, subtitle, and six-cell meta grid
+  function renderDocHeader(headerBlock) {
+    var h1Match = headerBlock.match(/^#\s+(.+)$/m);
+    var companyLine = h1Match ? h1Match[1].replace(/\*+/g, "").trim() : "TMI Climate Solutions";
+    var nameParts = companyLine.split(/\s+/);
+    var companyHtml = nameParts.length > 1
+      ? "<strong>" + escapeHtml(nameParts[0]) + "</strong><span> " + escapeHtml(nameParts.slice(1).join(" ")) + "</span>"
+      : "<strong>" + escapeHtml(companyLine) + "</strong>";
+
+    var h2Match = headerBlock.match(/^##\s+(?!\d)(.+)$/m);
+    var titleText = h2Match ? h2Match[1].replace(/\*+/g, "").trim() : "";
+
+    var h3Match = headerBlock.match(/^###\s+(.+)$/m);
+    var subtitleText = h3Match ? h3Match[1].replace(/\*+/g, "").trim() : "";
+
+    var metaFields = ["Quote Reference", "Revision", "Date Issued", "Location", "Prepared By", "Validity"];
+    var metaCells = metaFields.map(function (field) {
+      var value = extractMetaField(headerBlock, field);
+      return '<div class="doc-meta-cell">'
+        + '<div class="doc-meta-label">' + escapeHtml(field) + '</div>'
+        + '<div class="doc-meta-value">' + escapeHtml(value) + '</div>'
+        + '</div>';
+    }).join("");
+
+    return '<div class="doc-header">'
+      + '<div class="doc-company-name">' + companyHtml + '</div>'
+      + (titleText ? '<div class="doc-title">' + escapeHtml(titleText) + '</div>' : '')
+      + (subtitleText ? '<div class="doc-subtitle">' + escapeHtml(subtitleText) + '</div>' : '')
+      + '<div class="doc-meta-grid">' + metaCells + '</div>'
+      + '</div>';
+  }
+
+  // Parses one line of a pricing table and returns { label, value } or null if not a pricing row
+  function parsePricingRow(line) {
+    if (line.trim().startsWith(">")) return null;
+    if (/^\|[\s\-|]+\|/.test(line)) return null;
+    if (!line.includes("$")) return null;
+    var trimmed = line.trim().replace(/\|\s*$/, "");
+    var lastPipe = trimmed.lastIndexOf("|");
+    if (lastPipe === -1) return null;
+    var value = trimmed.slice(lastPipe + 1).replace(/\*+/g, "").trim();
+    var label = trimmed.slice(0, lastPipe).replace(/[|*]/g, " ").replace(/\s+/g, " ").trim();
+    if (!label || !value.includes("$")) return null;
+    return { label: label, value: value };
+  }
+
+  // Renders the pricing section as a stacked card with rows extracted by dollar-sign detection
+  function renderPricingCard(body) {
+    var rows = [];
+    body.split("\n").forEach(function (line) {
+      var row = parsePricingRow(line);
+      if (row) rows.push(row);
+    });
+
+    if (rows.length === 0) {
+      return '<div class="doc-prose">' + marked.parse(body) + '</div>';
+    }
+
+    var hasTotalLabel = rows.some(function (r) { return /TOTAL/.test(r.label); });
+
+    var rowsHtml = rows.map(function (row, index) {
+      var isTotal = hasTotalLabel ? /TOTAL/.test(row.label) : (index === rows.length - 1);
+      var cls = isTotal ? "doc-pricing-row doc-pricing-row--total" : "doc-pricing-row";
+      return '<div class="' + cls + '">'
+        + '<span class="doc-pricing-label">' + escapeHtml(row.label) + '</span>'
+        + '<span class="doc-pricing-value">' + escapeHtml(row.value) + '</span>'
+        + '</div>';
+    }).join("");
+
+    return '<div class="doc-pricing-card">' + rowsHtml + '</div>';
+  }
+
+  // Renders the schedule section as milestone rows with an optional amber warning note
+  function renderMilestones(body) {
+    var milestoneRows = [];
+    var noteLines = [];
+    var firstDataRow = true;
+
+    body.split("\n").forEach(function (line) {
+      if (line.trim().startsWith(">")) {
+        noteLines.push(line.replace(/^>\s*/, "").replace(/\*+/g, "").trim());
+        return;
+      }
+      if (!line.includes("|")) return;
+      if (/^\|[\s\-|]+\|/.test(line)) return;
+      var parts = line.split("|").map(function (p) { return p.replace(/\*+/g, "").trim(); }).filter(Boolean);
+      if (parts.length < 2) return;
+      if (firstDataRow) { firstDataRow = false; return; }
+      milestoneRows.push({ label: parts[0], week: parts[1] });
+    });
+
+    if (milestoneRows.length === 0) {
+      return '<div class="doc-prose">' + marked.parse(body) + '</div>';
+    }
+
+    var rowsHtml = milestoneRows.map(function (row) {
+      return '<div class="doc-milestone-row">'
+        + '<span class="doc-milestone-week">' + escapeHtml(row.week) + '</span>'
+        + '<span class="doc-milestone-label">' + escapeHtml(row.label) + '</span>'
+        + '</div>';
+    }).join("");
+
+    var noteHtml = noteLines.length > 0
+      ? '<div class="doc-milestone-note">' + escapeHtml(noteLines.join(" ").trim()) + '</div>'
+      : "";
+
+    return '<div class="doc-milestone-list">' + rowsHtml + '</div>' + noteHtml;
+  }
+
+  // Renders engineering notes as individual titled blocks using the existing parser
+  function renderEngNotes(body) {
+    var notes = parseEngineeringNotes(body);
+    if (notes.length === 0) {
+      return '<div class="doc-prose">' + marked.parse(body) + '</div>';
+    }
+    var notesHtml = notes.map(function (note) {
+      return '<div class="eng-note-block">'
+        + '<div class="eng-note-title">' + escapeHtml(note.title) + '</div>'
+        + '<div class="eng-note-body">' + marked.parse(note.body.trim()) + '</div>'
+        + '</div>';
+    }).join("");
+    return '<div class="eng-notes-wrapper">' + notesHtml + '</div>';
+  }
+
+  // Renders the critical design decision section in a highlighted accent box
+  function renderCddBox(body) {
+    var paragraphs = body.split(/\n\n+/);
+    var leadText = paragraphs[0] || "";
+    var restText = paragraphs.slice(1).join("\n\n");
+    return '<div class="doc-cdd-box">'
+      + '<div class="doc-cdd-lead">' + marked.parse(leadText) + '</div>'
+      + (restText ? '<div class="doc-cdd-body">' + marked.parse(restText) + '</div>' : '')
+      + '</div>';
+  }
+
+  // Renders the document footer with company name on the left and quote reference on the right
+  function renderDocFooter(quoteRef) {
+    return '<div class="doc-footer">'
+      + '<span>TMI Climate Solutions</span>'
+      + '<span>' + escapeHtml(quoteRef) + '</span>'
+      + '</div>';
+  }
+
+  // Watches the sentinel above the progress bar and adds is-stuck when it scrolls out of view
+  function setupStickyProgressObserver() {
+    var sentinel = document.getElementById("progress-sticky-sentinel");
+    var bar = document.getElementById("approval-progress");
+    if (!sentinel || !bar) return;
+    var observer = new IntersectionObserver(function (entries) {
+      bar.classList.toggle("is-stuck", !entries[0].isIntersecting);
+    });
+    observer.observe(sentinel);
+  }
+
+  // Returns HTML for the approval progress bar and hidden export button
+  function renderApprovalProgress(total) {
+    return '<div id="progress-sticky-sentinel" style="height:0;pointer-events:none;"></div>'
+      + '<div class="approval-progress-wrap" id="approval-progress">'
+      + '<div class="approval-progress-header">'
+      + '<span class="approval-progress-label" id="approval-progress-label">0 of ' + total + ' sections approved</span>'
+      + '</div>'
+      + '<div class="approval-progress-track">'
+      + '<div class="approval-progress-fill" id="approval-progress-fill"></div>'
+      + '</div>'
+      + '<div id="sme-review-label" class="sme-review-line">0 of 0 SMEs have reviewed at least one section</div>'
+      + '</div>'
+      + '<div class="export-cpq-wrap hidden" id="export-cpq-wrap">'
+      + '<button class="export-cpq-btn" onclick="exportToCPQ()">Export to CPQ</button>'
+      + '</div>';
+  }
+
+  // Updates the approval progress bar fill and label, and shows the export button when all approved
+  function updateApprovalProgress() {
+    var approved = sectionStates.filter(function (s) { return s.approved; }).length;
+    var total = sectionStates.length;
+    var pct = total > 0 ? (approved / total * 100) : 0;
+    var fillEl  = document.getElementById("approval-progress-fill");
+    var labelEl = document.getElementById("approval-progress-label");
+    var exportEl = document.getElementById("export-cpq-wrap");
+    if (fillEl)  fillEl.style.width = pct + "%";
+    if (labelEl) labelEl.textContent = approved + " of " + total + " sections approved";
+    if (exportEl) {
+      if (approved === total && total > 0) exportEl.classList.remove("hidden");
+      else exportEl.classList.add("hidden");
+    }
+    var smeEl = document.getElementById("sme-review-label");
+    if (smeEl) {
+      var smeCount = getSMEReviewCount();
+      smeEl.textContent = smeCount.reviewed + " of " + smeCount.total + " SMEs have reviewed at least one section";
+    }
+  }
+
+  // Re-renders the body div of a section using its current stored text and the appropriate renderer
+  function rerenderSectionBody(index) {
+    var state = sectionStates[index];
+    var titleUpper = state.title.toUpperCase();
+    var bodyHtml;
+    if (/ENGINEERING NOTES/.test(titleUpper))        bodyHtml = renderEngNotes(state.body);
+    else if (/PRICING/.test(titleUpper))             bodyHtml = renderPricingCard(state.body);
+    else if (/DELIVERY|SCHEDULE|LEAD TIME/.test(titleUpper)) bodyHtml = renderMilestones(state.body);
+    else if (/CRITICAL DESIGN/.test(titleUpper))     bodyHtml = renderCddBox(state.body);
+    else bodyHtml = '<div class="doc-prose">' + marked.parse(state.body) + '</div>';
+    var bodyEl = document.getElementById("doc-section-body-" + index);
+    if (bodyEl) bodyEl.innerHTML = bodyHtml;
+  }
+
+  // Toggles a section between edit mode (textarea) and rendered view; logs correction on save
+  function toggleEdit(index) {
+    var state = sectionStates[index];
+    if (state.approved) return;
+    var editBtn = document.getElementById("section-edit-btn-" + index);
+    var bodyEl  = document.getElementById("doc-section-body-" + index);
+    if (!state.editing) {
+      state.editing = true;
+      var ta = document.createElement("textarea");
+      ta.className = "section-textarea";
+      ta.id = "section-textarea-" + index;
+      ta.value = state.body;
+      bodyEl.innerHTML = "";
+      bodyEl.appendChild(ta);
+      editBtn.textContent = "Save";
+    } else {
+      var textarea = document.getElementById("section-textarea-" + index);
+      var newBody = textarea ? textarea.value : state.body;
+      var previousBody = state.body;
+      state.body = newBody;
+      state.editing = false;
+      rerenderSectionBody(index);
+      editBtn.textContent = "Edit";
+      if (newBody !== previousBody) {
+        callLogCorrection(state.title, previousBody, newBody);
+        showToast("Correction logged to knowledge base");
+      }
+    }
+  }
+
+  // Marks a section as approved, locks editing, and updates the progress bar
+  function approveSection(index) {
+    var state = sectionStates[index];
+    if (state.editing) toggleEdit(index);
+    state.approved = true;
+    var statusEl  = document.getElementById("section-status-" + index);
+    var approveBtn = document.getElementById("section-approve-btn-" + index);
+    var editBtn   = document.getElementById("section-edit-btn-" + index);
+    if (statusEl)   { statusEl.textContent = "Approved"; statusEl.className = "section-status-pill section-status-approved"; }
+    if (approveBtn) { approveBtn.textContent = "Unlock"; approveBtn.onclick = function () { unlockSection(index); }; }
+    if (editBtn)    editBtn.disabled = true;
+    var regenBtn = document.getElementById("section-regen-btn-" + index);
+    if (regenBtn)   regenBtn.classList.add("hidden");
+    updateApprovalProgress();
+  }
+
+  // Unlocks an approved section so it can be edited again
+  function unlockSection(index) {
+    var state = sectionStates[index];
+    state.approved = false;
+    var statusEl  = document.getElementById("section-status-" + index);
+    var approveBtn = document.getElementById("section-approve-btn-" + index);
+    var editBtn   = document.getElementById("section-edit-btn-" + index);
+    if (statusEl)   { statusEl.textContent = "Draft"; statusEl.className = "section-status-pill section-status-draft"; }
+    if (approveBtn) { approveBtn.textContent = "Approve"; approveBtn.onclick = function () { approveSection(index); }; }
+    if (editBtn)    editBtn.disabled = false;
+    var regenBtn = document.getElementById("section-regen-btn-" + index);
+    if (regenBtn)   regenBtn.classList.remove("hidden");
+    updateApprovalProgress();
+  }
+
+  // POSTs a correction entry to the backend for knowledge base logging
+  async function callLogCorrection(sectionName, originalText, correctedText) {
+    try {
+      await fetch(API_BASE + "/log-correction", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section_name: sectionName, original_text: originalText, corrected_text: correctedText }),
+      });
+    } catch (e) { /* silently swallow — a logging failure must never block the engineer */ }
+  }
+
+  // Returns the chip HTML for a section's current assignee
+  function renderAssigneeChip(index, sectionName) {
+    var assignee = sectionAssignments[index] || smeDefaults[sectionName.toUpperCase()] || "Engineering Lead";
+    return '<div class="assignee-chip-wrap" id="assignee-chip-wrap-' + index + '">'
+      + '<span class="assignee-chip" id="assignee-chip-' + index + '" onclick="openAssigneeDropdown(' + index + ')">'
+      + escapeHtml(assignee)
+      + '</span>'
+      + '</div>';
+  }
+
+  // Toggles a small dropdown below the assignee chip listing the five SME options
+  function openAssigneeDropdown(index) {
+    var existing = document.getElementById("assignee-dropdown-" + index);
+    if (existing) { existing.parentNode.removeChild(existing); return; }
+    var state = sectionStates[index];
+    if (!state) return;
+    var smeOptions = ["Engineering Lead", "Sales Director", "Sales", "Operations", "Legal"];
+    var items = smeOptions.map(function (name) {
+      return '<div class="assignee-dropdown-item" onclick="assignSection(' + index + ', \'' + escapeHtml(state.title) + '\', \'' + name + '\')">' + escapeHtml(name) + '</div>';
+    }).join('');
+    var dropdown = document.createElement("div");
+    dropdown.className = "assignee-dropdown";
+    dropdown.id = "assignee-dropdown-" + index;
+    dropdown.innerHTML = items;
+    var wrap = document.getElementById("assignee-chip-wrap-" + index);
+    if (wrap) wrap.appendChild(dropdown);
+    setTimeout(function () {
+      document.addEventListener('click', function closeDropdown(e) {
+        var d = document.getElementById("assignee-dropdown-" + index);
+        if (d && !d.contains(e.target)) {
+          d.parentNode.removeChild(d);
+          document.removeEventListener('click', closeDropdown);
+        }
+      });
+    }, 0);
+  }
+
+  // Updates the assignment, re-renders the chip, calls the backend, and shows a toast
+  function assignSection(index, sectionName, assigneeName) {
+    sectionAssignments[index] = assigneeName;
+    var chip = document.getElementById("assignee-chip-" + index);
+    if (chip) chip.textContent = assigneeName;
+    var dropdown = document.getElementById("assignee-dropdown-" + index);
+    if (dropdown) dropdown.parentNode.removeChild(dropdown);
+    callAssignSection(sectionName, assigneeName, new Date().toISOString());
+    showToast("Section assigned to " + assigneeName + " — notification sent");
+    updateApprovalProgress();
+  }
+
+  // Returns { reviewed, total } where reviewed is distinct assignees with an approved section
+  // and total is distinct assignees currently in sectionAssignments
+  function getSMEReviewCount() {
+    var approvedAssignees = {};
+    sectionStates.forEach(function (s) {
+      if (s.approved && sectionAssignments[s.index]) {
+        approvedAssignees[sectionAssignments[s.index]] = true;
+      }
+    });
+    var allAssignees = {};
+    Object.keys(sectionAssignments).forEach(function (key) {
+      if (sectionAssignments[key]) allAssignees[sectionAssignments[key]] = true;
+    });
+    return { reviewed: Object.keys(approvedAssignees).length, total: Object.keys(allAssignees).length };
+  }
+
+  // POSTs an assignment entry to the backend for logging — silently swallows failures
+  async function callAssignSection(sectionName, assignee, timestamp) {
+    try {
+      await fetch(API_BASE + "/assign-section", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section_name: sectionName, assignee: assignee, timestamp: timestamp }),
+      });
+    } catch (e) { /* silently swallow — a logging failure must never block the engineer */ }
+  }
+
+  // Shows a temporary toast notification in the bottom right corner for two seconds
+  function showToast(message) {
+    var toast = document.createElement("div");
+    toast.className = "toast";
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 2000);
+  }
+
+  // Alerts the engineer that all sections are approved and the quote is ready for CPQ handoff
+  function exportToCPQ() {
+    alert("All sections approved. Ready for CPQ handoff.");
+  }
+
+  // Returns HTML for the rule rows only — used by initial render and re-renders after add/delete
+  function renderRulesPanelRows() {
+    if (appliedRules.length === 0) {
+      return '<div style="font-size:13px;color:var(--ink-faint);padding:6px 0;">No rules applied.</div>';
+    }
+    return appliedRules.map(function (rule, i) {
+      return '<div class="rules-row">'
+        + '<textarea class="rules-row-input" rows="2" oninput="updateRule(' + i + ', this.value)">' + escapeHtml(rule) + '</textarea>'
+        + '<span class="rules-row-tag"></span>'
+        + '<button class="section-action-btn" onclick="deleteRule(' + i + ')">Remove</button>'
+        + '</div>';
+    }).join("");
+  }
+
+  // Returns HTML for the full collapsible engineering rules panel, collapsed by default
+  function renderRulesPanel() {
+    return '<div class="rules-panel">'
+      + '<div class="rules-panel-header" onclick="toggleRulesPanel()">'
+      + '<span class="rules-panel-label">Engineering Rules Applied (' + appliedRules.length + ')</span>'
+      + '<span class="rules-panel-chevron" id="rules-panel-chevron">▾</span>'
+      + '</div>'
+      + '<div class="rules-panel-body" id="rules-panel-body">'
+      + '<div class="rules-panel-inner">'
+      + '<div id="rules-panel-rows">' + renderRulesPanelRows() + '</div>'
+      + '<div class="rules-add-row"><button class="section-action-btn" onclick="addRule()">Add Rule</button></div>'
+      + '</div>'
+      + '</div>'
+      + '</div>';
+  }
+
+  // Toggles the rules panel open and closed
+  function toggleRulesPanel() {
+    var body    = document.getElementById("rules-panel-body");
+    var chevron = document.getElementById("rules-panel-chevron");
+    if (!body) return;
+    body.classList.toggle("open");
+    chevron.classList.toggle("open");
+  }
+
+  // Removes a rule by index, then re-renders the rows list
+  function deleteRule(index) {
+    appliedRules.splice(index, 1);
+    var rowsEl = document.getElementById("rules-panel-rows");
+    if (rowsEl) rowsEl.innerHTML = renderRulesPanelRows();
+  }
+
+  // Appends a blank rule row and focuses the new input
+  function addRule() {
+    appliedRules.push("");
+    var rowsEl = document.getElementById("rules-panel-rows");
+    if (rowsEl) {
+      rowsEl.innerHTML = renderRulesPanelRows();
+      var inputs = rowsEl.querySelectorAll(".rules-row-input");
+      if (inputs.length > 0) inputs[inputs.length - 1].focus();
+    }
+  }
+
+  // Updates appliedRules in memory when an engineer edits a rule inline
+  function updateRule(index, value) {
+    appliedRules[index] = value;
+  }
+
+  // Streams a regenerated body for one section from /regenerate-section and replaces it in the DOM
+  async function regenerateSection(index) {
+    var state = sectionStates[index];
+    if (!state || state.approved) return;
+    var regenBtn = document.getElementById("section-regen-btn-" + index);
+    var bodyEl   = document.getElementById("doc-section-body-" + index);
+    if (regenBtn) regenBtn.disabled = true;
+    if (bodyEl)   bodyEl.textContent = "Regenerating...";
+    var payload = {
+      section_name: state.title,
+      rfq:          currentRFQFields,
+      rules:        appliedRules,
+      context:      retrievedDocumentsStore.map(function (d) { return d.text; }),
+    };
+    try {
+      var response = await fetch(API_BASE + "/regenerate-section", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error("Regeneration request failed");
+      var reader  = response.body.getReader();
+      var decoder = new TextDecoder();
+      var newBody = "";
+      var buffer  = "";
+      var finished = false;
+      while (!finished) {
+        var result = await reader.read();
+        if (result.done) break;
+        buffer += decoder.decode(result.value, { stream: true });
+        var lines = buffer.split("\n");
+        buffer = lines.pop();
+        for (const line of lines) {
+          if (!line.startsWith("data: ")) continue;
+          const data = line.slice(6);
+          if (data === "[DONE]") {
+            state.body = newBody;
+            rerenderSectionBody(index);
+            finished = true;
+            break;
+          }
+          try {
+            const parsed = JSON.parse(data);
+            if (parsed.error) throw new Error(parsed.error);
+            if (parsed.chunk) {
+              newBody += parsed.chunk;
+              if (bodyEl) bodyEl.textContent = newBody;
+            }
+          } catch (e) { /* ignore partial JSON at stream boundary */ }
+        }
+      }
+    } catch (error) {
+      if (bodyEl) bodyEl.textContent = "Error: " + error.message;
+    } finally {
+      if (regenBtn) regenBtn.disabled = false;
+    }
+  }
+
+  // Routes a section body to its specific renderer based on the section title keyword
+  function renderDocSection(num, title, body, index) {
+    var actionRow = '<div class="section-action-row">'
+      + renderAssigneeChip(index, title)
+      + '<span class="section-status-pill section-status-draft" id="section-status-' + index + '">Draft</span>'
+      + '<button class="section-action-btn" id="section-edit-btn-' + index + '" onclick="toggleEdit(' + index + ')">Edit</button>'
+      + '<button class="section-action-btn" id="section-regen-btn-' + index + '" onclick="regenerateSection(' + index + ')">Re-generate</button>'
+      + '<button class="section-action-btn" id="section-approve-btn-' + index + '" onclick="approveSection(' + index + ')">Approve</button>'
+      + '</div>';
+
+    var headerHtml = '<div class="section-header quote-section-header">'
+      + '<span class="section-num">' + num + '</span>'
+      + '<span class="section-title">' + escapeHtml(title) + '</span>'
+      + actionRow
+      + '</div>';
+
+    var titleUpper = title.toUpperCase();
+    var bodyHtml;
+
+    if (/ENGINEERING NOTES/.test(titleUpper)) {
+      bodyHtml = renderEngNotes(body);
+    } else if (/PRICING/.test(titleUpper)) {
+      bodyHtml = renderPricingCard(body);
+    } else if (/DELIVERY|SCHEDULE|LEAD TIME/.test(titleUpper)) {
+      bodyHtml = renderMilestones(body);
+    } else if (/CRITICAL DESIGN/.test(titleUpper)) {
+      bodyHtml = renderCddBox(body);
+    } else {
+      bodyHtml = '<div class="doc-prose">' + marked.parse(body) + '</div>';
+    }
+
+    return '<div class="doc-section" id="doc-section-' + index + '">'
+      + headerHtml
+      + '<div id="doc-section-body-' + index + '">' + bodyHtml + '</div>'
+      + '</div>';
+  }
+
+  // Renders the full generated quote by splitting into a header block and numbered sections
+  function renderFinalQuote(text) {
+    var quoteEl = document.getElementById("generated-quote-text");
+    var split = splitIntoSections(text);
+    sectionStates = [];
+
+    var sectionIndex = 0;
+    var sectionHtml = "";
+
+    split.sections.forEach(function (sectionText) {
+      var firstNewline = sectionText.indexOf("\n");
+      var firstLine = firstNewline === -1 ? sectionText : sectionText.slice(0, firstNewline);
+      var body = firstNewline === -1 ? "" : sectionText.slice(firstNewline + 1).trim();
+      var numMatch = firstLine.match(/^##\s+(\d+)[.\s]+(.+)$/);
+      if (!numMatch) return;
+      var num = numMatch[1].padStart(2, "0");
+      var title = numMatch[2].replace(/\*+/g, "").trim();
+      sectionStates.push({ index: sectionIndex, title: title, body: body, originalBody: body, approved: false, editing: false });
+      sectionAssignments[sectionIndex] = smeDefaults[title.toUpperCase()] || "Engineering Lead";
+      sectionHtml += renderDocSection(num, title, body, sectionIndex);
+      sectionIndex++;
+    });
+
+    var refMatch = text.match(/TMI-Q-\d{4}-\d{3}/);
+    quoteEl.innerHTML = renderDocHeader(split.header)
+      + renderRulesPanel()
+      + renderApprovalProgress(sectionStates.length)
+      + sectionHtml
+      + renderDocFooter(refMatch ? refMatch[0] : "");
+    setupStickyProgressObserver();
+  }
+
+  // Extracts a named section from historical document text using numbered heading boundaries
+  function extractDocSection(text, keyword) {
+    var pattern = new RegExp(
+      '\\d+\\.\\s+' + keyword + '[^\\n]*\\n([\\s\\S]*?)(?=\\n\\d+\\.\\s+[A-Z]|OUTCOME:|$)', 'i'
+    );
+    var match = text.match(pattern);
+    if (!match) return null;
+    return match[1].trim();
+  }
+
+  // Parses pricing text into a label/value table; falls back to plain text if no dollar lines found
+  function formatModalPricing(text) {
+    var rows = [];
+    text.split('\n').forEach(function (line) {
+      line = line.trim();
+      if (!line || !line.includes('$')) return;
+      var dollarIdx = line.lastIndexOf('$');
+      var label = line.slice(0, dollarIdx).replace(/[|*]/g, ' ').replace(/\s+/g, ' ').trim();
+      var value = '$' + line.slice(dollarIdx + 1).trim();
+      if (label) rows.push({ label: label, value: value });
+    });
+    if (rows.length === 0) return '<div class="modal-text-content">' + escapeHtml(text) + '</div>';
+    var rowsHtml = rows.map(function (row) {
+      var isTotal = /TOTAL/i.test(row.label);
+      return '<div class="modal-pricing-row' + (isTotal ? ' modal-pricing-row--total' : '') + '">'
+        + '<span>' + escapeHtml(row.label) + '</span>'
+        + '<span class="modal-pricing-value">' + escapeHtml(row.value) + '</span>'
+        + '</div>';
+    }).join('');
+    return '<div class="modal-pricing-table">' + rowsHtml + '</div>';
+  }
+
+  // Cleans PDF bullet artifacts and renders each engineering note as a separated block
+  function formatModalEngNotes(text) {
+    var cleaned = text.replace(/\(cid:\d+\)/g, '\u2022').replace(/\r\n/g, '\n');
+    var parts = cleaned.split('\u2022').map(function (p) { return p.trim(); }).filter(Boolean);
+    if (parts.length === 0) return '<div class="modal-text-content">' + escapeHtml(text) + '</div>';
+    return '<div class="modal-eng-notes">'
+      + parts.map(function (note) {
+          return '<div class="modal-eng-note">' + escapeHtml(note) + '</div>';
+        }).join('')
+      + '</div>';
+  }
+
+  // Splits a judge reasoning string into bullet points on semicolons or em-dashes for readability
+  function formatJudgeReasoning(text) {
+    var clauses = text.split(/;\s+/).map(function (s) { return s.trim(); }).filter(Boolean);
+    if (clauses.length > 1) {
+      return '<ul class="judge-reasoning-list">'
+        + clauses.map(function (c) { return '<li>' + escapeHtml(c) + '</li>'; }).join('')
+        + '</ul>';
+    }
+    var dashParts = text.split(/\s+\u2014\s+/);
+    if (dashParts.length > 1) {
+      return '<span class="judge-reasoning-lead">' + escapeHtml(dashParts[0]) + '</span>'
+        + '<ul class="judge-reasoning-list">'
+        + dashParts.slice(1).map(function (p) { return '<li>' + escapeHtml(p.trim()) + '</li>'; }).join('')
+        + '</ul>';
+    }
+    return escapeHtml(text);
+  }
+
+  // Removes a modal from the DOM by its element ID
+  function closeModal(id) {
+    var el = document.getElementById(id);
+    if (el) el.parentNode.removeChild(el);
+  }
+
+  // Opens a PDF viewer modal on top of the match modal
+  function showPdfModal(filename) {
+    var overlay = document.createElement("div");
+    overlay.className = "modal-overlay";
+    overlay.id = "pdf-modal";
+    overlay.onclick = function (e) { if (e.target === overlay) closeModal("pdf-modal"); };
+
+    overlay.innerHTML = '<div class="pdf-modal-box">'
+      + '<div class="modal-header">'
+      + '<div class="modal-header-left">'
+      + '<div class="modal-title">' + escapeHtml(filename) + '</div>'
+      + '<div class="modal-subtitle">Historical quote document</div>'
+      + '</div>'
+      + '<button class="modal-close" onclick="closeModal(\'pdf-modal\')">&times;</button>'
+      + '</div>'
+      + '<iframe class="pdf-iframe" src="' + API_BASE + '/pdf/' + encodeURIComponent(filename) + '"></iframe>'
+      + '</div>';
+
+    document.body.appendChild(overlay);
+  }
+
+  // Opens a match detail modal showing metadata and extracted document sections
+  function showMatchModal(index) {
+    var result = matchResults[index];
+    if (!result) return;
+
+    var meta = result.metadata || {};
+    var metaFields = [
+      { key: "Location",       value: meta.location       || "—" },
+      { key: "Cooling load",   value: meta.cooling_load   || "—" },
+      { key: "Config type",    value: meta.config_type    || "—" },
+      { key: "Redundancy",     value: meta.redundancy_tier || "—" },
+      { key: "Timeline",       value: meta.timeline       || "—" },
+      { key: "Outcome",        value: (meta.outcome ? meta.outcome.charAt(0).toUpperCase() + meta.outcome.slice(1) : "—") },
+    ];
+
+    var metaHtml = metaFields.map(function (f) {
+      return '<div>'
+        + '<div class="modal-meta-key">' + escapeHtml(f.key) + '</div>'
+        + '<div class="modal-meta-value">' + escapeHtml(f.value) + '</div>'
+        + '</div>';
+    }).join("");
+
+    var pricing     = extractDocSection(result.text, "PRICING SUMMARY");
+    var engNotes    = extractDocSection(result.text, "ENGINEERING NOTES");
+
+    var pricingHtml = pricing
+      ? '<div class="modal-section">'
+        + '<div class="modal-section-label">Pricing Summary</div>'
+        + formatModalPricing(pricing)
+        + '</div>'
+      : '';
+
+    var engHtml = engNotes
+      ? '<div class="modal-section">'
+        + '<div class="modal-section-label">Engineering Notes</div>'
+        + formatModalEngNotes(engNotes)
+        + '</div>'
+      : '';
+
+    var pdfFilename = result.filename.replace(/\.txt$/, '.pdf');
+
+    var overlay = document.createElement("div");
+    overlay.className = "modal-overlay";
+    overlay.id = "match-modal";
+    overlay.onclick = function (e) { if (e.target === overlay) closeModal("match-modal"); };
+
+    overlay.innerHTML = '<div class="modal-box">'
+      + '<div class="modal-header">'
+      + '<div class="modal-header-left">'
+      + '<div class="modal-title">' + escapeHtml(result.filename) + '</div>'
+      + '<div class="modal-subtitle">' + result.similarity + '% similarity match</div>'
+      + '</div>'
+      + '<button class="modal-close" onclick="closeModal(\'match-modal\')">&times;</button>'
+      + '</div>'
+      + '<div class="modal-body">'
+      + '<div class="modal-section">'
+      + '<div class="modal-section-label">Quote Details</div>'
+      + '<div class="modal-meta-grid">' + metaHtml + '</div>'
+      + '</div>'
+      + pricingHtml
+      + engHtml
+      + '</div>'
+      + '<div class="modal-footer">'
+      + '<button class="section-action-btn" onclick="showPdfModal(\'' + escapeHtml(pdfFilename) + '\')" style="font-size:13px;padding:6px 16px;">View PDF</button>'
+      + '</div>'
+      + '</div>';
+
+    document.body.appendChild(overlay);
+  }
+
+  // --- Render functions ---
+
+  function renderMatches(results) {
+    matchResults = results;
+    const grid = document.getElementById("results-grid");
+    grid.innerHTML = "";
+    results.forEach(function (result, i) {
+      const outcome = result.metadata.outcome || null;
+      const outcomeClass = outcome === "won" ? "outcome-won" : outcome === "lost" ? "outcome-lost" : "";
+      const outcomeLabel = outcome ? outcome.charAt(0).toUpperCase() + outcome.slice(1) : "Unknown";
+      const card = document.createElement("div");
+      card.className = "match-card";
+      card.onclick = function () { showMatchModal(i); };
+      card.innerHTML = `
+        <div class="score">${result.similarity}% match</div>
+        <div class="filename">${result.filename}</div>
+        <div class="meta-row">Location: <span>${result.metadata.location || "—"}</span></div>
+        <div class="meta-row">Cooling load: <span>${result.metadata.cooling_load || "—"}</span></div>
+        <div class="meta-row">Outcome: <span class="${outcomeClass}">${outcomeLabel}</span></div>
+      `;
+      grid.appendChild(card);
+    });
+    document.getElementById("results-section").classList.remove("hidden");
+  }
+
+  function renderEval(evalResult) {
+    // Metric: pass rate
+    document.getElementById("metric-pass-rate").textContent =
+      evalResult.passed + "/" + evalResult.total;
+
+    // Metric: price variance — extract % from price comparison check detail
+    const priceCheck = evalResult.checks.find(function (c) { return c.name === "Price comparison"; });
+    if (priceCheck) {
+      const m = priceCheck.detail.match(/([\d.]+)%\s+apart/);
+      if (m) document.getElementById("metric-price-var").textContent = m[1] + "%";
+    }
+
+    // Bar pills: pass (green) + fail→review (amber), skip excluded
+    const passCount   = evalResult.checks.filter(function (c) { return c.status === "pass"; }).length;
+    const reviewCount = evalResult.checks.filter(function (c) { return c.status === "fail"; }).length;
+    const pillsEl     = document.getElementById("eval-bar-pills");
+    pillsEl.innerHTML = "";
+    if (passCount > 0)   pillsEl.innerHTML += `<span class="pill pill-pass">${passCount} passed</span>`;
+    if (reviewCount > 0) pillsEl.innerHTML += `<span class="pill pill-review">${reviewCount} review</span>`;
+
+    // Panel mechanical checks — pass=green Pass, fail=amber Review, skip=gray Skipped
+    const checksEl = document.getElementById("eval-checks");
+    checksEl.innerHTML = "";
+    evalResult.checks.forEach(function (check) {
+      let pillClass, pillLabel, note = "";
+      if (check.status === "pass")      { pillClass = "pill-pass";   pillLabel = "Pass"; }
+      else if (check.status === "fail") { pillClass = "pill-review"; pillLabel = "Review"; }
+      else                              { pillClass = "pill-skip";   pillLabel = "Skipped"; note = " — not applicable for this quote."; }
+
+      const row = document.createElement("div");
+      row.className = "eval-check";
+      row.innerHTML = `
+        <span class="pill ${pillClass}">${pillLabel}</span>
+        <div class="eval-check-body">
+          <div class="eval-check-name">${check.name}</div>
+          <div class="eval-check-detail">${escapeHtml(check.detail)}${note}</div>
+        </div>
+      `;
+      checksEl.appendChild(row);
+    });
+
+    document.getElementById("eval-bar").classList.remove("hidden");
+  }
+
+  function renderJudge(judgeResult) {
+    const scoresEl = document.getElementById("judge-scores");
+    scoresEl.innerHTML = "";
+
+    judgeResult.scores.forEach(function (item) {
+      const dots = Array.from({ length: 5 }, function (_, i) {
+        return `<div class="dot ${i < item.score ? "filled" : ""}"></div>`;
+      }).join("");
+
+      const row = document.createElement("div");
+      row.className = "judge-score-row";
+      row.innerHTML = `
+        <div class="judge-score-label">${item.dimension}</div>
+        <div class="judge-score-dots">${dots}</div>
+        <div class="judge-score-num">${item.score}/5</div>
+        <div class="judge-score-reasoning">${formatJudgeReasoning(item.reasoning)}</div>
+      `;
+      scoresEl.appendChild(row);
+    });
+
+    // Metric: engineering logic (Technical specificity)
+    const techScore = judgeResult.scores.find(function (s) { return s.dimension === "Technical specificity"; });
+    if (techScore) document.getElementById("metric-eng-logic").textContent = techScore.score + "/5";
+
+    // Metric: hallucination check (avg of Location awareness + Style match)
+    const locScore   = judgeResult.scores.find(function (s) { return s.dimension === "Location awareness"; });
+    const styleScore = judgeResult.scores.find(function (s) { return s.dimension === "Style match"; });
+    if (locScore && styleScore) {
+      const avg = ((locScore.score + styleScore.score) / 2).toFixed(1);
+      document.getElementById("metric-hallucination").textContent = avg + "/5";
+    }
+
+    // Verdict pill on bar
+    const rec          = judgeResult.recommendation.toLowerCase();
+    const verdictClass = rec === "approve" ? "pill-pass" : rec === "reject" ? "pill-fail" : "pill-review";
+    document.getElementById("eval-bar-pills").innerHTML +=
+      `<span class="pill ${verdictClass}">${judgeResult.recommendation}</span>`;
+
+    // Verdict row in panel
+    document.getElementById("judge-recommendation").innerHTML = `
+      <div class="verdict-body">
+        <div class="verdict-label">Overall recommendation</div>
+        <div class="verdict-reasoning">${escapeHtml(judgeResult.recommendation_reasoning)}</div>
+      </div>
+      <div class="recommendation-badge ${rec}">${judgeResult.recommendation}</div>
+    `;
+  }
+
+  // --- API calls ---
+
+  async function callRetrieve(rfqFields) {
+    const response = await fetch(`${API_BASE}/retrieve`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(rfqFields),
+    });
+    if (!response.ok) throw new Error("Retrieval request failed");
+    return (await response.json()).results;
+  }
+
+  async function callRunEval(rfqFields, quoteText) {
+    const payload = Object.assign({}, rfqFields, { quote_text: quoteText });
+    const response = await fetch(`${API_BASE}/run-eval`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!response.ok) throw new Error("Eval request failed");
+    return response.json();
+  }
+
+  async function callRunJudge(rfqFields, quoteText, topMatchText) {
+    const payload = Object.assign({}, rfqFields, { quote_text: quoteText, top_match_text: topMatchText });
+    const response = await fetch(`${API_BASE}/run-judge`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!response.ok) throw new Error("Judge request failed");
+    return response.json();
+  }
+
+  async function streamGenerateQuote(rfqFields, retrievedDocuments) {
+    const payload  = Object.assign({}, rfqFields, { retrieved_documents: retrievedDocuments });
+    const response = await fetch(`${API_BASE}/generate-quote-stream`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!response.ok) throw new Error("Quote generation request failed");
+
+    const reader  = response.body.getReader();
+    const decoder = new TextDecoder();
+    let fullText  = "";
+    let buffer    = "";
+
+    document.getElementById("quote-section").classList.remove("hidden");
+    const quoteEl = document.getElementById("generated-quote-text");
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop();
+
+      for (const line of lines) {
+        if (!line.startsWith("data: ")) continue;
+        const data = line.slice(6);
+        if (data === "[DONE]") return fullText;
+        try {
+          const parsed = JSON.parse(data);
+          if (parsed.rules_applied) { appliedRules = parsed.rules_applied; continue; }
+          if (parsed.error) throw new Error(parsed.error);
+          if (parsed.chunk) {
+            fullText += parsed.chunk;
+            quoteEl.textContent = fullText;
+            // Generation runs 20 → 60%, leaving room for eval (60–80%) and judge (80–100%)
+            const pct = Math.min(40, (fullText.length / ESTIMATED_QUOTE_CHARS) * 40);
+            setProgress(20 + pct, "Generating draft quote...");
+          }
+        } catch (e) {
+          if (e.message !== "Unexpected end of JSON input") throw e;
+        }
+      }
+    }
+    return fullText;
+  }
+
+  // --- Pipeline ---
+
+  async function runPipeline() {
+    const rfqFields = getRFQFields();
+    const missing = Object.entries(rfqFields).filter(function (e) { return !e[1]; });
+    if (missing.length > 0) { alert("Please fill in all fields before submitting."); return; }
+
+    setButtonDisabled(true);
+    appliedRules = [];
+    retrievedDocumentsStore = [];
+    currentRFQFields = {};
+    sectionAssignments = {};
+    document.getElementById("eval-bar").classList.add("hidden");
+    document.getElementById("eval-panel").classList.add("hidden");
+    document.getElementById("results-section").classList.add("hidden");
+    document.getElementById("quote-section").classList.add("hidden");
+    document.getElementById("generated-quote-text").innerHTML = "";
+    document.getElementById("eval-bar-pills").innerHTML = "";
+    document.getElementById("eval-chevron").classList.remove("open");
+    document.getElementById("eval-bar").classList.remove("open");
+    showProgress();
+    setProgress(0, "Retrieving similar quotes...");
+
+    try {
+      const retrievedDocuments = await callRetrieve(rfqFields);
+      retrievedDocumentsStore = retrievedDocuments;
+      currentRFQFields = rfqFields;
+      setProgress(20, "Retrieved. Generating draft quote...");
+      renderMatches(retrievedDocuments);
+
+      const generatedQuote = await streamGenerateQuote(rfqFields, retrievedDocuments);
+      renderFinalQuote(generatedQuote);
+
+      // Extract quote ref for panel header
+      const refMatch = generatedQuote.match(/TMI-Q-\d{4}-\d{3}/);
+      if (refMatch) document.getElementById("eval-panel-ref").textContent = refMatch[0];
+
+      setProgress(62, "Running mechanical checks...");
+      const evalResult = await callRunEval(rfqFields, generatedQuote);
+      renderEval(evalResult);
+
+      setProgress(80, "Running LLM judge...");
+      const judgeResult = await callRunJudge(rfqFields, generatedQuote, retrievedDocuments[0].text);
+      renderJudge(judgeResult);
+
+      setProgress(100, "Done");
+    } catch (error) {
+      document.getElementById("progress-label").textContent = "Error: " + error.message;
+    } finally {
+      setButtonDisabled(false);
+    }
+  }
+</script>
+
+</body>
+</html>
