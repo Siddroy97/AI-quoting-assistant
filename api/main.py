@@ -7,6 +7,7 @@ import datetime
 import anthropic
 from dotenv import load_dotenv
 from fastapi.responses import StreamingResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 
 # Load .env from the project root regardless of where the server is launched from
 load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env"))
@@ -29,6 +30,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+FRONTEND_FOLDER = pathlib.Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) / "frontend"
 CLAUDE_MODEL = "claude-sonnet-4-6"
 EXTRACTED_FOLDER = pathlib.Path("extracted")
 QUOTES_FOLDER = pathlib.Path("quotes")
@@ -142,6 +144,12 @@ def build_generation_prompt(rfq, retrieved_documents, engineering_rules=None):
         f"HISTORICAL CONTEXT:\n{context_text}\n\n"
         "Draft the quote now."
     )
+
+
+# Serves the frontend index.html at the root URL
+@app.get("/")
+def serve_frontend():
+    return FileResponse(FRONTEND_FOLDER / "index.html")
 
 
 # Serves a historical quote PDF from the quotes folder by filename
