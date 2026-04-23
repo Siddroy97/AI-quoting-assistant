@@ -87,6 +87,141 @@ def extract_relevant_sections(document_text):
     return "\n\n".join(sections)
 
 
+# Extracts content between <engineering_brief> tags from Call 1 response text
+def extract_engineering_brief(response_text):
+    match = re.search(r"<engineering_brief>(.*?)</engineering_brief>", response_text, re.DOTALL)
+    if match:
+        return match.group(1).strip()
+    return response_text.strip()
+
+
+# Builds the system and user prompts for the blocking engineering decision call (Call 1)
+def build_engineering_brief_prompt(rfq, retrieved_documents, engineering_rules):
+    rfq_summary = (
+        f"Facility size: {rfq.facility_size}\n"
+        f"Cooling load: {rfq.cooling_load}\n"
+        f"Configuration type: {rfq.config_type}\n"
+        f"Location: {rfq.location}\n"
+        f"Redundancy tier: {rfq.redundancy_tier}\n"
+        f"Timeline: {rfq.timeline}"
+    )
+
+    context_blocks = []
+    for index, document in enumerate(retrieved_documents, start=1):
+        document_text = document.get("text", "")
+        filename = document.get("filename", f"Document {index}")
+        similarity = document.get("similarity", "N/A")
+        relevant_sections = extract_relevant_sections(document_text)
+        context_blocks.append(
+            f"--- Historical Quote {index}: {filename} (Similarity: {similarity}%) ---\n"
+            f"{relevant_sections}"
+        )
+    context_text = "\n\n".join(context_blocks)
+
+    rules_lines = "\n".join(f"- {rule}" for rule in engineering_rules) if engineering_rules else "None available."
+
+    system_prompt = (
+        "You are a senior applications engineer at TMI Climate Solutions. "
+        "You have designed custom air handling units for hundreds of data centre, industrial, and commercial projects. "
+        "Your job at this stage is engineering judgment only — not documentation, not pricing. "
+        "When you receive an RFQ, you identify the right configuration, surface every assumption the RFQ forces you "
+        "to make, and select the closest historical precedents to anchor your decisions. "
+        "You think before you write."
+    )
+
+    user_prompt = (
+        f"<historical_quotes>\n{context_text}\n</historical_quotes>\n\n"
+        f"<engineering_rules>\n{rules_lines}\n</engineering_rules>\n\n"
+        f"<new_rfq>\n{rfq_summary}\n</new_rfq>\n\n"
+        "<instructions>\n"
+        "Produce an engineering brief for this RFQ. This brief will be handed to a documentation engineer "
+        "who will format it into a formal quotation. Your job here is to make every engineering decision "
+        "correctly — not to format or price anything.\n\n"
+        "Work through the following steps in order:\n\n"
+        "Step 1 — Identify historical precedents\n"
+        "From the historical quotes above, identify the two that are closest to this RFQ in cooling load "
+        "and configuration type. For each, state:\n"
+        "- Why it is a relevant precedent\n"
+        "- What is materially different about this RFQ that requires a different approach\n\n"
+        "Step 2 — Define the equipment configuration\n"
+        "Based on the RFQ requirements, the engineering rules, and the historical precedents, specify:\n"
+        "- Cooling load (kW or TR) and how you derived it from the RFQ\n"
+        "- Unit configuration type and justification\n"
+        "- Coil specification (rows, fin spacing, fluid type)\n"
+        "- Fan type and arrangement\n"
+        "- Filtration grade\n"
+        "- Controls and monitoring requirements\n"
+        "- Redundancy tier and what that means for this configuration\n\n"
+        "Step 3 — Surface all assumptions\n"
+        "List every assumption you are making where the RFQ is underspecified. For each assumption state:\n"
+        "- What is unknown\n"
+        "- What you are assuming\n"
+        "- Why that assumption is reasonable given the context\n\n"
+        "Step 4 — Flag location-specific requirements\n"
+        "For the project location stated in the RFQ, identify:\n"
+        "- Applicable local codes and standards\n"
+        "- Climate design conditions relevant to equipment selection\n"
+        "- Any regional environmental or water quality factors that affect this configuration\n\n"
+        "Output the brief inside <engineering_brief> tags. "
+        "Use clear section headers for each step above. "
+        "Be specific — the documentation engineer cannot ask you follow-up questions.\n"
+        "</instructions>"
+    )
+
+    return system_prompt, user_prompt
+
+
+# Builds the system and user prompts for the streaming quote drafting call (Call 2)
+def build_quote_draft_prompt(engineering_brief):
+    system_prompt = (
+        "You are a senior applications engineer at TMI Climate Solutions. "
+        "You have written hundreds of formal quotation documents. "
+        "At this stage your engineering decisions have already been made and are captured in the brief below. "
+        "Your job now is to express those decisions precisely and completely in TMI's standard quotation format. "
+        "Formatting accuracy and pricing arithmetic are the two things that cannot have errors."
+    )
+
+    user_prompt = (
+        f"<engineering_brief>\n{engineering_brief}\n</engineering_brief>\n\n"
+        "<pricing_formula>\n"
+        "Overhead     = (Materials + Labour) × 18%\n"
+        "Subtotal     = Materials + Labour + Overhead\n"
+        "Total        = Subtotal ÷ 0.78\n"
+        "</pricing_formula>\n\n"
+        "<instructions>\n"
+        "Using the engineering brief above, produce a complete formal quotation document for TMI Climate Solutions.\n\n"
+        "Step 1 — Draft the quote\n"
+        "Write the full quotation inside <quote> tags using exactly these section headings in this order, "
+        "formatted as ## N. SECTION NAME:\n\n"
+        "  ## 1. PROJECT SCOPE SUMMARY\n"
+        "  ## 2. EQUIPMENT SPECIFICATION\n"
+        "  ## 3. BILL OF MATERIALS\n"
+        "  ## 4. PRICING SUMMARY\n"
+        "  ## 5. LEAD TIME AND SCHEDULE\n"
+        "  ## 6. COMMERCIAL TERMS\n"
+        "  ## 7. ENGINEERING NOTES\n\n"
+        "Section 2 must reflect every equipment decision in the engineering brief exactly — "
+        "do not reinterpret or simplify.\n\n"
+        "Section 3 must list every material line item with quantity, unit cost, and extended cost. "
+        "No vague line items.\n\n"
+        "Section 4 must apply the pricing formula above showing Materials subtotal, Labour subtotal, "
+        "Overhead, Subtotal, and Total as separate line items.\n\n"
+        "Section 7 format — each note is one lead sentence followed by a maximum of 4 bullet sub-points. "
+        "Every assumption from the engineering brief must appear here, labelled \"Assumption:\" at the start "
+        "of the relevant note. Every location-specific requirement from the brief must appear here with the "
+        "applicable code or standard cited by name.\n\n"
+        "Step 2 — Verify before closing\n"
+        "Inside <verification> tags, confirm:\n"
+        "- Pricing arithmetic: show Materials + Labour + Overhead = Subtotal, and Subtotal ÷ 0.78 = Total, with figures\n"
+        "- Section headings: confirm each matches ## N. SECTION NAME exactly, listed in order\n"
+        "- Assumption coverage: confirm every assumption from the engineering brief appears in Section 7\n\n"
+        "Do not close the response until verification is complete.\n"
+        "</instructions>"
+    )
+
+    return system_prompt, user_prompt
+
+
 # Builds the prompt for Claude from the RFQ fields, retrieved documents, and optional engineering rules
 def build_generation_prompt(rfq, retrieved_documents, engineering_rules=None):
     rfq_summary = (
@@ -560,7 +695,7 @@ def regenerate_section_endpoint(input_data: RegenerateSectionInput):
     return StreamingResponse(stream_tokens(), media_type="text/event-stream")
 
 
-# Streams the AI-generated quote token by token using SSE so the frontend can show real progress
+# Runs Call 1 (blocking engineering decision) then streams Call 2 (quote drafting) as SSE
 @app.post("/generate-quote-stream")
 def generate_quote_stream(input_data: GenerateQuoteInput):
     query_text = (
@@ -568,20 +703,75 @@ def generate_quote_stream(input_data: GenerateQuoteInput):
         f"{input_data.redundancy_tier}"
     )
     engineering_rules = run_retrieve_rules(query_text)
-    prompt = build_generation_prompt(input_data, input_data.retrieved_documents, engineering_rules)
+
+    # Call 1 — Engineering Decision (blocking)
+    anthropic_client = anthropic.Anthropic()
+    brief_system, brief_user = build_engineering_brief_prompt(
+        input_data, input_data.retrieved_documents, engineering_rules
+    )
+    brief_response = anthropic_client.messages.create(
+        model=CLAUDE_MODEL,
+        max_tokens=2048,
+        system=brief_system,
+        messages=[{"role": "user", "content": brief_user}],
+    )
+    engineering_brief = extract_engineering_brief(brief_response.content[0].text)
+
+    # Call 2 — Quote Drafting (streaming)
+    draft_system, draft_user = build_quote_draft_prompt(engineering_brief)
 
     def stream_tokens():
         try:
             yield f"data: {json.dumps({'rules_applied': engineering_rules})}\n\n"
-            anthropic_client = anthropic.Anthropic()
+            yield f"data: {json.dumps({'engineering_brief': engineering_brief})}\n\n"
+
+            buffer = ""
+            inside_quote = False
+            done_quote = False
+
             with anthropic_client.messages.stream(
                 model=CLAUDE_MODEL,
                 max_tokens=8192,
-                messages=[{"role": "user", "content": prompt}],
+                system=draft_system,
+                messages=[{"role": "user", "content": draft_user}],
             ) as stream:
                 for text_chunk in stream.text_stream:
-                    yield f"data: {json.dumps({'chunk': text_chunk})}\n\n"
+                    if done_quote:
+                        continue  # drain remaining stream after </quote>
+
+                    buffer += text_chunk
+
+                    if not inside_quote:
+                        if "<quote>" in buffer:
+                            start = buffer.index("<quote>") + len("<quote>")
+                            buffer = buffer[start:]
+                            if buffer.startswith("\n"):
+                                buffer = buffer[1:]
+                            inside_quote = True
+                        else:
+                            continue  # keep buffering until <quote> appears
+
+                    # inside_quote is True from here
+                    if "</quote>" in buffer:
+                        end = buffer.index("</quote>")
+                        to_yield = buffer[:end]
+                        if to_yield:
+                            yield f"data: {json.dumps({'chunk': to_yield})}\n\n"
+                        buffer = ""
+                        done_quote = True
+                    else:
+                        # Keep last 8 chars buffered to guard against split </quote> tag
+                        safe_end = max(0, len(buffer) - 8)
+                        if safe_end > 0:
+                            yield f"data: {json.dumps({'chunk': buffer[:safe_end]})}\n\n"
+                            buffer = buffer[safe_end:]
+
+            # Yield any remaining buffer if stream ended before </quote>
+            if buffer and inside_quote and not done_quote:
+                yield f"data: {json.dumps({'chunk': buffer})}\n\n"
+
             yield "data: [DONE]\n\n"
+
         except Exception as error:
             yield f"data: {json.dumps({'error': str(error)})}\n\n"
 
